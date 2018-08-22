@@ -19,6 +19,8 @@ Instructions:
     mkdir build
     cd build
 
+    source /data/user/vkhriste/setup.sh
+
     cmake ../ -DEIGEN_HOME=/data/user/vkhriste/eigen/eigen -DOpenCL_INCLUDE_DIR=/usr/local/cuda-9.2/include
     
     
