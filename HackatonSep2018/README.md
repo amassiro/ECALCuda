@@ -24,3 +24,34 @@ Prepare:
     git-cms-addpkg  DataFormats/EcalDetId
     git-cms-addpkg  DataFormats/EcalDigi
     git-cms-addpkg  FWCore/Common
+
+    git-cms-addpkg  DataFormats/HcalDetId
+    git-cms-addpkg  DataFormats/HcalDigi
+
+    
+    git-cms-addpkg  DataFormats/EcalRecHit
+    
+    
+    git-cms-addpkg  RecoLocalCalo/EcalRecAlgos
+    
+    
+    
+    
+Porting of new CPU implementation of NNLS:
+
+    /afs/cern.ch/work/a/amassiro/ECAL/GPU/CMSSW_10_3_0_pre2/src/RecoLocalCalo/EcalRecAlgos/src/PulseChiSqSNNLS.cc
+    
+from:
+
+    https://github.com/vkhristenko/test-regression/blob/master/nnls/src/inplace_fnnls.cu
+
+New CPU multifit:
+
+    https://github.com/amassiro/cmssw/tree/amassiro-new-multifit-cpu
+
+Test toolkit:
+
+    https://github.com/amassiro/EcalLocalRecoToolKit
+    
+    
+    

@@ -30,12 +30,30 @@ Instructions:
 Generate events:
 
     ./gen/gen_data -13
+
+                 temporal_shift      number_of_events       NSAMPLES       NFREQ     nPU    signalAmplitude    sigmaNoise     puFactor  wf_name_string    pu_shift     noise-correlation    pedestal  distortion_sample_4
+    ./gen/gen_data -13                  100                  10               25       0         10                 1             0         CRRC43            0               0.5               0.0         1.0
+    ./gen/gen_data -13                  100                  10               25      10         10                 1            10         CRRC43            0               0.5               0.0         1.0
     
+
+Plot:
+
+    r99t  plot/plotPulseInput.cxx\(\"data/mysample_1000_-13.000_0.000_10_25.00_10.00_0.00_1.000_1.00_0.00_slew_1.00.root\"\)
+    r99t  plot/plotPulseInput.cxx\(\"data/mysample_1000_-13.000_0.000_10_25.00_10.00_0.00_1.000_1.00_0.00_slew_1.00.root\",2\)
+
+        
 Run fit:
 
     ./multifit_cpu/multifit_cpu ../data/mysample_1000_-13.000_0.000_10_25.00_10.00_0.00_1.000_1.00_0.00_slew_1.00.root 
     
     ./multifit_gpu/multifit_gpu ../data/mysample_1000_-13.000_0.000_10_25.00_10.00_0.00_1.000_1.00_0.00_slew_1.00.root 
     
+    
+Source:
+
+    source /data/user/vkhriste/setup.sh
+
+    backup
+    /eos/user/a/amassiro/GPU/setup.sh
     
     
