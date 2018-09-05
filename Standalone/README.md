@@ -72,11 +72,26 @@ Run fit:
     ./multifit_gpu/multifit_gpu ../data/mysample_100_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root
     
     
-    ./multifit_cpu/multifit_cpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root
-    ./multifit_gpu/multifit_gpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root
+    ./legacy_multifit_cpu/legacy_multifit_cpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root
+    ./legacy_multifit_gpu/legacy_multifit_gpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root
+                          
+    ./legacy_multifit_cpu/legacy_multifit_cpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root    10    10000
+    ./legacy_multifit_gpu/legacy_multifit_gpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root    10    10000
+                          
+    ./legacy_multifit_cpu/legacy_multifit_cpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root    10    5000
+    ./legacy_multifit_gpu/legacy_multifit_gpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root    10    5000
+                          
+    ./legacy_multifit_cpu/legacy_multifit_cpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root    10    1000
+    ./legacy_multifit_gpu/legacy_multifit_gpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root    10    1000
+                          
+    ./legacy_multifit_cpu/legacy_multifit_cpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root    10    500
+    ./legacy_multifit_gpu/legacy_multifit_gpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root    10    500
 
+Plot:
+
+    r99t draw_time.cxx
     
-    
+
 Source:
 
     source /data/user/vkhriste/setup.sh
