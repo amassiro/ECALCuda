@@ -38,6 +38,12 @@ Generate events:
     ./gen/gen_data -13                  100                  10               25      10         10                 1          1000         CRRC43            0               0.5               0.0         1.0
     
 
+    ./gen/gen_data -13                  10000                10               25      10         10                 1            10         CRRC43            0               0.5               0.0         1.0
+    
+    
+    
+    
+    
 Plot:
 
     r99t  plot/plotPulseInput.cxx\(\"data/mysample_1000_-13.000_0.000_10_25.00_10.00_0.00_1.000_1.00_0.00_slew_1.00.root\"\)
@@ -65,6 +71,10 @@ Run fit:
     ./multifit_cpu/multifit_cpu ../data/mysample_100_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root
     ./multifit_gpu/multifit_gpu ../data/mysample_100_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root
     
+    
+    ./multifit_cpu/multifit_cpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root
+    ./multifit_gpu/multifit_gpu ../data/mysample_10000_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root
+
     
     
 Source:
