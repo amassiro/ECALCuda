@@ -11,7 +11,9 @@ Instructions:
     ssh amassiro@vinavx2.cern.ch
 
     cd /afs/cern.ch/user/a/amassiro/work/ECAL/Cuda/Standalone
-    
+ 
+    cd /afs/cern.ch/user/a/amassiro/work/ECAL/Cuda/Standalone/code/
+ 
     git clone git@github.com:vkhristenko/test-regression.git
     
     cd test-regression
