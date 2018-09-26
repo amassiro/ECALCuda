@@ -59,13 +59,29 @@ Plot:
 
     
     
+    r99t  plot/plotPulseOutput.cxx\(\"build/output_cpu.root\",2\)
+
+    
     
     
     
         
 Run fit:
 
+
+
     ./multifit_cpu/multifit_cpu ../data/mysample_1000_-13.000_0.000_10_25.00_10.00_0.00_1.000_1.00_0.00_slew_1.00.root 
+    ./multifit_cpu/multifit_cpu ../data/mysample_100_-13.000_0.000_10_25.00_10.00_10.00_1.000_1000.00_0.00_slew_1.00.root
+    
+    ./legacy_multifit_cpu/legacy_multifit_cpu ../data/mysample_100_-13.000_0.000_10_25.00_10.00_10.00_1.000_10.00_0.00_slew_1.00.root
+    ./legacy_multifit_cpu/legacy_multifit_cpu ../data/mysample_100_-13.000_0.000_10_25.00_10.00_0.00_1.000_0.00_0.00_slew_1.00.root
+    
+    
+    ./legacy_multifit_cpu/legacy_multifit_cpu     ../data/mysample_100_-13.000_0.000_10_25.00_10.00_0.00_1.000_0.00_0.00_slew_1.00.root
+    ./legacy_multifit_gpu/legacy_multifit_gpu     ../data/mysample_100_-13.000_0.000_10_25.00_10.00_0.00_1.000_0.00_0.00_slew_1.00.root
+    ./multifit_cpu/multifit_cpu                   ../data/mysample_100_-13.000_0.000_10_25.00_10.00_0.00_1.000_0.00_0.00_slew_1.00.root
+    ./multifit_gpu/multifit_gpu                   ../data/mysample_100_-13.000_0.000_10_25.00_10.00_0.00_1.000_0.00_0.00_slew_1.00.root
+                                                 
     
     ./multifit_gpu/multifit_gpu ../data/mysample_1000_-13.000_0.000_10_25.00_10.00_0.00_1.000_1.00_0.00_slew_1.00.root 
     
