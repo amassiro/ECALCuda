@@ -118,3 +118,36 @@ Source:
     /eos/user/a/amassiro/GPU/setup.sh
     
     
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+CMSSW 
+    
+    
+    /data/user/vkhriste/cmssw_configs/forhcal/Collisions_cfg.py
+
+    cmsRun Collisions_cfg.py year=2017 inputType=globalRun
+
