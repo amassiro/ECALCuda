@@ -11,7 +11,7 @@ GPU
     
 Ideas
     
-    - matrix should be fixed size -> templated
+    - matrix should be fixed size -> templated   ---> it can take a lot to compile, but then much faster to run
     - pivoting
     - LHCb for 12x12 Cholevsky decomposition
     - 6x6 matrix already available
@@ -19,7 +19,7 @@ Ideas
     
     - FPGA
     
-
+    - kernel map assignment: different iterations per rechit
     
 
     cmg-gpu1080.cern.ch
