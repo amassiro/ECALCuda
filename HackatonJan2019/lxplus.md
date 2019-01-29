@@ -76,9 +76,11 @@ Test file:
     export CUDA_VISIBLE_DEVICES=1     ----> use the number 1
     cmsRun raw2digi_hcal_ecal.py inputType=globalRun year=2017
 
+    cmsRun raw2digi_hcal_ecal_and_dump.py inputType=globalRunStandardPU      year=2017          outputFile=StandardPU.root
+    cmsRun raw2digi_hcal_ecal_and_dump.py inputType=globalRunHighPU          year=2017          outputFile=HighPU.root
     
-    cmsRun raw2digi_hcal_ecal.py inputType=globalRunStandardPU      year=2017          outputFile=StandardPU.root
-    cmsRun raw2digi_hcal_ecal.py inputType=globalRunHighPU          year=2017          outputFile=HighPU.root
+    cmsRun raw2digi_hcal_ecal.py inputType=globalRunStandardPU      year=2017      
+    cmsRun raw2digi_hcal_ecal.py inputType=globalRunHighPU          year=2017      
 
     
 Low pileup
@@ -101,5 +103,11 @@ Data files:
     2018 high PU  --> /data/patatrack/dalfonso/data/2018/Run2018E_HLTPhysics_325308/FB454F42-97B6-DC4B-88FF-0063C79B9F6C.root
     2018 normal PU  --> /data/patatrack/dalfonso/data/2018/Run2018B_HLTPhysics_319300/D6C0583D-5881-E811-9EB8-FA163EAFECF2.root
     
+
+Compare two reconstructions:
+
+    cmsRun raw2digi_hcal_ecal_and_dump_compare.py inputType=globalRunStandardPU      year=2017          outputFile=StandardPU-compare.root
+
+
     
     

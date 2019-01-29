@@ -7,6 +7,7 @@ Purpose:
 GPU
 
     ssh amassiro@vinavx2.cern.ch
+    ssh amassiro@cmg-gpu1080.cern.ch
 
     
 Ideas
@@ -25,5 +26,17 @@ Ideas
     cmg-gpu1080.cern.ch
     
     
+    
+PU:
+
+    check standard and high pu differences
+    
+
+Measure time:
+
+    https://github.com/cms-patatrack/patatrack-scripts/
+    ./patatrack-scripts/benchmark dump.py
+    
+    nvprof cmsRun dump.py
     
     
