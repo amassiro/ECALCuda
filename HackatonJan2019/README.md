@@ -40,3 +40,7 @@ Measure time:
     nvprof cmsRun dump.py
     
     
+    git clone git@github.com:cms-patatrack/patatrack-scripts.git
+    
+    
+    
