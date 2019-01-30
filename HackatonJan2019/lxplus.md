@@ -82,6 +82,8 @@ Test file:
     cmsRun raw2digi_hcal_ecal.py inputType=globalRunStandardPU      year=2017      
     cmsRun raw2digi_hcal_ecal.py inputType=globalRunHighPU          year=2017      
 
+    cmsRun raw2digi_ecal.py inputType=globalRunHighPU          year=2017      
+
     
 Low pileup
 

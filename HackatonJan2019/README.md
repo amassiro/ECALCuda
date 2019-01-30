@@ -36,9 +36,11 @@ Measure time:
 
     https://github.com/cms-patatrack/patatrack-scripts/
     ./patatrack-scripts/benchmark dump.py
+    ./patatrack-scripts/benchmark ECALValidation/EcalLocalRecoToolKit/test/dump.py 
+    
     
     nvprof cmsRun dump.py
-    
+    nvprof cmsRun ECALValidation/EcalLocalRecoToolKit/test/dump.py
     
     git clone git@github.com:cms-patatrack/patatrack-scripts.git
     
