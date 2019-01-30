@@ -26,3 +26,9 @@ Ex02
     
     ./ex02
     
+Ex03
+    
+    nvcc matrix.cu -o ex03
+    
+    ./ex03
+    
