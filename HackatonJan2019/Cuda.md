@@ -10,7 +10,8 @@ Where:
 
     /afs/cern.ch/user/a/amassiro/work/Cuda/cuda_exercises
     
-
+    ssh cmg-gpu1080.cern.ch
+    
 
 Ex01
 
@@ -20,15 +21,26 @@ Ex01
 
     ./ex01
     
+    
 Ex02
     
     nvcc kernel.cu -o ex02
     
     ./ex02
     
+    
 Ex03
     
     nvcc matrix.cu -o ex03
     
     ./ex03
+    
+
+Ex04
+    
+    nvcc ex04.cu -o ex04
+    
+    ./ex04
+    
+    
     
