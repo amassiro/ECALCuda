@@ -134,7 +134,70 @@ Compare two reconstructions:
  
 
     
+Measure time and throughput
+====
+
+
+Prepare the cmsrun file to be run
+
+    cmsRun raw2digi_ecal_cpu.py
+    export CUDA_VISIBLE_DEVICES=1; cmsRun raw2digi_ecal_gpu.py
     
+    edmConfigDump raw2digi_ecal_gpu.py > dump_ecal_gpu.py
+    edmConfigDump raw2digi_ecal_cpu.py > dump_ecal_cpu.py
+
+     
+Download toolkit and run:
+
+    git clone git@github.com:cms-patatrack/patatrack-scripts.git
+    
+    https://github.com/cms-patatrack/patatrack-scripts/
+
+
+    nvprof cmsRun ECALValidation/EcalLocalRecoToolKit/test/dump_ecal_cpu.py  
+         ---> cpu, nothing
+    nvprof cmsRun ECALValidation/EcalLocalRecoToolKit/test/dump_ecal_gpu.py
+
+    
+    
+Results:
+
+     ==24999== Profiling application: cmsRun ECALValidation/EcalLocalRecoToolKit/test/dump_ecal_gpu.py 
+     ==24999== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+     GPU activities:   99.81%  86.2914s       200  431.46ms  2.1945ms  790.87ms  ecal::multifit::kernel_reconstruct(unsigned short const *, unsigned int const *, EcalPedestal const *, EcalMGPAGainRatio const *, EcalXtalGroupId const *, EcalPulseShape const *, EcalPulseCovariance const *, EcalUncalibratedRecHit*, Eigen::Matrix<double, int=10, int=10, int=0, int=10, int=10> const *, unsigned int)
+                    0.19%  161.50ms      1800  89.722us  1.0880us  4.9233ms  [CUDA memcpy HtoD]
+                    0.01%  4.6880ms       200  23.440us  4.1600us  41.538us  [CUDA memcpy DtoH]
+      API calls:   35.50%  217.799s      1800  121.00ms  8.6400us  3.01056s  cudaMalloc
+                   32.20%  197.539s      2000  98.769ms  11.101us  3.03407s  cudaMemcpy
+                   15.97%  97.9850s      1800  54.436ms  7.6110us  3.03822s  cudaFree
+                   15.05%  92.3316s       200  461.66ms  2.1912ms  1.51643s  cudaDeviceSynchronize
+                    1.27%  7.79243s       200  38.962ms  23.713us  1.52196s  cudaLaunchKernel
+                    0.00%  1.8430ms        96  19.198us     233ns  831.23us  cuDeviceGetAttribute
+                    0.00%  1.1869ms       800  1.4830us     215ns  21.207us  cudaGetLastError
+                    0.00%  345.17us         1  345.17us  345.17us  345.17us  cuDeviceTotalMem
+                    0.00%  248.70us         1  248.70us  248.70us  248.70us  cuDeviceGetName
+                    0.00%  12.174us         1  12.174us  12.174us  12.174us  cuDeviceGetPCIBusId
+                    0.00%  3.5990us         3  1.1990us     334ns  2.6400us  cuDeviceGetCount
+                    0.00%  1.6740us         2     837ns     286ns  1.3880us  cuDeviceGet
+                    0.00%     427ns         1     427ns     427ns     427ns  cuDeviceGetUuid
+    
+
+Other:
+    
+    ./patatrack-scripts/benchmark ECALValidation/EcalLocalRecoToolKit/test/dump_ecal_cpu.py 
+    ./patatrack-scripts/benchmark ECALValidation/EcalLocalRecoToolKit/test/dump_ecal_gpu.py 
+
+    
+ 
+    Running 4 times over 4200 events with 1 jobs, each with 8 threads, 8 streams and 1 GPUs
+ 
+         2.9 ±   0.0 ev/s (2400 events)
+
+         
+         
+         
+
     
     
     
