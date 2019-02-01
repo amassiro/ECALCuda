@@ -183,22 +183,49 @@ Results:
                     0.00%     427ns         1     427ns     427ns     427ns  cuDeviceGetUuid
     
 
+    https://developer.nvidia.com/nvidia-visual-profiler
+    
+    
+    
 Other:
     
     ./patatrack-scripts/benchmark ECALValidation/EcalLocalRecoToolKit/test/dump_ecal_cpu.py 
     ./patatrack-scripts/benchmark ECALValidation/EcalLocalRecoToolKit/test/dump_ecal_gpu.py 
 
     
+    CPU
  
     Running 4 times over 4200 events with 1 jobs, each with 8 threads, 8 streams and 1 GPUs
  
-         2.9 ±   0.0 ev/s (2400 events)
+     2.9 ±   0.0 ev/s (2400 events)
+     2.9 ±   0.0 ev/s (2400 events)
+    --------------------
+     2.9 ±   0.0 ev/s
 
-         
-         
-         
 
-    
+     
+     GPU 
+     
+     1.3 ±   0.0 ev/s (2400 events)
+     1.3 ±   0.0 ev/s (2400 events)
+     1.3 ±   0.0 ev/s (2400 events)
+     1.3 ±   0.0 ev/s (2400 events)
+     --------------------
+     1.3 ±   0.0 ev/s
+
+     
+     
+     
+         
+Prepare single rechit dataset (by Vincenzo)
+====
+
+First prepare sample with digis
+
+    cmsRun raw2onlydigi_ecal.py    inputType=globalRunStandardPU          year=2017 
+
+
+
     
     
     
