@@ -24,6 +24,16 @@ First time:
 
     scramv1 b -j 20
     
+    
+    
+    git remote add origin git@github.com:amassiro/cmssw
+    
+    git fetch origin
+    
+    git push -u origin test_ecal_cuda
+    
+    
+    
 New:
 
     git cms-merge-topic vkhristenko:ecal_reco_cuda_head_tmp_withtimealgo
@@ -122,7 +132,9 @@ Compare two reconstructions:
     
     r99t StandardPU-compare.root    plot/drawDifferenceOne.cxx\(\"jitter\",400,-200,200,0\)
     r99t StandardPU-compare.root    plot/drawDifferenceOne.cxx\(\"jitter\",400,-200,200,2\)
-    
+
+    r99t StandardPU-compare.root    plot/drawDifferenceOne.cxx\(\"jitterError\",400,-2,2,2\)
+
     
     
     
