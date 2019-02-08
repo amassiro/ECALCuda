@@ -19,9 +19,15 @@ First time:
     git cms-merge-topic vkhristenko:ecal_reco_cuda_with_condformats
     git cms-merge-topic vkhristenko:ecal_reco_cuda_head
     
+    
     scram b -v -j 16
 
     scramv1 b -j 20
+    
+New:
+
+    git cms-merge-topic vkhristenko:ecal_reco_cuda_head_tmp_withtimealgo
+    
     
 NB:
 
@@ -112,6 +118,11 @@ Compare two reconstructions:
     r99t StandardPU-compare.root    plot/drawDifferenceOne.cxx\(\"outOfTimeAmplitudeP2\",200,0,200\)
     r99t StandardPU-compare.root    plot/drawDifferenceOne.cxx\(\"outOfTimeAmplitudeP3\",200,0,200\)
     r99t StandardPU-compare.root    plot/drawDifferenceOne.cxx\(\"outOfTimeAmplitudeP4\",200,0,200\)
+    
+    
+    r99t StandardPU-compare.root    plot/drawDifferenceOne.cxx\(\"jitter\",400,-200,200,0\)
+    r99t StandardPU-compare.root    plot/drawDifferenceOne.cxx\(\"jitter\",400,-200,200,2\)
+    
     
     
     
