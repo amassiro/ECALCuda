@@ -15,6 +15,8 @@ Setup correct gcc
 
 Compile: 
 
+    cd fnnls
+    
     sh build.sh
     
 Run:
