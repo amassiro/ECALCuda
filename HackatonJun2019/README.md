@@ -38,4 +38,10 @@ Test:
     /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/24Jun2019/CMSSW_10_6_0_Patatrack/test/slc7_amd64_gcc700/validateGPU   test.root    mio.root    
     
 
+
+    
+Tasks:
+
+    1) test on flatiron and scan  with head cmssw_10_6_patatrack
+    
     
