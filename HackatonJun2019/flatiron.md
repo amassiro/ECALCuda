@@ -108,8 +108,16 @@ Perform the scan:
     cd ECALValidation/
     git clone git@github.com:amassiro/EcalLocalRecoToolKit.git
     
-    ./patatrack-scripts/benchmark ECALValidation/EcalLocalRecoToolKit/test/gpu/ecalOnly_gpu_FI.py
+    export CUDA_VISIBLE_DEVICES=0;  cmsRun  ECALValidation/EcalLocalRecoToolKit/test/gpu/ecalOnly_gpu_FI.py
+    
+    edmConfigDump ecalOnly_gpu_FI.py > dump_ecal_gpu.py
 
+    export CUDA_VISIBLE_DEVICES=0;  cmsRun  ECALValidation/EcalLocalRecoToolKit/test/gpu/dump_ecal_gpu.py
+    
+    
+    ./patatrack-scripts/benchmark ECALValidation/EcalLocalRecoToolKit/test/gpu/dump_ecal_gpu.py
+
+    
     
     
 
