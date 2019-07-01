@@ -80,11 +80,19 @@ Install cmssw
     # check out the modified packages and their dependencies
     git cms-addpkg $(git diff $CMSSW_VERSION --name-only | cut -d/ -f-2 | sort -u)
     git cms-checkdeps -a
-    scram b -j
-    
     
     scramv1 b -j 10
     
+    --> compile on the node is faster than on rusty!
+    
+        module add slurm
+        
+        salloc -p gpu --nodes=1 --exclusive --gres=gpu:2 --constraint=v100
+        
+        srun hostname
+        
+        then ssh there ->
+        
     
     
 Perform the scan:
@@ -92,10 +100,18 @@ Perform the scan:
     Download toolkit and run:
 
     git clone git@github.com:cms-patatrack/patatrack-scripts.git
-    
+    git clone https://github.com/cms-patatrack/patatrack-scripts.git
+     
     https://github.com/cms-patatrack/patatrack-scripts/
 
+    mkdir ECALValidation
+    cd ECALValidation/
+    git clone git@github.com:amassiro/EcalLocalRecoToolKit.git
+    
+    ./patatrack-scripts/benchmark ECALValidation/EcalLocalRecoToolKit/test/gpu/ecalOnly_gpu_FI.py
 
+    
+    
 
     
     
