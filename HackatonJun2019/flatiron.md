@@ -87,8 +87,15 @@ Install cmssw
     
         module add slurm
         
-        salloc -p gpu --nodes=1 --exclusive --gres=gpu:2 --constraint=v100
+        sinfo -Nel -p gpu
+        --> check which resources are avilable
         
+        salloc -p gpu --nodes=1 --exclusive --gres=gpu:2 --constraint=v100
+
+        salloc -p gpu --nodes=1 --exclusive --gres=gpu:1 --constraint=v100
+
+        salloc -p gpu --nodes=1 --exclusive --gres=gpu:1 --constraint=p100
+
         srun hostname
         
         then ssh there ->
@@ -118,12 +125,25 @@ Perform the scan:
     ./patatrack-scripts/benchmark ECALValidation/EcalLocalRecoToolKit/test/gpu/dump_ecal_gpu.py
 
     
+          Tesla P100-PCIE-16GB 
+    
+          Running 4 times over 4200 events with 1 jobs, each with 8 threads, 8 streams and 1 GPUs
+             258.1 ±   1.4 ev/s (4000 events)
+             247.6 ±   0.7 ev/s (4000 events)
+             249.0 ±   0.5 ev/s (4000 events)
+             249.4 ±   0.5 ev/s (4000 events)
+           --------------------
+             251.0 ±   4.8 ev/s
     
     
 
     
     
-New version (next tests):
+New version (V2):
+    
+    New branch: ecal_patatrack_v2_head rebased on top of CMSSW_10_6_X_Patatrack
+    
+    /mnt/home/amassironi/cmssw_releases/v2/
 
     ecal_patatrack_v2_head
     
