@@ -96,14 +96,30 @@ Install cmssw
 
         salloc -p gpu --nodes=1 --exclusive --gres=gpu:1 --constraint=p100
 
+        salloc -p gpu --nodes=1 --gres=gpu:1 -c 16 --constraint=v100
+        ---> 16 cores I requested (-c 16)
+        ---> share the machine, but cpu will belong on my
+            -> to see which cpus are ok for me: 
+                taskset -c -p $$
+                     -->   these cores are all for me!   "pid 2464852's current affinity list: 6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36"
+        
+        
         srun hostname
         
         then ssh there ->
         
+to free resources:
+
+    squeue  | grep amassi
+    scancel <job id>
+    
     
     
 Perform the scan:
 
+    /mnt/home/amassironi/cmssw_releases/v1/CMSSW_10_6_0_Patatrack/src
+    
+    
     Download toolkit and run:
 
     git clone git@github.com:cms-patatrack/patatrack-scripts.git
@@ -120,10 +136,13 @@ Perform the scan:
     edmConfigDump ecalOnly_gpu_FI.py > dump_ecal_gpu.py
 
     export CUDA_VISIBLE_DEVICES=0;  cmsRun  ECALValidation/EcalLocalRecoToolKit/test/gpu/dump_ecal_gpu.py
+    export CUDA_VISIBLE_DEVICES=0;  cmsRun  ecalOnly.py
     
     
     ./patatrack-scripts/benchmark ECALValidation/EcalLocalRecoToolKit/test/gpu/dump_ecal_gpu.py
-
+    export CUDA_VISIBLE_DEVICES=0;  ../patatrack-scripts/benchmark  ecalOnly.py
+    
+    
     
           Tesla P100-PCIE-16GB 
     
@@ -137,6 +156,10 @@ Perform the scan:
     
     
 
+    export CUDA_VISIBLE_DEVICES=0;  ../patatrack-scripts/scan  ecalOnly.py
+
+    
+    
     
     
 New version (V2):
@@ -146,13 +169,33 @@ New version (V2):
     /mnt/home/amassironi/cmssw_releases/v2/
 
     ecal_patatrack_v2_head
+
+    cmsrel CMSSW_10_6_0_Patatrack
+    cmsenv
+    git cms-init -x cms-patatrack
+
+    // get the head 
+    git branch CMSSW_10_6_X_Patatrack --track cms-patatrack/CMSSW_10_6_X_Patatrack
+    git checkout cms-patatrack/CMSSW_10_6_X_Patatrack -b my_development_branch
+
+    # check out the modified packages and their dependencies
+    git cms-addpkg $(git diff $CMSSW_VERSION --name-only | cut -d/ -f-2 | sort -u)
+    git cms-checkdeps -a
+
+    git cms-merge-topic vkhristenko:ecal_patatrack_v2_head
     
-    git cms-merge-topic ecal_patatrack_v2_head
-    
-    
-    
+    process.ecalUncalibRecHitProducerGPU.kernelsVersion = 0
+    ---> to be added to ecalonly.py.    0, 1, 2, 3, 4 to be tested
     
  
+ 
+    export CUDA_VISIBLE_DEVICES=0;  ../patatrack-scripts/scan  ecalOnly.py
+    
+    
+    
+    
+    
+    
  
  
  
