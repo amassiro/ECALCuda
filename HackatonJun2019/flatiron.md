@@ -192,10 +192,72 @@ New version (V2):
     export CUDA_VISIBLE_DEVICES=0;  ../patatrack-scripts/scan  ecalOnly.py
     
     
+    //pin
+    
+    CUDA_VISIBLE_DEVICES=0 taskset -c 0-39:2  ../../patatrack-scripts/scan  ecal_gpu_only.py
+    
+    CUDA_VISIBLE_DEVICES=0 taskset -c 0-39:2  ../../patatrack-scripts/scan  ecal_gpu_only_unpacker.py
     
     
     
     
+Plotting: 
+ 
+    ./plot_scan.py  scan.from_1_to_12_v100_exclusively_only_read_data.csv \
+                    scan.from_1_to_12_v100_exclusively_only_unpacker.csv \
+                    scan.from_1_to_12_v100_exclusively_V1_with_tc.csv \
+                    scan.from_1_to_12_v100_exclusively_V2_k0_with_tc.csv \
+                    scan.from_1_to_12_v100_exclusively_V2_k1_with_tc.csv \
+                    scan.from_1_to_12_v100_exclusively_V2_k2_with_tc.csv \
+                    scan.from_1_to_12_v100_exclusively_V2_k3_with_tc.csv
+
+    ./plot_scan.py  scan.from_1_to_12_v100_exclusively_only_read_data.csv \
+                    scan.from_1_to_12_v100_exclusively_only_unpacker.csv \
+                    scan.from_1_to_12_v100_exclusively_cpu_with_tc.csv \
+                    scan.from_1_to_12_v100_exclusively_V1_with_tc.csv \
+                    scan.from_1_to_12_v100_exclusively_V2_k0_with_tc.csv \
+                    scan.from_1_to_12_v100_exclusively_V2_k1_with_tc.csv \
+                    scan.from_1_to_12_v100_exclusively_V2_k2_with_tc.csv \
+                    scan.from_1_to_12_v100_exclusively_V2_k3_with_tc.csv
+ 
+
+ 
+    ./plot_scan.py  scan.from_1_to_12_v100_exclusively_only_read_data_jetht.csv \
+                    scan.from_1_to_12_v100_exclusively_only_unpacker_jetht.csv \
+                    scan.from_1_to_12_v100_exclusively_V1_with_tc_jetht.csv \
+                    scan.from_1_to_12_v100_exclusively_V2_k2_with_tc_jetht.csv \
+                    scan.from_1_to_12_v100_exclusively_V2_k3_with_tc_jetht.csv
+ 
+ 
+ 
+ 
+     ./plot_scan.py  scan.from_1_to_12_v100_exclusively_only_read_data_jetht.csv \
+                     scan.from_1_to_12_v100_exclusively_only_read_data.csv 
+ 
+     ./plot_scan.py  scan.from_1_to_12_v100_exclusively_only_unpacker_jetht.csv \
+                     scan.from_1_to_12_v100_exclusively_only_unpacker.csv 
+ 
+     ./plot_scan.py  scan.from_1_to_12_v100_exclusively_V2_k3_with_tc_jetht.csv \
+                     scan.from_1_to_12_v100_exclusively_V2_k3_with_tc.csv 
+ 
+     ./plot_scan.py  scan.from_1_to_12_v100_exclusively_V2_k2_with_tc_jetht.csv \
+                     scan.from_1_to_12_v100_exclusively_V2_k2_with_tc.csv 
+
+     ./plot_scan.py  scan.from_1_to_12_v100_exclusively_V2_k1_with_tc_jetht.csv \
+                     scan.from_1_to_12_v100_exclusively_V2_k1_with_tc.csv 
+
+     ./plot_scan.py  scan.from_1_to_12_v100_exclusively_V2_k0_with_tc_jetht.csv \
+                     scan.from_1_to_12_v100_exclusively_V2_k0_with_tc.csv 
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
