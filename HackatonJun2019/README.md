@@ -43,5 +43,3 @@ Test:
 Tasks:
 
     1) test on flatiron and scan  with head cmssw_10_6_patatrack
-    
-    
