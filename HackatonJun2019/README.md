@@ -43,3 +43,15 @@ Test:
 Tasks:
 
     1) test on flatiron and scan  with head cmssw_10_6_patatrack
+
+    2) filter raw data to have only ECAL feds. For pixels it gave a factor x4 in speed for I/O
+    
+
+Remember:
+
+    streams ---> cmssw
+    thread ----> operating system
+    
+    
+    
+    

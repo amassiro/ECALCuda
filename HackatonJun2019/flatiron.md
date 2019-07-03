@@ -197,6 +197,8 @@ New version (V2):
     CUDA_VISIBLE_DEVICES=0 taskset -c 0-39:2  ../../patatrack-scripts/scan  ecal_gpu_only.py
     
     CUDA_VISIBLE_DEVICES=0 taskset -c 0-39:2  ../../patatrack-scripts/scan  ecal_gpu_only_unpacker.py
+
+    CUDA_VISIBLE_DEVICES=0 taskset -c 0-39:2  ../../patatrack-scripts/scan  ecal_gpu_only_read_data.py
     
     
     
