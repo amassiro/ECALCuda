@@ -118,8 +118,8 @@ to free resources:
 Perform the scan:
 
     /mnt/home/amassironi/cmssw_releases/v1/CMSSW_10_6_0_Patatrack/src
-    
-    
+
+   
     Download toolkit and run:
 
     git clone git@github.com:cms-patatrack/patatrack-scripts.git
@@ -167,6 +167,8 @@ New version (V2):
     New branch: ecal_patatrack_v2_head rebased on top of CMSSW_10_6_X_Patatrack
     
     /mnt/home/amassironi/cmssw_releases/v2/
+
+    /mnt/home/amassironi/cmssw_releases/v2/CMSSW_10_6_0_Patatrack/src
 
     ecal_patatrack_v2_head
 
@@ -259,6 +261,29 @@ Plotting:
                      
  
  
+     ./plot_scan.py  scan.allFED_run321177_EcalLocalReco_k0.csv \
+                     scan.EcalFED_run321177_EcalLocalReco_k0.csv
+ 
+ 
+     ./plot_scan.py  scan.allFED_run321177_EcalLocalReco_k1.csv \
+                     scan.EcalFED_run321177_EcalLocalReco_k1.csv
+ 
+     ./plot_scan.py  scan.allFED_run321177_EcalLocalReco_k2.csv \
+                     scan.EcalFED_run321177_EcalLocalReco_k2.csv
+ 
+     --> different node
+     ./plot_scan.py  scan.allFED_run321177_EcalLocalReco_k3.csv \
+                     scan.EcalFED_run321177_EcalLocalReco_k3.csv
+
+     ./plot_scan.py  scan.allFED_run321177_EcalLocalReco_k4.csv \
+                     scan.EcalFED_run321177_EcalLocalReco_k4.csv
+ 
+ 
+     ./plot_scan.py  scan.EcalFED_run321177_EcalLocalReco_k0.csv   \
+                     scan.EcalFED_run321177_EcalLocalReco_k1.csv   \
+                     scan.EcalFED_run321177_EcalLocalReco_k2.csv   \
+                     scan.EcalFED_run321177_EcalLocalReco_k3.csv   \
+                     scan.EcalFED_run321177.csv 
  
  
  
