@@ -50,13 +50,13 @@ process.source = cms.Source("PoolSource",
 
 
 process.load('EventFilter.Utilities.EvFDaqDirector_cfi')
-process.EvFDaqDirector.baseDir   = '/mnt/home/amassironi/cmssw_releases/v2/CMSSW_10_6_0_Patatrack/src/data'
-process.EvFDaqDirector.buBaseDir = '/mnt/home/amassironi/cmssw_releases/v2/CMSSW_10_6_0_Patatrack/src/data'
+process.EvFDaqDirector.baseDir   = '/mnt/home/amassironi/cmssw_releases/v2/CMSSW_10_6_0_Patatrack/src/data_all'
+process.EvFDaqDirector.buBaseDir = '/mnt/home/amassironi/cmssw_releases/v2/CMSSW_10_6_0_Patatrack/src/data_all'
 process.EvFDaqDirector.runNumber = 321177
 
 # 
-# mkdir -p /mnt/home/amassironi/cmssw_releases/v2/CMSSW_10_6_0_Patatrack/src/data/run321177/open/
-# touch /mnt/home/amassironi/cmssw_releases/v2/CMSSW_10_6_0_Patatrack/src/data/run321177/open/fu.lock
+# mkdir -p /mnt/home/amassironi/cmssw_releases/v2/CMSSW_10_6_0_Patatrack/src/data_all/run321177/open/
+# touch /mnt/home/amassironi/cmssw_releases/v2/CMSSW_10_6_0_Patatrack/src/data_all/run321177/open/fu.lock
 # 
 
 
@@ -73,31 +73,6 @@ process.endpath = cms.EndPath(process.rawStreamFileWriterForBU)
 process.load('FWCore.MessageService.MessageLogger_cfi')
 process.MessageLogger.cerr.FwkReport.reportEvery = 5
 
-
-
-#
-# filter feds and output
-#
-
-process.rawDataSelector = cms.EDProducer( "EvFFEDSelector",
-    inputTag = cms.InputTag( "rawDataCollector" ),
-    fedList = cms.vuint32(
-        # SCAL
-          735,
-        # TCDS FED
-         1024,
-        # ECAL 601 -> 664
-         601,  602,  603,  604,  605,  606,  607,  608,  609,  610,  611,  612,  613,  614,  615,
-         616,  617,  618,  619,  620,  621,  622,  623,  624,  625,  626,  627,  628,  629,  630,
-         631,  632,  633,  634,  635,  636,  637,  638,  639,  640,  641,  642,  643,  644,  645, 
-         646,  647,  648,  649,  650,  651,  652,  653,  654,  655,  656,  657,  658,  659,  660, 
-         661,  662,  663,  664
-    )
-)
-    
-process.path = cms.Path(process.rawDataSelector)
-
-process.rawStreamFileWriterForBU.ProductLabel = "rawDataSelector"
 
 
 

@@ -254,6 +254,12 @@ Plotting:
  
  
  
+     ./plot_scan.py  scan.allFED_run321177.csv \
+                     scan.EcalFED_run321177.csv 
+                     
+ 
+ 
+ 
  
  
  
