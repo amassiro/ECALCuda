@@ -275,16 +275,39 @@ Plotting:
      ./plot_scan.py  scan.allFED_run321177_EcalLocalReco_k3.csv \
                      scan.EcalFED_run321177_EcalLocalReco_k3.csv
 
+     ./plot_scan.py  scan.allFED_run321177_EcalLocalReco_k3.csv \
+                     scan.EcalFED_run321177_EcalLocalReco_k3.csv \
+                     scan.EcalFED_run321177_EcalLocalReco_k3_new_0.csv
+                     
+                     
      ./plot_scan.py  scan.allFED_run321177_EcalLocalReco_k4.csv \
                      scan.EcalFED_run321177_EcalLocalReco_k4.csv
- 
+
+     ./plot_scan.py  scan.allFED_run321177_EcalLocalReco_V1.csv \
+                     scan.EcalFED_run321177_EcalLocalReco_V1.csv
+             
+             
+     ./plot_scan.py  scan.allFED_run321177_OnlyUnpacker.csv \
+                     scan.EcalFED_run321177_OnlyUnpacker.csv
+             
+             
  
      ./plot_scan.py  scan.EcalFED_run321177_EcalLocalReco_k0.csv   \
                      scan.EcalFED_run321177_EcalLocalReco_k1.csv   \
                      scan.EcalFED_run321177_EcalLocalReco_k2.csv   \
                      scan.EcalFED_run321177_EcalLocalReco_k3.csv   \
+                     scan.EcalFED_run321177_EcalLocalReco_V1.csv   \
                      scan.EcalFED_run321177.csv 
- 
+
+                     
+     ./plot_scan.py  scan.EcalFED_run321177_EcalLocalReco_k0.csv   \
+                     scan.EcalFED_run321177_EcalLocalReco_k1.csv   \
+                     scan.EcalFED_run321177_EcalLocalReco_k2.csv   \
+                     scan.EcalFED_run321177_EcalLocalReco_k3.csv   \
+                     scan.EcalFED_run321177_EcalLocalReco_V1.csv   \
+                     scan.EcalFED_run321177_OnlyUnpacker.csv   \
+                     scan.EcalFED_run321177.csv 
+                     
  
  
  
