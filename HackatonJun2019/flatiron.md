@@ -203,6 +203,8 @@ New version (V2):
     CUDA_VISIBLE_DEVICES=0 taskset -c 0-39:2  ../../patatrack-scripts/scan  ecal_gpu_only_read_data.py
     
     
+    /mnt/home/amassironi/cmssw_releases/v2/CMSSW_10_6_0_Patatrack/src/confs/ecal_configuration
+    /mnt/home/amassironi/cmssw_releases/v1/CMSSW_10_6_0_Patatrack/src/confs/ecal_configuration
     
     
 Plotting: 
@@ -278,7 +280,16 @@ Plotting:
      ./plot_scan.py  scan.allFED_run321177_EcalLocalReco_k3.csv \
                      scan.EcalFED_run321177_EcalLocalReco_k3.csv \
                      scan.EcalFED_run321177_EcalLocalReco_k3_new_0.csv
-                     
+     
+     ./plot_scan.py  scan.allFED_run321177_EcalLocalReco_k2.csv \
+                     scan.EcalFED_run321177_EcalLocalReco_k2.csv \
+                     scan.EcalFED_run321177_EcalLocalReco_k2_new_0.csv
+     
+     ./plot_scan.py  scan.allFED_run321177_EcalLocalReco_k1.csv \
+                     scan.EcalFED_run321177_EcalLocalReco_k1.csv \
+                     scan.EcalFED_run321177_EcalLocalReco_k1_new_0.csv \
+                     scan.EcalFED_run321177_EcalLocalReco_k1_new_1.csv
+     
                      
      ./plot_scan.py  scan.allFED_run321177_EcalLocalReco_k4.csv \
                      scan.EcalFED_run321177_EcalLocalReco_k4.csv
