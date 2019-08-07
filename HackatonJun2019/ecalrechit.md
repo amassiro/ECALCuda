@@ -28,3 +28,37 @@ Install:
     scramv1 b -j 10
 
     
+
+    git cms-addpkg     CUDADataFormats/EcalRecHitSoA
+    
+    
+    
+My branch:
+
+    from "cms-patatrack/CMSSW_10_6_X_Patatrack"
+
+    git checkout cms-patatrack/CMSSW_10_6_X_Patatrack -b  amassiro_ECALrechit_on_GPU
+    
+    
+    git remote add origin git@github.com:amassiro/cmssw
+    
+    git fetch origin
+    
+    git checkout -b    amassiro_patatrack_ECALrechit_on_GPU
+    
+    
+    
+    
+    
+    
+    
+    
+    git remote add origin git@github.com:amassiro/cmssw
+ 
+    git fetch origin
+    
+    git checkout -b    amassiro_patatrack_ECALrechit_on_GPU
+    
+    git commit -m  .........
+
+    git push -u origin  amassiro_patatrack_ECALrechit_on_GPU
