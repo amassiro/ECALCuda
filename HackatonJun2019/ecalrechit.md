@@ -62,3 +62,8 @@ My branch:
     git commit -m  .........
 
     git push -u origin  amassiro_patatrack_ECALrechit_on_GPU
+
+    
+Notes:
+
+    in DeclsForKernels.h the core
