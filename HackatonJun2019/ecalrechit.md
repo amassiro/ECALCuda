@@ -66,4 +66,7 @@ My branch:
     
 Notes:
 
-    in DeclsForKernels.h the core
+    - in DeclsForKernels.h the core
+    
+    - if on device (GPU) you need ptr (pointers) to move around, and you need "size"
+    - if on host, you can access the size using "size" from std::vector
