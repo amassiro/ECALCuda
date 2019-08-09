@@ -70,3 +70,15 @@ Notes:
     
     - if on device (GPU) you need ptr (pointers) to move around, and you need "size"
     - if on host, you can access the size using "size" from std::vector
+    
+    
+     From: https://github.com/cms-sw/cmssw/blob/master/RecoLocalCalo/EcalRecProducers/plugins/EcalRecHitWorkerSimple.cc 
+    
+     - get ADCToGeVConstant
+     - get IC
+     - get Laser Correction
+    
+     - correct from the "jitter" to "time" properly
+    
+     - what is "extra" ?
+    
