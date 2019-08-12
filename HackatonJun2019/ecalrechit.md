@@ -13,6 +13,8 @@ Install:
 
     cmsrel CMSSW_10_6_0_Patatrack
     
+    cd CMSSW_10_6_0_Patatrack/src 
+    
     cmsenv
     
     git cms-init -x cms-patatrack
@@ -63,7 +65,19 @@ My branch:
 
     git push -u origin  amassiro_patatrack_ECALrechit_on_GPU
 
+
     
+New version of unpacker:
+
+    git cms-merge-topic vkhristenko:ecal_unpacker_patatrack
+
+and then merge with mine:
+
+    git cms-merge-topic amassiro:amassiro_patatrack_ECALrechit_on_GPU
+    
+
+
+
 Notes:
 
     - in DeclsForKernels.h the core
@@ -89,6 +103,7 @@ Run:
     export CUDA_VISIBLE_DEVICES=0;
 
     /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/3July2019/CMSSW_10_6_0_Patatrack/src/RecoLocalCalo/EcalRecProducers/test
+    /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/12Aug2019/CMSSW_10_6_0_Patatrack/src/RecoLocalCalo/EcalRecProducers/test
     cmsRun testEcalRechitProducer_cfg.py
     
     
