@@ -81,4 +81,15 @@ Notes:
      - correct from the "jitter" to "time" properly
     
      - what is "extra" ?
+
+     
+Run:
+
+    nvidia-smi
+    export CUDA_VISIBLE_DEVICES=0;
+
+    /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/3July2019/CMSSW_10_6_0_Patatrack/src/RecoLocalCalo/EcalRecProducers/test
+    cmsRun testEcalRechitProducer_cfg.py
+    
+    
     
