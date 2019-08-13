@@ -6,6 +6,10 @@ Porting of ecalrechit on gpu
 Where:
 
     /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/3July2019/CMSSW_10_6_0_Patatrack/src
+    /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/12Aug2019/CMSSW_10_6_0_Patatrack/src
+    
+    lxplus-ECAL-GPU
+    
     
 Install:
 
