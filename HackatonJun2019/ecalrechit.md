@@ -37,6 +37,9 @@ Install:
 
     git cms-addpkg     CUDADataFormats/EcalRecHitSoA
     
+    git cms-addpkg     CondFormats/DataRecord
+    git cms-addpkg     CondFormats/EcalObjects
+    
     
     
 My branch:
