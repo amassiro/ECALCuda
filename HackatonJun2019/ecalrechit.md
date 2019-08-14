@@ -95,9 +95,10 @@ Notes:
     
      From: https://github.com/cms-sw/cmssw/blob/master/RecoLocalCalo/EcalRecProducers/plugins/EcalRecHitWorkerSimple.cc 
     
-     - get ADCToGeVConstant
-     - get IC
+     - get ADCToGeVConstant     ---> done
+     - get IC                   ---> done
      - get Laser Correction
+     - get the channel status
     
      - correct from the "jitter" to "time" properly
     
