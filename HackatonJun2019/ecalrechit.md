@@ -103,6 +103,7 @@ Notes:
     
      - what is "extra" ?
 
+     -> add all the ES producers for GPU
      
 Run:
 
@@ -112,6 +113,10 @@ Run:
     /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/3July2019/CMSSW_10_6_0_Patatrack/src/RecoLocalCalo/EcalRecProducers/test
     /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/12Aug2019/CMSSW_10_6_0_Patatrack/src/RecoLocalCalo/EcalRecProducers/test
     cmsRun testEcalRechitProducer_cfg.py
+    
+    edmConfigDump   testEcalRechitProducer_cfg.py > dump_testEcalRechitProducer_cfg.py
+
+    
     
     
     
