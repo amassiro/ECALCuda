@@ -98,7 +98,7 @@ Notes:
      - get ADCToGeVConstant     ---> done
      - get IC                   ---> done
      - get Laser Correction
-     - get the channel status
+     - get the channel status   ---> done
     
      - correct from the "jitter" to "time" properly
     
