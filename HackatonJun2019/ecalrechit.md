@@ -97,7 +97,9 @@ Notes:
     
      - get ADCToGeVConstant     ---> done
      - get IC                   ---> done
-     - get Laser Correction
+     - get Laser Correction     ---> special treatment for HLT? ----> done in the standard way
+                           https://github.com/cms-sw/cmssw/blob/5d27b6509171a20b6e6a4bbbaf29ca471d612913/CalibCalorimetry/EcalLaserCorrection/src/EcalLaserDbService.cc
+
      - get the channel status   ---> done
     
      - correct from the "jitter" to "time" properly
