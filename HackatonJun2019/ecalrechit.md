@@ -101,8 +101,8 @@ Notes:
                            https://github.com/cms-sw/cmssw/blob/5d27b6509171a20b6e6a4bbbaf29ca471d612913/CalibCalorimetry/EcalLaserCorrection/src/EcalLaserDbService.cc
             - apd/pn  -> done
             - linear corrections  -> done
-            - alpha
-            - apdpn ref
+            - alpha   -> done
+            - apdpn ref   -> done
      - get the channel status   ---> done
     
      - correct from the "jitter" to "time" properly
@@ -113,7 +113,7 @@ Notes:
      - what is "flagBits" ? -> store rechit condition (see Flags enum) in a bit-wise way 
         See https://github.com/cms-sw/cmssw/blob/266e21cfc9eb409b093e4cf064f4c0a24c6ac293/DataFormats/EcalRecHit/interface/EcalRecHit.h#L223
         
-     -> add all the ES producers for GPU
+     -> add all the ES producers for GPU -> done
      
      
      
