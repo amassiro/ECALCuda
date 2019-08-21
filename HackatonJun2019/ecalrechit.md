@@ -40,7 +40,9 @@ Install:
     git cms-addpkg     CondFormats/DataRecord
     git cms-addpkg     CondFormats/EcalObjects
     git cms-addpkg     CalibCalorimetry/EcalLaserCorrection
+    git cms-addpkg     DataFormats/EcalRecHit
     
+
     
 My branch:
 
