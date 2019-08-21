@@ -111,9 +111,12 @@ Notes:
     
      - what is "extra" ?  -> packed uint32_t for timeError, chi2, energyError
         See https://github.com/cms-sw/cmssw/blob/266e21cfc9eb409b093e4cf064f4c0a24c6ac293/DataFormats/EcalRecHit/interface/EcalRecHit.h#L226
+        --> done
 
      - what is "flagBits" ? -> store rechit condition (see Flags enum) in a bit-wise way 
         See https://github.com/cms-sw/cmssw/blob/266e21cfc9eb409b093e4cf064f4c0a24c6ac293/DataFormats/EcalRecHit/interface/EcalRecHit.h#L223
+        --> done
+        
         
      -> add all the ES producers for GPU -> done
      
