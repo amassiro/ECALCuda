@@ -134,6 +134,20 @@ Run:
     edmConfigDump   testEcalRechitProducer_cfg.py > dump_testEcalRechitProducer_cfg.py
 
     
+
+    
+Validation code by Eissa:
+
+    https://github.com/ealnasrallah/cmssw/tree/eissa_validation_3/RecoLocalCalo/EcalRecAlgos/bin
+
+    EcalRecHit.h modified:
+    
+          
+        uint32_t flagBits() const { return flagBits_; }
+        
+        uint32_t extra() const { return extra_; }
+        
+
     
     
     
