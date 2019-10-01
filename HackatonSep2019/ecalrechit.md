@@ -148,6 +148,11 @@ Validation code by Eissa:
         uint32_t extra() const { return extra_; }
         
 
+    cmsRun testEcalRechitProducer_cfg.py
+
+    makeEcalRechitValidationPlots    test.root   bla.root
+        
+        
     
     
     
