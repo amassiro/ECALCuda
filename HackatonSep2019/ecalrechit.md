@@ -153,6 +153,11 @@ Validation code by Eissa:
     makeEcalRechitValidationPlots    test.root   bla.root
         
     -> iLM is wrong
+    -> the index was the issue, hashedId was to be used
+    
+    
+    
+    
     
     
     
