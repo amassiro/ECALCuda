@@ -134,8 +134,21 @@ Run:
     edmConfigDump   testEcalRechitProducer_cfg.py > dump_testEcalRechitProducer_cfg.py
 
     
+    // uncalibrechit version only
+    cmsRun testEcalUncalibRechitProducer_cfg.py
 
+    testEcalUncalibRechitProducer_cfg.py
+    --> output "test.root"
     
+    
+
+Validation code for uncalibrechit:
+
+    makeEcalMultifitResultsGpuValidationPlots   test.root   plotValidation_uncalibrechit.root
+    
+    -> ok, flags seems to match @uncalibrechit level
+    
+
 Validation code by Eissa:
 
     https://github.com/ealnasrallah/cmssw/tree/eissa_validation_3/RecoLocalCalo/EcalRecAlgos/bin
