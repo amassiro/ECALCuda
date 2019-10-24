@@ -146,7 +146,7 @@ Validation code for uncalibrechit:
 
     makeEcalMultifitResultsGpuValidationPlots   test.root   plotValidation_uncalibrechit.root
     
-    -> ok, flags seems to match @uncalibrechit level
+    -> ok, flags seems to match @uncalibrechit level, but NOT always
     
 
 Validation code by Eissa:
@@ -163,7 +163,7 @@ Validation code by Eissa:
 
     cmsRun testEcalRechitProducer_cfg.py
 
-    makeEcalRechitValidationPlots    test.root   bla.root
+    makeEcalRechitValidationPlots    test.root   plotValidation_calibrechit.root
         
     -> iLM is wrong
     -> the index was the issue, hashedId was to be used
@@ -172,7 +172,8 @@ Validation code by Eissa:
     
     
     
-    
+    -> I can set the flags for gpu to any number --->         flagBits[ch] = 500;
+
     
     
     
