@@ -179,7 +179,12 @@ Validation code by Eissa:
 uncalibrechit
 
     1) find where flags are set in cpu uncalibrechit
+        -> DataFormats/EcalRecHit/interface/EcalUncalibratedRecHit.h
+        -> DataFormats/EcalRecHit/src/EcalUncalibratedRecHit.cc
+        -> RecoLocalCalo/EcalRecAlgos/src/EcalUncalibRecHitMultiFitAlgo.cc
     2) try without timing in both cases and compare results (maybe timing is computed only for one of them)
+        -> deactivated in both cases
+    
     3) find the meaning of these flags @ uncaliberchit level
 
     
