@@ -148,6 +148,7 @@ Validation code for uncalibrechit:
     
     -> ok, flags seems to match @uncalibrechit level, but NOT always
     
+    FIXED: issue was in the usage of "check_hasSwitchToGain0"
 
 Validation code by Eissa:
 
@@ -184,9 +185,11 @@ uncalibrechit
         -> RecoLocalCalo/EcalRecAlgos/src/EcalUncalibRecHitMultiFitAlgo.cc
     2) try without timing in both cases and compare results (maybe timing is computed only for one of them)
         -> deactivated in both cases
-    
     3) find the meaning of these flags @ uncaliberchit level
 
+    
+    ok: issue of flags was in the usage os "check_hasSwitchToGain0"
+    
     
     
     
