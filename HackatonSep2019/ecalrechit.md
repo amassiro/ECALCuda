@@ -193,6 +193,10 @@ uncalibrechit
     
     
     
-    
+rechit
+
+    1) improve validation code for flags and extras
+        -> done
+    2) put back some flags settings in both gpu and cpu
     
     
