@@ -150,6 +150,7 @@ Validation code for uncalibrechit:
     
     FIXED: issue was in the usage of "check_hasSwitchToGain0"
 
+    
 Validation code by Eissa:
 
     https://github.com/ealnasrallah/cmssw/tree/eissa_validation_3/RecoLocalCalo/EcalRecAlgos/bin
@@ -198,5 +199,13 @@ rechit
     1) improve validation code for flags and extras
         -> done
     2) put back some flags settings in both gpu and cpu
+    
+    3) check code
+    
+        -> possible bug in "EcalRechitKernels.cu", in line " if (( 0x1 << (UncalibRecHitFlags::kSaturated) ) )"
+        -> but it doesn't change much
+        
+   
+    
     
     
