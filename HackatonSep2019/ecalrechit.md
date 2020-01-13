@@ -205,7 +205,11 @@ rechit
         -> possible bug in "EcalRechitKernels.cu", in line " if (( 0x1 << (UncalibRecHitFlags::kSaturated) ) )"
         -> but it doesn't change much
         
-   
+
+    4) flags almost ok, 1/1000 is off ... but why? Try to fix first "extra"
+    
+    
+    
     
     
     
