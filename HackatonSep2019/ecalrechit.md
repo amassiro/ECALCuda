@@ -208,6 +208,11 @@ rechit
 
     4) flags almost ok, 1/1000 is off ... but why? Try to fix first "extra"
     
+    5) extra: in "EcalCPURecHitProducer.cc" I was not moving info from device to host about "extra"
+        -> now fixed!
+        
+    It works! (almost everytime)
+    
     
     
     
