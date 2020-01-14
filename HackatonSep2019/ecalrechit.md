@@ -214,6 +214,11 @@ rechit
     It works! (almost everytime)
     
     6) now fix laser transparency max ranges for flag definition
+        -> done
+    
+    7) extra cpu == 10, while gpu version changes. Both EE and EB
+       extra cpu ==  0, while gpu version changes. Only EB
+    
     
     
     
