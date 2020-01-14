@@ -213,6 +213,8 @@ rechit
         
     It works! (almost everytime)
     
+    6) now fix laser transparency max ranges for flag definition
+    
     
     
     
