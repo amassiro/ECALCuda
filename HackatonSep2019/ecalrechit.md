@@ -138,13 +138,13 @@ Run:
     cmsRun testEcalUncalibRechitProducer_cfg.py
 
     testEcalUncalibRechitProducer_cfg.py
-    --> output "test.root"
+    --> output "test_uncalib.root"
     
     
 
 Validation code for uncalibrechit:
 
-    makeEcalMultifitResultsGpuValidationPlots   test.root   plotValidation_uncalibrechit.root
+    makeEcalMultifitResultsGpuValidationPlots   test_uncalib.root   plotValidation_uncalibrechit.root
     
     -> ok, flags seems to match @uncalibrechit level, but NOT always
     
