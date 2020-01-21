@@ -140,6 +140,7 @@ Run:
     testEcalUncalibRechitProducer_cfg.py
     --> output "test_uncalib.root"
     
+    ~ 1000 events
     
 
 Validation code for uncalibrechit:
