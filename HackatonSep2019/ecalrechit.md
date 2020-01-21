@@ -197,6 +197,8 @@ uncalibrechit
     
 rechit
 
+    ~ 1000 events
+
     1) improve validation code for flags and extras
         -> done
     2) put back some flags settings in both gpu and cpu
@@ -220,7 +222,8 @@ rechit
     7) extra cpu == 10, while gpu version changes. Both EE and EB
        extra cpu ==  0, while gpu version changes. Only EB
     
-    
+    8) extra cpu == 10, while gpu version changes. Both EE and EB
+       chi2 cpu == 5, while gpu version changes. Both EE and EB     ---> what is this number??? why?
     
     
     
