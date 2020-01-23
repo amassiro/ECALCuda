@@ -225,7 +225,10 @@ rechit
     8) extra cpu == 10, while gpu version changes. Both EE and EB
        chi2 cpu == 5, while gpu version changes. Both EE and EB     ---> what is this number??? why?
     
-    
+    9) also number of rechits is yet not matching between cpu and gpu ...
+      -> step: the two things, 8 and 9, are connected. If I remove "killdeadchannels" I get ok for 8???
+      
+      
     
     
     
