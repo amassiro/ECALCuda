@@ -227,8 +227,18 @@ rechit
     
     9) also number of rechits is yet not matching between cpu and gpu ...
       -> step: the two things, 8 and 9, are connected. If I remove "killdeadchannels" I get ok for 8???
+      -> "cleaningAlgo_" is missing on GPU, yet to be ported
+      
+    10) observation: removing "ChannelStatusToBeExcluded" cpu and gpu is the same in terms of number of rechits produced 
+      -> status is "uint16_t" in the cpu code!! -> fixed
       
       
+    
+    
+    
+    
+    
+    
     
     
     
