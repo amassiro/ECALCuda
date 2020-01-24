@@ -232,6 +232,9 @@ rechit
     10) observation: removing "ChannelStatusToBeExcluded" cpu and gpu is the same in terms of number of rechits produced 
       -> status is "uint16_t" in the cpu code!! -> fixed
       
+    11) observation: the killing of the rechits is correct, from printf/cout in gpu and cpu 
+    
+      
       
     
     
