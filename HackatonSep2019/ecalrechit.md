@@ -234,6 +234,7 @@ rechit
       
     11) observation: the killing of the rechits is correct, from printf/cout in gpu and cpu 
     
+    12) everything works: now it's time to port the various "recover" to GPU
       
       
     
