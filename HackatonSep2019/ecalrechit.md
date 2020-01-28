@@ -236,6 +236,16 @@ rechit
     
     12) everything works: now it's time to port the various "recover" to GPU
       
+    13) "recover" / "killing" ongoing:
+    
+         recoverEBIsolatedChannels = cms.bool(False),
+         recoverEEIsolatedChannels = cms.bool(False),
+         recoverEBVFE  = cms.bool(False),
+         recoverEEVFE  = cms.bool(False),
+         recoverEBFE = cms.bool(True),
+         recoverEEFE = cms.bool(True),
+    
+      
       
     
 Branch on cmssw
