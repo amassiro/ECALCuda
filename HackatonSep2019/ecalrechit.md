@@ -245,6 +245,7 @@ rechit
          recoverEBFE = cms.bool(True),
          recoverEEFE = cms.bool(True),
     
+    14) EcalDetIdToBeRecoveredProducer -> is this really needed?
       
       
     
