@@ -246,6 +246,7 @@ rechit
          recoverEEFE = cms.bool(True),
     
     14) EcalDetIdToBeRecoveredProducer -> is this really needed?
+        EcalRecHitWorkerRecover is setting rechits NOT to 0 but to some values depending on the flags
       
       
     
