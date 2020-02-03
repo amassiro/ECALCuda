@@ -249,6 +249,19 @@ rechit
         EcalRecHitWorkerRecover is setting rechits NOT to 0 but to some values depending on the flags
       
       
+    15) rewrite logic:
+    
+    //
+    // Structure:
+    //  EB
+    //  EE
+    //
+    //
+    //  - single MVA
+    //  - democratic sharing
+    //  - kill all the other cases
+    //
+
     
 Branch on cmssw
 
