@@ -262,6 +262,10 @@ rechit
     //  - kill all the other cases
     //
 
+    ok. It works for killing, not for recovery (so far)
+    
+    
+    
     
 Branch on cmssw
 
