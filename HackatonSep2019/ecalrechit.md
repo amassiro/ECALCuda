@@ -244,6 +244,9 @@ rechit
          recoverEEVFE  = cms.bool(False),
          recoverEBFE = cms.bool(True),
          recoverEEFE = cms.bool(True),
+       
+         These are the default configurations --> recover only FE ones
+    
     
     14) EcalDetIdToBeRecoveredProducer -> is this really needed?
         EcalRecHitWorkerRecover is setting rechits NOT to 0 but to some values depending on the flags
