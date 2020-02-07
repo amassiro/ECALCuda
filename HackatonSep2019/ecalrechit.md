@@ -268,6 +268,13 @@ rechit
     ok. It works for killing, not for recovery (so far)
     
     
+
+Now performance plots 
+
+
+
+
+
     
     
 Branch on cmssw
