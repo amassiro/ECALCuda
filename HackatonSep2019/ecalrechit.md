@@ -268,6 +268,19 @@ rechit
     ok. It works for killing, not for recovery (so far)
     
     
+    16) cleaning and commit 
+    
+       in multifit:  AmplitudeComputationCommonKernels.cu   (b89d7fca917)
+       
+        //            
+        // AM : my new version to fix "flags" 30 <-> 32 and 0 <-> 2
+        //    
+    
+    
+    
+    17) make test with different IOVs to see if it works and picks up the correct condition at the change of IOV 
+    
+    
 
 Now performance plots 
 
