@@ -276,7 +276,13 @@ rechit
         // AM : my new version to fix "flags" 30 <-> 32 and 0 <-> 2
         //    
     
+    missing in EcalRecHitBuilderKernels.cu :
     
+        //      setEnergyError
+        //         rh.setEnergyError( uncalibRH.amplitudeError()*adcToGeVConstant_*intercalibConstant);
+        //         https://github.com/cms-sw/cmssw/blob/266e21cfc9eb409b093e4cf064f4c0a24c6ac293/DataFormats/EcalRecHit/interface/EcalRecHit.h#L141-L163
+        //         
+        
     
     17) make test with different IOVs to see if it works and picks up the correct condition at the change of IOV 
     
