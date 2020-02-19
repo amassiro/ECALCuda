@@ -287,8 +287,10 @@ rechit
     cleaning complete
     
     
+    17) PR on Viktor branch
     
-    17) make test with different IOVs to see if it works and picks up the correct condition at the change of IOV 
+    
+    18) make test with different IOVs to see if it works and picks up the correct condition at the change of IOV 
     
     
 
