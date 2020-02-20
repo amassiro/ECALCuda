@@ -288,6 +288,8 @@ rechit
     
     
     17) PR on Viktor branch
+    https://github.com/vkhristenko/cmssw/compare/gpu...amassiro:amassiro_patatrack_ECALrechit_on_GPU
+    
     
     
     18) make test with different IOVs to see if it works and picks up the correct condition at the change of IOV 
