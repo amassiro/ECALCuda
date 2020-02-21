@@ -288,7 +288,8 @@ rechit
     
     
     17) PR on Viktor branch
-    https://github.com/vkhristenko/cmssw/compare/gpu...amassiro:amassiro_patatrack_ECALrechit_on_GPU
+    https://github.com/vkhristenko/cmssw/compare/ecal_unpacker_patatrack...amassiro:amassiro_patatrack_ECALrechit_on_GPU
+    https://github.com/cms-patatrack/cmssw/pull/368
     
     
     
@@ -298,8 +299,7 @@ rechit
 
 Now performance plots 
 
-    
-
+    See folder Performance
 
 
     
