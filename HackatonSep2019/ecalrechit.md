@@ -324,26 +324,41 @@ Just for PR
 ====
 
     cd /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/12Aug2019/JustForPR/
-    
+
+    source /data/patatrack/cmssw/cmsset_default.sh
+
     cmsrel CMSSW_10_6_0_Patatrack
     cd CMSSW_10_6_0_Patatrack/src 
     cmsenv
     git cms-init -x cms-patatrack
     
     
-    git cms-merge-topic vkhristenko:ecal_unpacker_patatrack
-
     git cms-merge-topic amassiro:amassiro_patatrack_ECALrechit_on_GPU
 
-    
-Remove unwanted files I don't care to commit
+    git cms-merge-topic vkhristenko:ecal_unpacker_patatrack
 
     
-    rm -rf HLTrigger/
-    rm -rf  RecoEgamma/EgammaPhotonProducers
-    rm -rf  RecoPixelVertexing
-    rm -rf  RecoTracker
     
+From .
+ * [new ref]                            -> merge-attempt
+From https://github.com/amassiro/cmssw
+ * [new branch]              amassiro_patatrack_ECALrechit_on_GPU -> amassiro/amassiro_patatrack_ECALrechit_on_GPU
+Switched to branch 'merge-attempt'
+Auto-merging RecoLocalCalo/EcalRecAlgos/src/KernelHelpers.h
+CONFLICT (content): Merge conflict in RecoLocalCalo/EcalRecAlgos/src/KernelHelpers.h
+Auto-merging RecoLocalCalo/EcalRecAlgos/src/EcalUncalibRecHitMultiFitAlgo_gpu_new.cu
+Auto-merging RecoLocalCalo/EcalRecAlgos/src/AmplitudeComputationCommonKernels.cu
+Auto-merging RecoLocalCalo/EcalRecAlgos/interface/DeclsForKernels.h
+Automatic merge failed; fix conflicts and then commit the result.
+Unable to merge branch amassiro_patatrack_ECALrechit_on_GPU from repository amassiro.
+
+
+Observation:
+
+    git cms-merge-topic vkhristenko:ecal_unpacker_patatrack ---> standalone it compiles
+
+    git cms-merge-topic amassiro:amassiro_patatrack_ECALrechit_on_GPU ---> standalone it compiles 
+
 Create new branch
 
 
@@ -352,10 +367,6 @@ Create new branch
     git fetch origin
     
     git checkout -b    amassiro_patatrack_ECALrechit_on_GPU_forPR
-    
-    
-    git commit -m "remove unwanted files" -a
-    
     
     git push -u origin  amassiro_patatrack_ECALrechit_on_GPU_forPR
     
