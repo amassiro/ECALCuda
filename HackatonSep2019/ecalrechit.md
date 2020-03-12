@@ -323,6 +323,9 @@ Branch on cmssw
 Just for PR
 ====
 
+    /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/12Aug2019/JustForPR/CMSSW_10_6_0_Patatrack/src/RecoLocalCalo/EcalRecProducers/test
+
+    
     cd /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/12Aug2019/JustForPR/
 
     source /data/patatrack/cmssw/cmsset_default.sh
