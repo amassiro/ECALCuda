@@ -48,5 +48,13 @@ Add:
     git push -u my-cmssw HEAD:my_development_branch
     
     
+Test
+
+    nvidia-smi
+    export CUDA_VISIBLE_DEVICES=0;
+
+    cmsRun testEcalRechitProducer_cfg.py
+    
+    
     
     
