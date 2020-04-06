@@ -64,3 +64,29 @@ Do on top of:
     
 Otherwise all "size" for uncalibrechit is lost.
 
+    git push -u my-cmssw HEAD:amassiro-ecal-rechit-11_1_0
+
+    
+Merge with Viktor:
+
+    git cms-merge-topic vkhristenko:ecal_unpacker_patatrack_110x
+
+    git cms-merge-topic amassiro:amassiro-ecal-rechit-11_1_0
+    
+Some did not merge automatically. Fix locally then:
+
+    git commit ...
+    
+    
+    
+Use night build (not existing):
+    
+    cmsrel CMSSW_11_1_Patatrack_X_2020-04-04-2300
+    cd CMSSW_11_1_Patatrack_X_2020-04-04-2300
+    cmsenv
+    cd src
+
+    
+    
+    
+    
