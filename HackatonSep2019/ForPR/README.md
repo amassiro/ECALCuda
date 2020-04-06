@@ -57,4 +57,10 @@ Test
     
     
     
+Do on top of: 
+
+    https://github.com/cms-patatrack/cmssw/pull/443
     
+    
+Otherwise all "size" for uncalibrechit is lost.
+
