@@ -66,8 +66,13 @@ Otherwise all "size" for uncalibrechit is lost.
 
     git push -u my-cmssw HEAD:amassiro-ecal-rechit-11_1_0
 
+
+Where:
+
+    /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/TEST/CMSSW_11_1_0_pre5_Patatrack/src/
     
 Merge with Viktor:
+
 
     git cms-merge-topic vkhristenko:ecal_unpacker_patatrack_110x
 
