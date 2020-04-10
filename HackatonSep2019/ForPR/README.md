@@ -78,13 +78,7 @@ Merge with Viktor:
 
     git cms-merge-topic amassiro:amassiro-ecal-rechit-11_1_0
     
-    
-And merge with Bocci's one too:
-
-    git cms-merge-topic fwyzard:patatrack-ECAL_unpacker_cleanup
-    
-    
-Some did not merge automatically. Fix locally then:
+  Some did not merge automatically. Fix locally then:
 
     git commit ...
     
@@ -106,6 +100,28 @@ And push:
 
     git push -u origin amassiro-ecal-rechit-11_1_0
 
+    
+
+And merge with Bocci's one too:
+
+    git cms-merge-topic fwyzard:patatrack-ECAL_unpacker_cleanup
+
+and push:
+
+    git remote add origin git@github.com:amassiro/cmssw
+ 
+    git fetch origin
+    
+    git checkout -b  amassiro-ecal-rechit-11_1_0-PR-2
+
+    git push -u origin amassiro-ecal-rechit-11_1_0-PR-2
+
+    amassiro-ecal-rechit-11_1_0-PR-2
+    
+     
+
+    
+    
     
     
     
