@@ -122,7 +122,13 @@ and push:
 
     
     
+Errors:
+
+    cudaErrorInvalidDeviceFunction: invalid device function
+
     
+    
+
     
     
 Use night build (not existing):
