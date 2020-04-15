@@ -125,9 +125,19 @@ and push:
 Errors:
 
     cudaErrorInvalidDeviceFunction: invalid device function
+    cudaErrorInvalidDeviceFunction: invalid device function
 
+    cudaErrorInvalidConfiguration: invalid configuration argument
     
-    
+    cudaErrorInvalidDeviceFunction: invalid device function
+
+
+Good
+
+    process.load("RecoLocalCalo.EcalRecProducers.ecalIntercalibConstantsGPUESProducer_cfi")
+Bad 
+ 
+    process.load("RecoLocalCalo.EcalRecProducers.ecalChannelStatusGPUESProducer_cfi")
 
     
     
