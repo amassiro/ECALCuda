@@ -139,6 +139,12 @@ Bad
  
     process.load("RecoLocalCalo.EcalRecProducers.ecalChannelStatusGPUESProducer_cfi")
 
+
+No differences:
+
+    diff  /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/12Aug2019/CMSSW_10_6_0_Patatrack/cfipython/slc7_amd64_gcc700/RecoLocalCalo/EcalRecProducers/ecalChannelStatusGPUESProducer_cfi.py /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/TEST/CMSSW_11_1_0_pre5_Patatrack/slc7_amd64_EcalRecProducers/ecalChannelStatusGPUESProducer_cfi.py
+    
+    
     
     
 Use night build (not existing):
