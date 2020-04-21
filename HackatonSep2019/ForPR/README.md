@@ -131,7 +131,11 @@ Errors:
     
     cudaErrorInvalidDeviceFunction: invalid device function
 
-
+    ---> The requested device function does not exist or is not compiled for the proper device architecture.
+  
+    
+    
+    
 Good
 
     process.load("RecoLocalCalo.EcalRecProducers.ecalIntercalibConstantsGPUESProducer_cfi")
