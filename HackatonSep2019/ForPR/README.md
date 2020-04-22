@@ -132,8 +132,8 @@ Errors:
     cudaErrorInvalidDeviceFunction: invalid device function
 
     ---> The requested device function does not exist or is not compiled for the proper device architecture.
-  
     
+    -> email    
     
     
 Good
