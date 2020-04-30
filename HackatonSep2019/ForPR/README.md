@@ -133,7 +133,8 @@ Errors:
 
     ---> The requested device function does not exist or is not compiled for the proper device architecture.
     
-    -> email    
+    -> email
+    
     
     
 Good
