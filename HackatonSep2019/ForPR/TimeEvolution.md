@@ -82,4 +82,12 @@ NB:
 this is the other one failing.
 
 
+Run validation:
+
+    makeEcalMultifitResultsGpuValidationPlots   test.root   plotValidation_uncalibrechit.root
+    makeEcalRechitValidationPlots               test.root   plotValidation_calibrechit.root
+
+
+
+
     
