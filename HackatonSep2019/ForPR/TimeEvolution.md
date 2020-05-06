@@ -66,3 +66,20 @@ Commented out all:
     
 And "uncalibrechit" works.
 And "rechit" works.
+
+
+Make plot of modules, by A. Bocci
+
+    process.DependencyGraph = cms.Service("DependencyGraph")
+
+    dot dependency.gv -Tpng -o dependency.png
+
+
+NB:
+
+    process.load("RecoLocalCalo.EcalRecProducers.ecalADCToGeVConstantGPUESProducer_cfi")
+
+this is the other one failing.
+
+
+    
