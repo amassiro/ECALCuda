@@ -35,4 +35,34 @@ and run
 
 it works.
 
+The added part is namely:
 
+    
+    process.ecalChannelStatusGPUESProducer = cms.ESProducer("EcalChannelStatusGPUESProducer",
+        ComponentName = cms.string(''),
+        appendToDataLabel = cms.string(''),
+        label = cms.string('') 
+    )
+
+
+6 May
+===
+
+Commented out all:
+
+     cudaGetLastError
+
+    ./EventFilter/EcalRawToDigi/src/UnpackGPU.cu://       cudaCheck(cudaGetLastError());
+    ./RecoLocalCalo/EcalRecAlgos/src/AmplitudeComputationKernels.cu://         cudaCheck(cudaGetLastError());
+    ./RecoLocalCalo/EcalRecAlgos/src/EcalUncalibRecHitMultiFitAlgo_gpu_new.cu://       cudaCheck(cudaGetLastError());
+    ./RecoLocalCalo/EcalRecAlgos/src/EcalUncalibRecHitMultiFitAlgo_gpu_new.cu://       cudaCheck(cudaGetLastError());
+    ./RecoLocalCalo/EcalRecAlgos/src/EcalUncalibRecHitMultiFitAlgo_gpu_new.cu://         cudaCheck(cudaGetLastError());
+    ./RecoLocalCalo/EcalRecAlgos/src/EcalUncalibRecHitMultiFitAlgo_gpu_new.cu://         cudaCheck(cudaGetLastError());
+    ./RecoLocalCalo/EcalRecAlgos/src/EcalUncalibRecHitMultiFitAlgo_gpu_new.cu://         cudaCheck(cudaGetLastError());
+    ./RecoLocalCalo/EcalRecAlgos/src/EcalUncalibRecHitMultiFitAlgo_gpu_new.cu://         cudaCheck(cudaGetLastError());
+    ./RecoLocalCalo/EcalRecAlgos/src/EcalUncalibRecHitMultiFitAlgo_gpu_new.cu://         cudaCheck(cudaGetLastError());
+    ./RecoLocalCalo/EcalRecAlgos/src/EcalUncalibRecHitMultiFitAlgo_gpu_new.cu://         cudaCheck(cudaGetLastError());
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalRecHitProducerGPU.cc://   cudaCheck(cudaGetLastError());
+    
+And "uncalibrechit" works.
+And "rechit" works.
