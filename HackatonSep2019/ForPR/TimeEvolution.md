@@ -67,6 +67,12 @@ Commented out all:
 And "uncalibrechit" works.
 And "rechit" works.
 
+BUT
+
+    0 channels??
+    
+    but without the problematic include, it works the uncalibrechit part (also the scatter plot)
+    
 
 Make plot of modules, by A. Bocci
 
