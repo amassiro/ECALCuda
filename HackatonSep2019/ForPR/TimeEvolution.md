@@ -117,8 +117,29 @@ No fix ...
 8 May
 ===
 
-    
+Test with only 1 ESproducer for GPU
 
+    /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/TestESproducer/CMSSW_11_1_0_pre5_Patatrack/src
+    
+    cmsrel CMSSW_11_1_0_pre5_Patatrack
+    cd CMSSW_11_1_0_pre5_Patatrack/src
+    cmsenv
+    
+    git cms-init -x cms-patatrack
+    git branch CMSSW_11_1_X_Patatrack --track cms-patatrack/CMSSW_11_1_X_Patatrack
+    
+    git cms-merge-topic vkhristenko:ecal_unpacker_patatrack_110x
+
+    
+Then add
+
+    EcalChannelStatusGPU
+
+Problem reproduced with minimal change:
+
+    /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/TestESproducer/CMSSW_11_1_0_pre5_Patatrack/src/RecoLocalCalo/EcalRecProducers/test
+
+    
     
  
  
