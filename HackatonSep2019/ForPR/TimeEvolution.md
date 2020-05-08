@@ -96,4 +96,30 @@ Run validation:
 
 
 
+
+7 May
+===
+
+Failing:
+
+    process.load("RecoLocalCalo.EcalRecProducers.ecalADCToGeVConstantGPUESProducer_cfi")
+    process.load("RecoLocalCalo.EcalRecProducers.ecalChannelStatusGPUESProducer_cfi")
+
     
+The code source:
+
+    EcalGainRatiosGPU --> EcalChannelStatusGPU
+
+No fix ...
+
+
+
+8 May
+===
+
+    
+
+    
+ 
+ 
+ 
