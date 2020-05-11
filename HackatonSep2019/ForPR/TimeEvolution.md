@@ -140,7 +140,48 @@ Problem reproduced with minimal change:
     /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/TestESproducer/CMSSW_11_1_0_pre5_Patatrack/src/RecoLocalCalo/EcalRecProducers/test
 
     
+11 May
+====
+
+Create branch and email
+
+    git remote add origin git@github.com:amassiro/cmssw
+ 
+    git fetch origin
     
+    git checkout -b  amassiro-ecal-rechit-11_1_0-TestIssuePR
+
+    git push -u origin amassiro-ecal-rechit-11_1_0-TestIssuePR
+
+
+    
+Test
+
+    ecalEmpty.py   ----> it works
+       with nothing!
+    
+    ecalEmpty.1.py   ----> it works
+       add more loading
+       and digi
+       
+    ecalEmpty.2.py   ----> it crashes
+       adding unpackergpu
+       
+    ecalEmpty.3.py   ----> 
+       adding unpackergpu but leaving only the "cudaCheck", and remove the core of the code.
+       Use the unpacker as a dummy module
+       
+       
+       
+       
+       
+    
+    
+    
+    
+
+
+
  
  
  
