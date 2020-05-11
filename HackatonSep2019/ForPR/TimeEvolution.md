@@ -167,9 +167,11 @@ Test
     ecalEmpty.2.py   ----> it crashes
        adding unpackergpu
        
-    ecalEmpty.3.py   ----> 
+    ecalEmpty.3.py   ----> tests ongoing
        adding unpackergpu but leaving only the "cudaCheck", and remove the core of the code.
        Use the unpacker as a dummy module
+       
+       -> this is the one that is crashing: "kernel_unpack_test"
        
        
        
