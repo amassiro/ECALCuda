@@ -253,8 +253,22 @@ yet the same error:
 
 
 
+Run reconstruction:
+
+    cmsRun ecalRawDecodingAndMultifit.py
+    cmsRun testEcalRechitProducer_cfg.py
 
 
+Run validation:
+
+    makeEcalMultifitResultsGpuValidationPlots   test.root         plotValidation_uncalibrechit.root
+    makeEcalRechitValidationPlots               testRechit.root   plotValidation_calibrechit.root
+
+Nice.
+
+git commit and push now
+
+    git push -u origin amassiro-ecal-rechit-11_1_0-PR-2
 
 
 
