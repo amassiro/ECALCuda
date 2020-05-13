@@ -220,12 +220,35 @@ Now they are identical ... but one does not compile!!!
 
 Try scramv1 b distclean and recompile ...
 
+Still crashing when using EcalChannelStatusGPUESProducer
 
+    cudaCheck(cudaGetLastError());
+    cudaErrorInvalidDeviceFunction: invalid device function
 
+Workaround:
 
+    ecalRechitChannelStatusGPU
+
+name changed and it works. Follow this procedure from now on.
 
         
-        
+Now back to 
+
+    /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/TEST/CMSSW_11_1_0_pre5_Patatrack/src/
+
+to finally fix it.
+
+
+Now this:
+
+    process.load("RecoLocalCalo.EcalRecProducers.ecalADCToGeVConstantGPUESProducer_cfi")
+
+yet the same error:
+
+    cudaCheck(cudaGetLastError());
+    cudaErrorInvalidDeviceFunction: invalid device function
+
+-> changing the name and ... it works
 
 
 
