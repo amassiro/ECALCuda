@@ -181,6 +181,56 @@ Test
 
     ecalEmpty.3.py   ----> tests ongoing
 
+    Exception Message:
+    A std::exception was thrown.
+
+    /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/TestESproducer/CMSSW_11_1_0_pre5_Patatrack/src/EventFilter/EcalRawToDigi/src/UnpackGPU.cu, line 487:
+    cudaCheck(cudaGetLastError());
+    cudaErrorInvalidDeviceFunction: invalid device function
+
+
+    still ... cudaErrorInvalidDeviceFunction
+    
+    no combination without that error
+    
+
+13 May
+====
+
+
+    using EcalTestStatusGPUESProducer = EcalESProducerGPU<
+        EcalTestStatusGPU,
+        EcalGainRatios,
+        EcalGainRatiosRcd
+        >;
+ 
+The previous one works
+
+Now this:
+
+    using EcalTestStatusGPUESProducer = EcalESProducerGPU<
+        EcalTestStatusGPU,
+        EcalChannelStatus,
+        EcalChannelStatusRcd
+        >;
+
+and it works ... strange ...
+
+Now they are identical ... but one does not compile!!!
+
+Try scramv1 b distclean and recompile ...
+
+
+
+
+
+        
+        
+
+
+
+
+
 
 
 
