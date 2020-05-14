@@ -320,7 +320,13 @@ Now go for rebase:
     
 fix fix fix stuff
 
-    git push -u origin amassiro-ecal-rechit-11_1_0-PR-3
+    git remote add origin git@github.com:amassiro/cmssw
+ 
+    git fetch origin
+
+    git checkout -b amassiro-ecal-rechit-11_1_0-PR-4
+    
+    git push -u origin amassiro-ecal-rechit-11_1_0-PR-4
     
     
     
