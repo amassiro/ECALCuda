@@ -270,8 +270,52 @@ git commit and push now
 
     git push -u origin amassiro-ecal-rechit-11_1_0-PR-2
 
+PR
+
+    https://github.com/cms-patatrack/cmssw/pull/457
+
+    
+
+14 May
+====
 
 
+Rebase:
+    
+    cd /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/Rebase
+    
+    cmsrel CMSSW_11_1_Patatrack_X_2020-05-13-2300
+    cd CMSSW_11_1_Patatrack_X_2020-05-13-2300/src
+    cmsenv
+    
+    git cms-merge-topic CMSSW_11_1_Patatrack_X
+
+    git cms-merge-topic amassiro:amassiro-ecal-rechit-11_1_0-PR-2
+
+now fix conflicts.
+
+    git add ....... <changed files>
+    
+    git commit
+    
+    
+
+    
+    
+    git remote add origin git@github.com:amassiro/cmssw
+ 
+    git fetch origin
+    
+    git checkout  amassiro-ecal-rechit-11_1_0-PR-2
+    
+    
+    
+    
+    
+    git cms-rebase-topic amassiro:amassiro-ecal-rechit-11_1_0-PR-2
+    
+    
+    
 
 
 
