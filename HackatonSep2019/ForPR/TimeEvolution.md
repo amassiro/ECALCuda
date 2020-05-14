@@ -298,21 +298,38 @@ now fix conflicts.
     
     git commit
     
-    
-
-    
-    
     git remote add origin git@github.com:amassiro/cmssw
  
     git fetch origin
+
+    git checkout -b amassiro-ecal-rechit-11_1_0-PR-3
     
-    git checkout  amassiro-ecal-rechit-11_1_0-PR-2
+    git push -u origin amassiro-ecal-rechit-11_1_0-PR-3
+
+    
+    
+Now go for rebase:
+
+    cd /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/Rebase/forPR
+    
+    cmsrel CMSSW_11_1_Patatrack_X_2020-05-13-2300
+    cd CMSSW_11_1_Patatrack_X_2020-05-13-2300/src
+    cmsenv
+
+    git cms-rebase-topic amassiro:amassiro-ecal-rechit-11_1_0-PR-3
+    
+fix fix fix stuff
+
+    git push -u origin amassiro-ecal-rechit-11_1_0-PR-3
     
     
     
     
     
-    git cms-rebase-topic amassiro:amassiro-ecal-rechit-11_1_0-PR-2
+    
+    
+    
+    
     
     
     
