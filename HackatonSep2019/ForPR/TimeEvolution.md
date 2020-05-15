@@ -330,11 +330,50 @@ fix fix fix stuff
     
     
     
+ 
+This one is ok:
+
+    cd /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/Rebase
+
+    amassiro-ecal-rechit-11_1_0-PR-3
+    
+    scram build code-checks    
     
     
+
+15 May 
+====
+
+Cleaning the PR
+ 
+    https://github.com/cms-patatrack/cmssw/pull/462
     
     
+EventFilter/EcalRawToDigi/BuildFile.xml
+
+    git checkout e8b26023f549286f7b3ffecb78f5960a4fbb2b6a~1 -- EventFilter/EcalRawToDigi/BuildFile.xml
+
+    git checkout e8b26023f549286f7b3ffecb78f5960a4fbb2b6a~1 -- CondFormats/EcalObjects/interface/EcalChannelStatusCode.h
+
     
+
+Cleaning:
+
+    scram b llvm-ccdb
+    
+    cd src/
+    
+    clang-tidy -fix-errors -header-filter="$CMSSW_BASE/src/.*" -checks=-clang-diagnostic-unused-command-line-argument --format-style=file $(find PACKAGES -name '*.cc')
+    
+    for example:
+    
+     clang-tidy -fix-errors -header-filter="$CMSSW_BASE/src/.*" -checks=-clang-diagnostic-unused-command-line-argument --format-style=file $(find RecoLocalCalo -name '*.cc')
+     clang-tidy -fix-errors -header-filter="$CMSSW_BASE/src/.*" -checks=-clang-diagnostic-unused-command-line-argument --format-style=file $(find CondFormats -name '*.cc')
+     clang-tidy -fix-errors -header-filter="$CMSSW_BASE/src/.*" -checks=-clang-diagnostic-unused-command-line-argument --format-style=file $(find CUDADataFormats -name '*.cc')
+     clang-tidy -fix-errors -header-filter="$CMSSW_BASE/src/.*" -checks=-clang-diagnostic-unused-command-line-argument --format-style=file $(find EventFilter -name '*.cc')
+     clang-tidy -fix-errors -header-filter="$CMSSW_BASE/src/.*" -checks=-clang-diagnostic-unused-command-line-argument --format-style=file $(find DataFormats -name '*.cc')
+
+
     
     
     
