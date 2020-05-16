@@ -373,7 +373,7 @@ Cleaning:
      clang-tidy -fix-errors -header-filter="$CMSSW_BASE/src/.*" -checks=-clang-diagnostic-unused-command-line-argument --format-style=file $(find EventFilter -name '*.cc')
      clang-tidy -fix-errors -header-filter="$CMSSW_BASE/src/.*" -checks=-clang-diagnostic-unused-command-line-argument --format-style=file $(find DataFormats -name '*.cc')
 
-
+    git push -u origin amassiro-ecal-rechit-11_1_0-PR-3
     
     
     
