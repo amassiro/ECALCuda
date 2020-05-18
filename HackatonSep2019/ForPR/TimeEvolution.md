@@ -389,6 +389,26 @@ Error:
     
 
 
+18 May 
+====
+
+... now it works (and no changes??)
+
+
+Run reconstruction:
+
+    cmsRun testEcalUncalibRechitProducer_cfg.py
+    cmsRun testEcalRechitProducer_cfg.py
+
+
+Run validation:
+
+    makeEcalMultifitResultsGpuValidationPlots   test_uncalib.root   plotValidation_uncalibrechit.root
+    makeEcalRechitValidationPlots               testRechit.root     plotValidation_calibrechit.root
+
+
+Back to clang tidy up
+
 
        
        
