@@ -378,7 +378,15 @@ Cleaning:
     
     
     
+Change of "if" to "for" 
 
+Error:
+
+    cudaCheck(cudaMemsetAsync(scratchGPU.pChannelsCounter, 0, sizeof(uint32_t) * 2, cudaStream));
+    cudaErrorInvalidValue: invalid argument
+
+    
+    
 
 
 
