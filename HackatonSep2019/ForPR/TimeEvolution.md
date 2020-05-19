@@ -407,13 +407,33 @@ Run validation:
     makeEcalRechitValidationPlots               testRechit.root     plotValidation_calibrechit.root
 
 
-Back to clang tidy up
+Back to clang tidy up.
 
+    sh cms-format  (by A. Bocci)
+    
+    
+    
+Uncalibrrechit --> flags not ok??
 
        
        
     
-    
+19 May
+====
+
+Check flags for uncalibrechit -> why they appear now?
+
+Speed test
+
+
+
+
+
+
+
+
+
+
     
     
 
