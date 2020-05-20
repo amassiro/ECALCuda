@@ -423,6 +423,12 @@ Uncalibrrechit --> flags not ok??
 
 Check flags for uncalibrechit -> why they appear now?
 
+    not isolated in some flags
+    
+    require > 1 ADC count
+
+    not fixed 
+    
 Speed test
 
 
