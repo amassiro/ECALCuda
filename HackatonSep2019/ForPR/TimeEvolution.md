@@ -436,6 +436,110 @@ Speed test
 
 
 
+    
+20 May
+====
+
+Speed test.
+
+    cmsRun testEcalUncalibRechitProducer_speed_cfg.py
+    cmsRun testEcalRechitProducer_speed_cfg.py
+
+Prepare the cmsrun file to be run
+
+    edmConfigDump testEcalRechitProducer_speed_cfg.py > dump_testEcalRechitProducer_speed_cfg.py
+
+Download toolkit and run:
+
+    cd /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/Rebase/
+
+    git clone git@github.com:cms-patatrack/patatrack-scripts.git
+    
+    https://github.com/cms-patatrack/patatrack-scripts/
+
+    cd patatrack-scripts/
+
+    nvprof cmsRun ../CMSSW_11_1_Patatrack_X_2020-05-13-2300/src/RecoLocalCalo/EcalRecProducers/test/dump_testEcalRechitProducer_speed_cfg.py  
+    
+
+        
+Results:
+
+
+      dropped waiting message count 0
+      ==38232== Profiling application: cmsRun ../CMSSW_11_1_Patatrack_X_2020-05-13-2300/src/RecoLocalCalo/EcalRecProducers/test/dump_testEcalRechitProducer_speed_cfg.py
+      ==38232== Profiling result:
+                  Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+       GPU activities:   84.80%  842.34ms      1000  842.34us  334.35us  4.6143ms  ecal::multifit::kernel_minimize(unsigned int const *, unsigned int const *, Eigen::Matrix<float, int=10, int=10, int=0, int=10, int=10> const *, EcalPulseCovariance const *, Eigen::Matrix<char, int=10, int=1, int=0, int=10, int=1>*, Eigen::Matrix<float, int=10, int=1, int=0, int=10, int=1> const *, Eigen::Matrix<float, int=10, int=1, int=0, int=10, int=1>*, Eigen::Matrix<float, int=10, int=10, int=0, int=10, int=10> const *, float*, float*, char*, int, int, unsigned int, unsigned int)
+                    5.35%  53.134ms      1000  53.134us  36.129us  98.530us  void ecal::raw::kernel_unpack_test<int=32>(unsigned char const *, unsigned int const *, int const *, unsigned short*, int const *, unsigned int*, unsigned short*, unsigned short*, unsigned int const , unsigned int)
+                    3.24%  32.160ms      1000  32.160us  14.529us  134.08us  ecal::multifit::kernel_prep_2d(Eigen::Matrix<char, int=10, int=1, int=0, int=10, int=1> const *, unsigned int const *, unsigned int const *, float const *, float const *, float const *, float const *, float const *, double const *, double const *, double const *, double const *, double const *, double const *, Eigen::Matrix<float, int=10, int=10, int=0, int=10, int=10>*, Eigen::Matrix<float, int=10, int=10, int=0, int=10, int=10>*, EcalPulseShape const *, bool const *, bool const *, bool const *, unsigned int, unsigned int)
+                    2.39%  23.714ms      3077  7.7060us     960ns  4.4264ms  [CUDA memcpy HtoD]
+                    1.69%  16.786ms     11000  1.5250us     416ns  12.801us  [CUDA memcpy DtoH]
+                    1.57%  15.594ms      1000  15.594us  11.489us  310.22us  ecal::rechit::kernel_create_ecal_rehit(int const *, unsigned int, bool, bool, bool, bool, bool, bool, bool, float, float, float, float, int const *, unsigned int const *, unsigned int const *, unsigned int, unsigned int, float const *, float const *, unsigned short const *, float const *, float const *, float const *, float const *, float const *, __int64 const *, __int64 const *, __int64 const *, float const *, float const *, float const *, __int64 const *, __int64 const *, __int64 const *, __int64, unsigned int const *, unsigned int const *, float const *, float const *, float const *, float const *, float const *, float const *, unsigned int const *, unsigned int const *, unsigned int*, float*, float*, float*, unsigned int*, unsigned int*, int, unsigned int, unsigned int)
+                    0.86%  8.5166ms      1000  8.5160us  5.3130us  106.12us  ecal::multifit::kernel_prep_1d_and_initialize(EcalPulseShape const *, unsigned short const *, unsigned int const *, unsigned short const *, unsigned int const *, Eigen::Matrix<float, int=10, int=1, int=0, int=10, int=1>*, Eigen::Matrix<float, int=10, int=1, int=0, int=10, int=1>*, Eigen::Matrix<char, int=10, int=1, int=0, int=10, int=1>*, float const *, float const *, float const *, float const *, float const *, float const *, bool*, bool*, bool*, float*, float*, float*, unsigned int*, unsigned int*, char*, Eigen::Matrix<char, int=10, int=1, int=0, int=10, int=1>*, unsigned int, unsigned int, bool, bool, int)
+                    0.11%  1.0767ms      1000  1.0760us     960ns  2.7840us  [CUDA memset]
+      API calls:   25.95%  464.67ms     12039  38.596us  4.1030us  6.9884ms  cudaFreeHost
+                   17.21%  308.14ms         3  102.71ms  20.317us  308.10ms  cudaMemGetInfo
+                   13.33%  238.60ms     12039  19.818us  5.4640us  13.026ms  cudaHostAlloc
+                   11.83%  211.84ms         1  211.84ms  211.84ms  211.84ms  cudaDeviceReset
+                    9.88%  176.89ms     14045  12.594us  4.2660us  4.5253ms  cudaMemcpyAsync
+
+                    
+      https://developer.nvidia.com/nvidia-visual-profiler
+    
+
+       
+                     Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+    GPU activities:   84.80%  842.34ms      1000  842.34us  334.35us  4.6143ms  ecal::multifit::kernel_minimize
+                       5.35%  53.134ms      1000  53.134us  36.129us  98.530us  void ecal::raw::kernel_unpack_test<int=32>
+                       3.24%  32.160ms      1000  32.160us  14.529us  134.08us  ecal::multifit::kernel_prep_2d
+                       2.39%  23.714ms      3077  7.7060us     960ns  4.4264ms  [CUDA memcpy HtoD]
+                       1.69%  16.786ms     11000  1.5250us     416ns  12.801us  [CUDA memcpy DtoH]
+                       1.57%  15.594ms      1000  15.594us  11.489us  310.22us  ecal::rechit::kernel_create_ecal_rehit
+                       0.86%  8.5166ms      1000  8.5160us  5.3130us  106.12us  ecal::multifit::kernel_prep_1d_and_initialize
+                       0.11%  1.0767ms      1000  1.0760us     960ns  2.7840us  [CUDA memset]
+         API calls:   25.95%  464.67ms     12039  38.596us  4.1030us  6.9884ms  cudaFreeHost
+                      17.21%  308.14ms         3  102.71ms  20.317us  308.10ms  cudaMemGetInfo
+                      13.33%  238.60ms     12039  19.818us  5.4640us  13.026ms  cudaHostAlloc
+                      11.83%  211.84ms         1  211.84ms  211.84ms  211.84ms  cudaDeviceReset
+                       9.88%  176.89ms     14045  12.594us  4.2660us  4.5253ms  cudaMemcpyAsync    
+       
+       
+       
+    
+    
+    
+Other:
+    
+    ./benchmark ../CMSSW_11_1_Patatrack_X_2020-05-13-2300/src/RecoLocalCalo/EcalRecProducers/test/dump_testEcalRechitProducer_speed_cfg.py
+
+    
+    ./patatrack-scripts/benchmark ECALValidation/EcalLocalRecoToolKit/test/dump_ecal_cpu.py 
+
+    
+    CPU
+ 
+    Running 4 times over 4200 events with 1 jobs, each with 8 threads, 8 streams and 1 GPUs
+ 
+     2.9 ±   0.0 ev/s (2400 events)
+     2.9 ±   0.0 ev/s (2400 events)
+    --------------------
+     2.9 ±   0.0 ev/s
+
+
+     
+     GPU 
+     
+     1.3 ±   0.0 ev/s (2400 events)
+     1.3 ±   0.0 ev/s (2400 events)
+     1.3 ±   0.0 ev/s (2400 events)
+     1.3 ±   0.0 ev/s (2400 events)
+     --------------------
+     1.3 ±   0.0 ev/s
+
+     
+     
+
 
 
 
