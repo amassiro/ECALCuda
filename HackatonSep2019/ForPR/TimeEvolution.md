@@ -437,7 +437,7 @@ Speed test
 
 
     
-20-22 May
+20-21 May
 ====
 
 Speed test.
@@ -541,6 +541,33 @@ Other:
      
 
 
+
+22 May
+====
+
+To be fixed:
+
+    ThroughputService
+    
+--> added (true) explicitly in the original cfg file
+
+
+
+
+25 May
+====
+
+move to new cmssw
+
+    cmsrel CMSSW_11_1_Patatrack_X_2020-05-20-2300
+    
+    cd CMSSW_11_1_Patatrack_X_2020-05-20-2300/src
+    
+    cmsenv
+    
+    # git cms-merge-topic CMSSW_11_1_Patatrack_X
+
+    git cms-merge-topic amassiro:amassiro-ecal-rechit-11_1_0-PR-2
 
 
 
