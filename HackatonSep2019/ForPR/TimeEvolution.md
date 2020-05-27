@@ -563,19 +563,111 @@ move to new cmssw
     
     cd CMSSW_11_1_Patatrack_X_2020-05-20-2300/src
     
+    
+    cmsrel CMSSW_11_1_0_pre7
+    
+    cd CMSSW_11_1_0_pre7/src/
+    
     cmsenv
     
-    # git cms-merge-topic CMSSW_11_1_Patatrack_X
+    git cms-merge-topic CMSSW_11_1_Patatrack_X
 
-    git cms-merge-topic amassiro:amassiro-ecal-rechit-11_1_0-PR-2
+    git cms-merge-topic amassiro:amassiro-ecal-rechit-11_1_0-PR-3
+
+small fix and compile a lot
 
 
+    ./benchmark ../CMSSW_11_1_Patatrack_X_2020-05-20-2300/src/RecoLocalCalo/EcalRecProducers/test/dump_testEcalRechitProducer_speed_cfg.py
 
     
     
 
+26 May
+====
+
+move to new cmssw
+
+    cmsrel CMSSW_11_1_Patatrack_X_2020-05-20-2300
+    
+    cd CMSSW_11_1_Patatrack_X_2020-05-20-2300/src
+    
+    
+    cmsrel CMSSW_11_1_0_pre7_Patatrack
+    
+    cd CMSSW_11_1_0_pre7_Patatrack/src/
+    
+    cmsenv
+    
+    git cms-merge-topic CMSSW_11_1_Patatrack_X
+
+    git cms-merge-topic amassiro:amassiro-ecal-rechit-11_1_0-PR-3
+
+small fix and compile a lot
 
 
+    ./benchmark ../CMSSW_11_1_Patatrack_X_2020-05-20-2300/src/RecoLocalCalo/EcalRecProducers/test/dump_testEcalRechitProducer_speed_cfg.py
+
+
+
+
+27 May
+====
+
+move to new cmssw
+
+    cmsrel CMSSW_11_1_0_pre8_Patatrack
+    
+    cd CMSSW_11_1_0_pre8_Patatrack/src/
+    
+    cmsenv
+    
+    git cms-merge-topic CMSSW_11_1_Patatrack_X
+
+    git cms-merge-topic amassiro:amassiro-ecal-rechit-11_1_0-PR-3
+
+small fix and compile a lot
+
+
+    ./benchmark ../CMSSW_11_1_Patatrack_X_2020-05-20-2300/src/RecoLocalCalo/EcalRecProducers/test/dump_testEcalRechitProducer_speed_cfg.py
+
+
+    
+    git checkout -b amassiro-ecal-rechit-11_1_0-PR-5
+
+    git remote add origin git@github.com:amassiro/cmssw
+ 
+    git fetch origin
+
+    git checkout -b amassiro-ecal-rechit-11_1_0-PR-5
+    
+    git push -u origin amassiro-ecal-rechit-11_1_0-PR-5
+    
+    ---> previous instructions only for bookkeeping
+    
+    
+    git checkout -b amassiro-ecal-rechit-11_1_0-PR-3
+    
+    git push -u origin amassiro-ecal-rechit-11_1_0-PR-3
+    
+    
+    /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/Rebase/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test
+    
+Move to HLT GPU machines
+
+    instructions under "performance"
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ 
  
  
  

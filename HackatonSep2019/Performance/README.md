@@ -22,4 +22,12 @@ Source:
     
     
     
+NVIDIA:
+
+    nvidia-smi
+
+    
+    
+
+    
     
