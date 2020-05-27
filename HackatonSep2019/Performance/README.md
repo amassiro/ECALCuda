@@ -26,8 +26,25 @@ NVIDIA:
 
     nvidia-smi
 
-    
-    
+Setup github
 
+    ssh -f -N cmsusr.cms
+
+Install
+
+    cd /nfshome0/amassiro/TestGPU
+    
+    cmsrel CMSSW_11_1_0_pre8_Patatrack
+    cd CMSSW_11_1_0_pre8_Patatrack/src
+    cmsenv
+ 
+    git cms-merge-topic amassiro:amassiro-ecal-rechit-11_1_0-PR-3
+
+    scramv1 b -j 20
+    
+Input files:
+
+    sourceFromRawHLTmachine_cff.py
+    
     
     
