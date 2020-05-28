@@ -46,5 +46,5 @@ Input files:
 
     sourceFromRawHLTmachine_cff.py
     
-    
+    copy one file to test
     
