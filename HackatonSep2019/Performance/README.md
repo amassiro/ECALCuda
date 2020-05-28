@@ -48,3 +48,13 @@ Input files:
     
     copy one file to test
     
+    
+Run:
+
+    nvidia-smi
+    export CUDA_VISIBLE_DEVICES=0;
+
+    cmsRun testEcalUncalibRechitProducer_cfg.py
+    
+    
+
