@@ -16,11 +16,10 @@ Connect:
     
 Source:
 
-    export SCRAM_ARCH=slc7_amd64_gcc820
     export VO_CMS_SW_DIR=/data/cmssw
+    export SCRAM_ARCH=slc7_amd64_gcc820
     source $VO_CMS_SW_DIR/cmsset_default.sh
-    
-    
+
     
 NVIDIA:
 

@@ -659,6 +659,19 @@ Move to HLT GPU machines
     
     
     
+29 May
+====
+
+In
+
+    /nfshome0/amassiro/TestGPUnoMerge/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test
+
+without merging of my PR, it runs.
+
+With my PR, problem with usual
+
+    cudaErrorInvalidDeviceFunction: invalid device function
+
     
     
     
