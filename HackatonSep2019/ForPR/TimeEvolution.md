@@ -673,14 +673,14 @@ With my PR, problem with usual
     cudaErrorInvalidDeviceFunction: invalid device function
 
     
+By A. Bocci:
+
+    CUDADataFormats/EcalRecHitSoA
+    EventFilter/EcalRawToDigi
+    RecoLocalCalo/EcalRecAlgos
+    RecoLocalCalo/EcalRecProducers
     
     
     
-    
-    
-    
-    
- 
- 
- 
+
  

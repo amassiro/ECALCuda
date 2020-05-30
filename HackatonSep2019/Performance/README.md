@@ -41,6 +41,14 @@ Install
 
     scramv1 b -j 20
     
+    
+    git-cms-addpkg CUDADataFormats/EcalRecHitSoA
+    git-cms-addpkg EventFilter/EcalRawToDigi
+    git-cms-addpkg RecoLocalCalo/EcalRecAlgos
+    git-cms-addpkg RecoLocalCalo/EcalRecProducers
+ 
+    
+    
 Input files:
 
     sourceFromRawHLTmachine_cff.py
