@@ -70,14 +70,18 @@ Run:
 Test:
 
     edmConfigDump  testEcalRechitProducer_cfg.py > dump_testEcalRechitProducer_cfg.py
+    
+    cp dump_testEcalRechitProducer_cfg.py dump_testEcalRechitProducer_speed_cfg.py
 
+    
     cd /data/user/amassiro/
 
     git clone git@github.com:cms-patatrack/patatrack-scripts.git
 
     ./patatrack-scripts/benchmark /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/dump_testEcalRechitProducer_speed_cfg.py
 
-    
+    ./patatrack-scripts/scan /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/dump_testEcalRechitProducer_speed_cfg.py
+
     
 
 
