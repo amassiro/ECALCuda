@@ -89,9 +89,22 @@ Run
     cmsRun testEcalRechitProducer_speed_cpu_cfg.py
     cmsRun testEcalRechitProducer_speed_gpu_cfg.py
 
+    edmConfigDump testEcalRechitProducer_speed_gpu_cfg.py > dump_testEcalRechitProducer_speed_gpu_cfg.py
+    edmConfigDump testEcalRechitProducer_speed_cpu_cfg.py > dump_testEcalRechitProducer_speed_cpu_cfg.py
 
     
+    cd /data/user/amassiro/
+
+    ./patatrack-scripts/benchmark /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/dump_testEcalRechitProducer_speed_gpu_cfg.py
+
+    ./patatrack-scripts/scan /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/dump_testEcalRechitProducer_speed_gpu_cfg.py
     
+    
+    
+ 
+ 
+ 
+ 
     
     
 
