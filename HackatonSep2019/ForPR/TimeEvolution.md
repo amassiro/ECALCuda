@@ -688,3 +688,9 @@ By A. Bocci:
 
     comments by Bocci and Matti implemented
  
+Add Cuda protection
+
+PR merged
+
+
+
