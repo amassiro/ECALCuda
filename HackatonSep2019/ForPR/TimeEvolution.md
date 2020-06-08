@@ -713,13 +713,52 @@ Move to P5
     cmsrel CMSSW_11_1_0_pre8_Patatrack
     cd CMSSW_11_1_0_pre8_Patatrack/src
     
+    cd /nfshome0/amassiro/Debug/CMSSW_11_1_0_pre8_Patatrack/src
+    
     cmsenv
     
     git cms-merge-topic cms-patatrack:patatrack_update_ECAL_GPU_workflows
 
     
+Back to cmggpu
+
+    cd /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/Rebase/CMSSW_11_1_0_pre8_Patatrack/src
+    
+    git remote add origin git@github.com:amassiro/cmssw
+ 
+    git fetch origin
+    
+    git checkout -b  amassiro-ecal-rechit-11_1_0-PR-fix-1
+
+    git push -u origin amassiro-ecal-rechit-11_1_0-PR-fix-1
+
+
     
     
+    git checkout CMSSW_11_1_X_Patatrack
+    
+Rebase
+
+    cd /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/Rebase/8JunRebase/CMSSW_11_1_Patatrack_X_2020-06-05-2300/src
+    
+    git cms-rebase-topic amassiro:amassiro-ecal-rechit-11_1_0-PR-fix-1
+    ---> baaaaad
+    
+    
+    git cherry-pick e94bc013f7ee861c6d27e9e639363eda65501f97
+    git cherry-pick 907a3bb265c30d332432084a72b1748f2b51971c
+    
+    
+    
+fix fix fix stuff
+
+    git remote add origin git@github.com:amassiro/cmssw
+ 
+    git fetch origin
+
+    git checkout -b amassiro-ecal-rechit-11_1_0-PR-4
+    
+    git push -u origin amassiro-ecal-rechit-11_1_0-PR-4
     
     
     
