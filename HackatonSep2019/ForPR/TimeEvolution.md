@@ -694,3 +694,34 @@ PR merged
 
 
 
+
+8 June
+====
+
+    test for bug
+    https://github.com/cms-patatrack/cmssw/pull/473
+    
+    CMSSW_11_1_Patatrack_X_2020-06-05-2300
+    
+    cd /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/1Apr2020/Debug/CMSSW_11_1_Patatrack_X_2020-06-05-2300/src
+    cmsenv
+    
+    git cms-merge-topic cms-patatrack:patatrack_update_ECAL_GPU_workflows
+
+Move to P5
+
+    cmsrel CMSSW_11_1_0_pre8_Patatrack
+    cd CMSSW_11_1_0_pre8_Patatrack/src
+    
+    cmsenv
+    
+    git cms-merge-topic cms-patatrack:patatrack_update_ECAL_GPU_workflows
+
+    
+    
+    
+    
+    
+    
+    
+    
