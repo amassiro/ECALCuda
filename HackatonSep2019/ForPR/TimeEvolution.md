@@ -762,5 +762,14 @@ fix fix fix stuff
     
     
     
-    
+9 June
+====
+
+Issues:
+
+     [EcalCPURecHitProducer::acquire] ebRecHits.size = 2577
+     [EcalCPURecHitProducer::acquire] eeRecHits.size = 0
+     ebRecHits.energy from 0x7f7393174e00, 10308 bytes
+     eeRecHits.energy from 0x7f7393177644, 0 bytes
+
     
