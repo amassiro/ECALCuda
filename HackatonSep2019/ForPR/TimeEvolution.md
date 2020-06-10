@@ -772,4 +772,11 @@ Issues:
      ebRecHits.energy from 0x7f7393174e00, 10308 bytes
      eeRecHits.energy from 0x7f7393177644, 0 bytes
 
+See code:
+
+    testing-10824.512-step3.py
+    
+    cat dump_testing-10824.512-step3.py | grep -v "keep" | grep -v "cms.untracked.vint32" | grep -v "cms.int32" | grep -v "cms.double" | grep -v "cms.bool" | grep -v "cms.float" > reduced_dump_testing-10824.512-step3.py
+    
+    
     
