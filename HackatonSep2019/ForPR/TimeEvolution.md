@@ -777,6 +777,42 @@ See code:
     testing-10824.512-step3.py
     
     cat dump_testing-10824.512-step3.py | grep -v "keep" | grep -v "cms.untracked.vint32" | grep -v "cms.int32" | grep -v "cms.double" | grep -v "cms.bool" | grep -v "cms.float" > reduced_dump_testing-10824.512-step3.py
+
+    
+10 June
+====
+    
+Prepare HLT
+
+    https://github.com/cms-patatrack/cmssw/blob/CMSSW_11_1_X_Patatrack/HLTrigger/Configuration/python/customizeHLTforPatatrack.py
+
+    
+    process.hltEcalRecHitGPU    <-- run on  GPU
+    process.hltEcalRecHitSoA    <-- copy from GPU to CPU 
+    process.hltEcalRecHit       <-- transform to legacy format
+    
+    
+Where:
+
+    /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/10Jun2020/CMSSW_11_1_Patatrack_X_2020-06-08-2300/src/
+    
+    
+commit:
+
+    git remote add origin git@github.com:amassiro/cmssw
+    git fetch origin
+    git checkout -b amassiro-ecal-rechit-11_1_0-PR-hlt-config
+    git push -u origin amassiro-ecal-rechit-11_1_0-PR-hlt-config
+
+test:
+
+    /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/10Jun2020/CMSSW_11_1_Patatrack_X_2020-06-08-2300/src/ByBocci
+    cmsRun hlt_gpu.py
+
+    
+    
+    
+    
     
     
     
