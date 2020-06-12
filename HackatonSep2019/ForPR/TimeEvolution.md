@@ -811,8 +811,53 @@ test:
 
     
     
+
+11 June
+====
+        
+    changes for "maxchannels"
     
+    git checkout -b amassiro-ecal-rechit-11_1_0-PR-fix-max-channels
+    git push -u origin amassiro-ecal-rechit-11_1_0-PR-fix-max-channels
+
+    https://github.com/cms-patatrack/cmssw/pull/480
+
+
     
+12 June
+====
+
+Rebase yesterday PR: CMSSW_11_1_X_Patatrack
+
+    cd /afs/cern.ch/work/a/amassiro/ECAL/GPU/onGPU/10Jun2020/CMSSW_11_1_Patatrack_X_2020-06-10-2300/src
+
+    cmsenv
+    
+    git cms-init -x cms-patatrack
+    git checkout CMSSW_11_1_X_Patatrack
+
+    git cms-rebase-topic amassiro:amassiro-ecal-rechit-11_1_0-PR-fix-max-channels
+
+    <resolve conflicts as needed>
+
+    git cms-checkdeps -a
+    scram b
+
+    git push -f my-cmssw amassiro-ecal-rechit-11_1_0-PR-fix-max-channels
+
+
+    
+Make plots of performance
+
+fu-c2a02-37-03    
+
+    /data/user/dalfonso/CMSSW_11_1_0_pre8_IGORPR/src/sourceFromRaw_cff.py
+    /data/user/dalfonso/CMSSW_11_1_0_pre8_IGORPR/src/raw2digi_hcalonly.py
+    /data/user/dalfonso/CMSSW_11_1_0_pre8_IGORPR/src/patatrack-scripts/scan
+
+
+
+
     
     
     
