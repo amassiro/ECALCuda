@@ -675,10 +675,10 @@ With my PR, problem with usual
     
 By A. Bocci:
 
-    CUDADataFormats/EcalRecHitSoA
-    EventFilter/EcalRawToDigi
-    RecoLocalCalo/EcalRecAlgos
-    RecoLocalCalo/EcalRecProducers
+    git-cms-addpkg  CUDADataFormats/EcalRecHitSoA
+    git-cms-addpkg  EventFilter/EcalRawToDigi
+    git-cms-addpkg  RecoLocalCalo/EcalRecAlgos
+    git-cms-addpkg  RecoLocalCalo/EcalRecProducers
     
     
     
@@ -877,7 +877,62 @@ fu-c2a02-37-03
     ./patatrack-scripts/scan /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/dump_testEcalRechitProducer_speed_gpu_cfg.py
     
     
+
+15 June
+====
+
+Make plots of performance
+
+    https://github.com/cms-patatrack/patatrack-scripts/
+
+Use official workflow 
+
+fu-c2a02-37-03
+
+    cd /data/user/amassiro/
+
+    cmsrel CMSSW_11_1_0_pre8_Patatrack
     
+    cd CMSSW_11_1_0_pre8_Patatrack/src/
+    
+    cmsenv
+    
+    git cms-init -x cms-patatrack
+    git checkout CMSSW_11_1_X_Patatrack
+
+ #   runTheMatrix.py -l 10824.512
+    
+    
+    git-cms-addpkg RecoLocalCalo/EcalRecProducers
+    git-cms-addpkg RecoLocalCalo/EcalRecAlgos
+    git-cms-addpkg CUDADataFormats/EcalRecHitSoA
+    git-cms-addpkg  EventFilter/EcalRawToDigi
+
+    scramv1 b -j 20
+ 
+ 
+ 
+    cd ../../
+    
+    git clone git@github.com:cms-patatrack/patatrack-scripts.git    
+
+    ./patatrack-scripts/benchmark /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/dump_testEcalRechitProducer_speed_gpu_cfg.py
+
+    ./patatrack-scripts/benchmark /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/test_ecal_only.py
+
+    
+    
+    export CUDA_VISIBLE_DEVICES=0;
+    
+    cmsRun /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/test_ecal_only.py
+    
+    cmsRun /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/test_ecal_only_gpu_all.py
+    
+    
+    
+    
+    
+
 
     
     
