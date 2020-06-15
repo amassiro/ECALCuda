@@ -205,8 +205,9 @@ process.digiPath = cms.Path(
 process.recoPathGPUonlyUncalib = cms.Path(
 #   gpu
     process.ecalUncalibRecHitProducerGPU            # run ECAL local reconstruction and multifit on gpu
-    *process.ecalCPUUncalibRecHitProducr            # copy to host
+    *process.ecalCPUUncalibRecHitProducer           # copy to host
     *process.ecalMultiFitUncalibRecHit              # convert to legacy format  --->    *process.ecalUncalibRecHitConvertGPU2CPUFormat   # convert to legacy format
+    *process.ecalDetIdToBeRecovered                 # needed for ecalrechit
     *process.ecalRecHit                             # standard reco on cpu
 )
       
