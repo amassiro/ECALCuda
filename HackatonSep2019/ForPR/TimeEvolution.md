@@ -845,9 +845,19 @@ Rebase yesterday PR: CMSSW_11_1_X_Patatrack
 
     git push -f my-cmssw amassiro-ecal-rechit-11_1_0-PR-fix-max-channels
 
+    git remote add origin git@github.com:amassiro/cmssw
+ 
+    git push -u origin amassiro-ecal-rechit-11_1_0-PR-fix-max-channels
+
 
     
+Issue with MC and EE
+
+    still there
+    
 Make plots of performance
+
+    https://github.com/cms-patatrack/patatrack-scripts/
 
 fu-c2a02-37-03    
 
@@ -855,9 +865,19 @@ fu-c2a02-37-03
     /data/user/dalfonso/CMSSW_11_1_0_pre8_IGORPR/src/raw2digi_hcalonly.py
     /data/user/dalfonso/CMSSW_11_1_0_pre8_IGORPR/src/patatrack-scripts/scan
 
-
-
-
     
+    
+    cd /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src
+    cmsenv
+    
+    cd /data/user/amassiro/
+    
+    git clone git@github.com:cms-patatrack/patatrack-scripts.git    
+    
+    ./patatrack-scripts/scan /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/dump_testEcalRechitProducer_speed_gpu_cfg.py
+    
+    
+    
+
     
     
