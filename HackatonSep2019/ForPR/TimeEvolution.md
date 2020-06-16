@@ -887,7 +887,7 @@ Make plots of performance
 
 Use official workflow 
 
-fu-c2a02-37-03
+fu-c2d41-12-01
 
     cd /data/user/amassiro/
 
