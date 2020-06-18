@@ -161,6 +161,8 @@ fu-c2d41-12-01
     /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/test_ecal_only.py
     process.recoPathGPUonlyUncalib
      6.1 ±   0.1 ev/s
+     6.0 ±   0.2 ev/s (with 16 nchannels_per_block):
+
 
     /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/test_ecal_only_gpu_all.py
     process.recoPathGPUall
@@ -253,6 +255,9 @@ Possible optimization:
     
      9.6 ±   0.3 ev/s
      
+     (with 16 nchannels_per_block):
+     9.9 ±   0.2 ev/s
+
      
 
     
