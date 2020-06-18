@@ -160,11 +160,10 @@ fu-c2d41-12-01
     
     /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/test_ecal_only.py
     process.recoPathGPUonlyUncalib
-    1217.9 ±  32.1 ev/s
+     6.1 ±   0.1 ev/s
 
     /nfshome0/amassiro/TestGPU/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test/test_ecal_only_gpu_all.py
     process.recoPathGPUall
-    1148.8 ±  56.8 ev/s
 
     
  
@@ -252,9 +251,10 @@ Possible optimization:
     
    Result: minor effect, see below 
     
-      1181.2 ±  31.9 ev/s
-      improved by +3%
-    
+     9.6 ±   0.3 ev/s
+     
+     
+
     
      GPU activities:   86.78%  1.49888s      1000  1.4989ms  702.24us  17.019ms  ecal::multifit::kernel_minimize(unsigned int const *, unsigned int const *, Eigen::Matrix<float, int=10, int=10, int=0, int=10, int=10> const *, EcalPulseCovariance const *, Eigen::Matrix<char, int=10, int=1, int=0, int=10, int=1>*, Eigen::Matrix<float, int=10, int=1, int=0, int=10, int=1> const *, Eigen::Matrix<float, int=10, int=1, int=0, int=10, int=1>*, Eigen::Matrix<float, int=10, int=10, int=0, int=10, int=10> const *, float*, float*, char*, int, int, unsigned int, unsigned int)
                     5.92%  102.31ms      1000  102.31us  63.839us  147.10us  void ecal::raw::kernel_unpack_test<int=32>(unsigned char const *, unsigned int const *, int const *, unsigned short*, int const *, unsigned int*, unsigned short*, unsigned short*, unsigned int const , unsigned int)
@@ -312,7 +312,8 @@ Possible optimization:
     
     
     
-2) 
+2)  with 20k max channels
+
     nchannels_per_block 16 -> 32
     
     and recompile
@@ -320,9 +321,9 @@ Possible optimization:
     
 Result:
 
-    No improvement?
-
-    1142.5 ±  64.8 ev/s
+     9.8 ±   0.1 ev/s
+    
+     It was "     9.6 ±   0.3 ev/s "  -> slight improvement
 
 
 

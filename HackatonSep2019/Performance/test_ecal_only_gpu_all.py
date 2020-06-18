@@ -205,29 +205,29 @@ process.ecalRecHitProducerGPU.maxNumberHits = cms.uint32(20000)
 #
 #
 
-# process.recoPathGPUall = cms.Path(
-# #   gpu
-#     process.ecalUncalibRecHitProducerGPU      # run ECAL local reconstruction and multifit on gpu
-#     *process.ecalRecHitProducerGPU             # make ECAL calibrated rechits on gpu
-#     *process.ecalCPURecHitProducer             # copy to host
-#     *process.ecalRecHitConvertGPU2CPUFormat    # convert to legacy format
-# )
-
-process.recoPathGPUonlyUncalib = cms.Path(
+process.recoPathGPUall = cms.Path(
 #   gpu
-    process.ecalUncalibRecHitProducerGPU            # run ECAL local reconstruction and multifit on gpu
-    *process.ecalCPUUncalibRecHitProducer           # copy to host
-    *process.ecalMultiFitUncalibRecHit              # convert to legacy format  --->    *process.ecalUncalibRecHitConvertGPU2CPUFormat   # convert to legacy format
-    *process.ecalDetIdToBeRecovered                 # needed for ecalrechit
-    *process.ecalRecHit                             # standard reco on cpu
+    process.ecalUncalibRecHitProducerGPU      # run ECAL local reconstruction and multifit on gpu
+    *process.ecalRecHitProducerGPU             # make ECAL calibrated rechits on gpu
+    *process.ecalCPURecHitProducer             # copy to host
+    *process.ecalRecHitConvertGPU2CPUFormat    # convert to legacy format
 )
+
+#process.recoPathGPUonlyUncalib = cms.Path(
+##   gpu
+    #process.ecalUncalibRecHitProducerGPU            # run ECAL local reconstruction and multifit on gpu
+    #*process.ecalCPUUncalibRecHitProducer           # copy to host
+    #*process.ecalMultiFitUncalibRecHit              # convert to legacy format  --->    *process.ecalUncalibRecHitConvertGPU2CPUFormat   # convert to legacy format
+    #*process.ecalDetIdToBeRecovered                 # needed for ecalrechit
+    #*process.ecalRecHit                             # standard reco on cpu
+#)
       
 
 process.schedule = cms.Schedule(
     process.bunchSpacing,
     process.digiPath,
-    #process.recoPathGPUall,
-    process.recoPathGPUonlyUncalib,
+    process.recoPathGPUall,
+    #process.recoPathGPUonlyUncalib,
     process.finalize
 )
 
