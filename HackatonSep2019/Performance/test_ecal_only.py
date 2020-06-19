@@ -231,12 +231,12 @@ process.schedule = cms.Schedule(
     process.finalize
 )
 
-process.options = cms.untracked.PSet(
-    numberOfThreads = cms.untracked.uint32(8),
-    numberOfStreams = cms.untracked.uint32(8),
-    SkipEvent = cms.untracked.vstring('ProductNotFound'),
-    wantSummary = cms.untracked.bool(True)
-)
+#process.options = cms.untracked.PSet(
+    #numberOfThreads = cms.untracked.uint32(8),
+    #numberOfStreams = cms.untracked.uint32(8),
+    #SkipEvent = cms.untracked.vstring('ProductNotFound'),
+    #wantSummary = cms.untracked.bool(True)
+#)
 
 # report CUDAService messages
 process.MessageLogger.categories.append("CUDAService")
