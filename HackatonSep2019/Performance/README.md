@@ -382,3 +382,79 @@ Scan: not working
     
 Test back HCAL configuration 
 
+
+
+Only ECAL uncalibrechit 
+
+
+Running 4 times over 1000 events with 1 jobs, each with 1 threads, 1 streams and 1 GPUs
+     9.2 ±   0.0 ev/s (900 events)
+     9.1 ±   0.0 ev/s (900 events)
+     9.2 ±   0.0 ev/s (900 events)
+     9.2 ±   0.0 ev/s (900 events)
+ --------------------
+     9.2 ±   0.0 ev/s
+
+Running 4 times over 1000 events with 1 jobs, each with 2 threads, 2 streams and 1 GPUs
+    16.6 ±   0.0 ev/s (900 events)
+    16.7 ±   0.1 ev/s (900 events)
+    16.7 ±   0.0 ev/s (900 events)
+    16.5 ±   0.0 ev/s (900 events)
+ --------------------
+    16.6 ±   0.1 ev/s
+
+Running 4 times over 1000 events with 1 jobs, each with 3 threads, 3 streams and 1 GPUs
+    16.4 ±   0.1 ev/s (900 events)
+    16.3 ±   0.1 ev/s (900 events)
+    17.3 ±   0.0 ev/s (900 events)
+    16.5 ±   0.1 ev/s (900 events)
+ --------------------
+    16.6 ±   0.5 ev/s
+
+    
+    
+    
+    
+    
+    
+Only i/o
+
+Running 4 times over 1000 events with 1 jobs, each with 8 threads, 8 streams and 1 GPUs
+    1231.2 ±  14.8 ev/s (900 events)
+    688.8 ± 114.6 ev/s (900 events)
+    938.7 ±  98.9 ev/s (900 events)
+    789.7 ±  44.1 ev/s (900 events)
+ --------------------
+    912.1 ± 236.2 ev/s
+
+    
+    
+    
+Only ECAL unpacker
+ 
+Running 4 times over 1000 events with 1 jobs, each with 8 threads, 8 streams and 1 GPUs
+    606.2 ± 103.7 ev/s (900 events)
+    626.0 ± 112.6 ev/s (900 events)
+    739.4 ±  63.3 ev/s (900 events)
+    673.1 ± 107.7 ev/s (900 events)
+  --------------------
+    661.2 ±  59.2 ev/s
+ 
+ 
+ 
+ 
+Unpacker + uncalibrechit 
+
+Running 4 times over 1000 events with 1 jobs, each with 8 threads, 8 streams and 1 GPUs
+    1174.4 ±   9.4 ev/s (900 events)
+    1170.0 ±  13.3 ev/s (900 events)
+    1199.2 ±   5.5 ev/s (900 events)
+    1127.6 ±  15.8 ev/s (900 events)
+ --------------------
+    1167.8 ±  29.7 ev/s
+
+    
+    
+    
+    
+    
