@@ -588,9 +588,9 @@ Running 4 times over 1000 events with 1 jobs, each with 8 threads, 8 streams and
      
      
      
-     
-     
-     
+Plot:
+
+    r99t draw_time.cxx\(\"data_time.txt\"\)
      
      
      
