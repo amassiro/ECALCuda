@@ -453,8 +453,145 @@ Running 4 times over 1000 events with 1 jobs, each with 8 threads, 8 streams and
  --------------------
     1167.8 ±  29.7 ev/s
 
+
+    
+    
+    
+Unpacker + uncalibrechit + copy back to host 
+
+Running 4 times over 1000 events with 1 jobs, each with 8 threads, 8 streams and 1 GPUs
+    951.5 ±  21.5 ev/s (900 events)
+    928.4 ±  10.6 ev/s (900 events)
+    924.9 ±  12.8 ev/s (900 events)
+    957.7 ±  16.8 ev/s (900 events)
+ --------------------
+    940.6 ±  16.4 ev/s
+
+
+
+Unpacker + uncalibrechit + copy back to host + copy to host digis and run ecalDetIdToBeRecovered
+
+Running 4 times over 1000 events with 1 jobs, each with 8 threads, 8 streams and 1 GPUs
+    985.8 ±  20.2 ev/s (900 events)
+    938.9 ±  15.0 ev/s (900 events)
+    931.5 ±  12.2 ev/s (900 events)
+    982.3 ±  21.9 ev/s (900 events)
+ --------------------
+    959.6 ±  28.4 ev/s
+
+    
+    
+    
+Unpacker + uncalibrechit + copy back to host + copy to host digis and run ecalDetIdToBeRecovered + rechit on cpu
+    
+Running 4 times over 1000 events with 1 jobs, each with 8 threads, 8 streams and 1 GPUs
+    929.2 ±  14.6 ev/s (900 events)
+    872.6 ±  10.4 ev/s (900 events)
+    918.8 ±  16.1 ev/s (900 events)
+    999.2 ±  13.4 ev/s (900 events)
+ --------------------
+    930.0 ±  52.3 ev/s
     
     
     
     
     
+    
+    
+    
+    
+Unpacker + uncalibrechit + rechit + copy to host digis and run ecalDetIdToBeRecovered 
+    
+Running 4 times over 1000 events with 1 jobs, each with 8 threads, 8 streams and 1 GPUs
+    1268.7 ±   6.9 ev/s (900 events)
+    1294.3 ±   5.5 ev/s (900 events)
+    1030.8 ±   9.3 ev/s (900 events)
+    1049.9 ±  19.7 ev/s (900 events)
+ --------------------
+    1160.9 ± 139.9 ev/s
+    
+    
+    
+    
+    
+Unpacker + uncalibrechit + rechit + copy to host digis and run ecalDetIdToBeRecovered + copy rechit on cpu and convert to legacy
+
+Running 4 times over 1000 events with 1 jobs, each with 8 threads, 8 streams and 1 GPUs
+    938.3 ±  17.2 ev/s (900 events)
+    964.2 ±  17.3 ev/s (900 events)
+    997.9 ±  16.8 ev/s (900 events)
+    950.7 ±  14.4 ev/s (900 events)
+ --------------------
+    962.8 ±  25.7 ev/s
+
+
+
+ 
+ 
+ 
+Final comparison
+
+    ./patatrack-scripts/scan  raw2reco_ecalonly.py
+
+Unpacker + uncalibrechit + rechit + copy to host digis and run ecalDetIdToBeRecovered + copy rechit on cpu and convert to legacy
+
+Running 4 times over 1000 events with 1 jobs, each with 1 threads, 1 streams and 1 GPUs
+    373.8 ±   4.5 ev/s (900 events)
+    355.9 ±   2.9 ev/s (900 events)
+    368.2 ±   3.9 ev/s (900 events)
+    361.9 ±   3.5 ev/s (900 events)
+ --------------------
+    364.9 ±   7.7 ev/s
+
+    
+    
+
+    ./patatrack-scripts/scan  raw2digi_ecalonly.py
+    
+Unpacker + uncalibrechit + copy back to host + copy to host digis and run ecalDetIdToBeRecovered + rechit on cpu
+     
+Running 4 times over 1000 events with 1 jobs, each with 1 threads, 1 streams and 1 GPUs
+    263.6 ±   1.6 ev/s (900 events)
+    266.7 ±   2.3 ev/s (900 events)
+    268.4 ±   1.2 ev/s (900 events)
+    269.6 ±   3.1 ev/s (900 events)
+ --------------------
+    267.1 ±   2.6 ev/s
+     
+     
+     
+     
+     
+     
+     
+    ./patatrack-scripts/scan  raw2reco_ecalonly_cpu.py
+     
+all on cpu + rechit on cpu
+     
+
+Running 4 times over 1000 events with 1 jobs, each with 1 threads, 1 streams and 1 GPUs
+    20.4 ±   0.0 ev/s (900 events)
+    20.1 ±   0.0 ev/s (900 events)
+    20.3 ±   0.0 ev/s (900 events)
+    20.3 ±   0.0 ev/s (900 events)
+ --------------------
+    20.3 ±   0.1 ev/s
+     
+     
+Running 4 times over 1000 events with 1 jobs, each with 8 threads, 8 streams and 1 GPUs
+    138.9 ±   0.4 ev/s (900 events)
+    138.8 ±   0.4 ev/s (900 events)
+    139.3 ±   0.4 ev/s (900 events)
+    139.1 ±   0.4 ev/s (900 events)
+ --------------------
+    139.1 ±   0.2 ev/s
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
