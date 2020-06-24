@@ -591,7 +591,36 @@ Running 4 times over 1000 events with 1 jobs, each with 8 threads, 8 streams and
 Plot:
 
     r99t draw_time.cxx\(\"data_time.txt\"\)
+    r99t draw_time.cxx\(\"data_time_steps.txt\"\)
+    r99t draw_time.cxx\(\"data_time_2cpu.txt\"\)
+    r99t draw_time.cxx\(\"data_time_8jobs.txt\"\)
      
      
      
      
+     
+Skim ECAL fed only
+====
+(see Jun 2019)
+
+    ssh cmsusr.cern.ch -t ssh gpu-c2a02-37-03.cms
+    
+    cmsRun skim_EcalFed.py
+
+Then run on amassiro@fu-c2a02-37-03
+
+    r99t draw_time.cxx\(\"data_time_8jobs_onlyEcalFed.txt\"\)
+
+
+allow_hyperthreading -> now set to true
+
+    r99t draw_time.cxx\(\"data_time_8jobs_onlyEcalFed_allow_hyperthreading_True.txt\"\)
+
+    
+
+Remember:
+
+    streams ---> cmssw
+    thread ----> operating system
+    
+ 
