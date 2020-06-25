@@ -624,4 +624,8 @@ Remember:
     streams ---> cmssw
     thread ----> operating system
     
- 
+Test i/o
+
+    ./patatrack-scripts/scan  test_io.py
+    
+    
