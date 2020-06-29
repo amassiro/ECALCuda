@@ -642,4 +642,21 @@ Tests:
     
 10k events
 
+    r99t draw_time.cxx\(\"data_time_8jobs_onlyEcalFed_allow_hyperthreading_True_10kevents.txt\"\)
 
+    
+Raw vs only ECAL FED 
+
+    r99t draw_time.cxx\(\"data_time_8jobs_AllFed_allow_hyperthreading_True_10kevents.txt\"\)
+    r99t draw_time.cxx\(\"data_time_8jobs_onlyEcalFed_allow_hyperthreading_True_10kevents.txt\"\)
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
