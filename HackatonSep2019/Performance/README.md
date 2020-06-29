@@ -629,3 +629,17 @@ Test i/o
     ./patatrack-scripts/scan  test_io.py
     
     
+    
+    
+    
+Tests:
+
+    - try 10k events
+    - try full raw data vs ecal fed only
+    - remove chi2 float in gpu rechit (leave only extra that has it packed) -> see improvement
+    
+    
+    
+10k events
+
+
