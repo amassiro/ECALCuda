@@ -944,7 +944,16 @@ fu-c2d41-12-01
     
     
     
+2 Jul
+====
+
+    https://github.com/cms-patatrack/patatrack-scripts/pull/7
+
+Fix 
+
+- try high pu data for Throughput
+- change chi2 as float
 
 
-    
+
     
