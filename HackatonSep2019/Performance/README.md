@@ -660,7 +660,23 @@ Tests:
 fu-c2a02-37-03 
     /data/user/dalfonso/CMSSW_11_1_0_pre8_Patatrack_ECALHCAL/src/skim_hcalfeds.py
 
+    cmsRun skim_EcalFed_forBU.py
+    
+    raw2reco_ecalonly_cpu_highPU.py
+    raw2digi_ecalonly_highPU.py
+    raw2reco_ecalonly_highPU.py
 
+    
+    ./patatrack-scripts/scan     raw2reco_ecalonly_cpu_highPU.py
+    ./patatrack-scripts/scan     raw2digi_ecalonly_highPU.py
+    ./patatrack-scripts/scan     raw2reco_ecalonly_highPU.py
+    
+    
+    
+    r99t draw_time.cxx\(\"data_time_8jobs_onlyEcalFed_allow_hyperthreading_True_10kevents_highPU.txt\"\)
+    
+    
+    
     
     
     
