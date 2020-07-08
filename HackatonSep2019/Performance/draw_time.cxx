@@ -57,15 +57,18 @@ void draw_time(std::string nameFile = "data_time.txt") {
       line >> error_value_gpu_new; 
       std::cout << " value_gpu_new = " << value_gpu_new << " +/- " << error_value_gpu_new << std::endl;
       
-      std::cout << "----" << std::endl;
-      
       if (! (line.eof())) {
         line >> value_io; 
-        line >> temp_char;
-        line >> error_value_io; 
-        gr_time_io->SetPoint(ipoint, value_number, value_io);
-        gr_time_io->SetPointError(ipoint, 0, error_value_io);
+        if (value_io !=0) {
+          line >> temp_char;
+          line >> error_value_io; 
+          gr_time_io->SetPoint(ipoint, value_number, value_io);
+          gr_time_io->SetPointError(ipoint, 0, error_value_io);
+        }
+        std::cout << " value_io = " << value_io << " +/- " << error_value_io << std::endl;
       }
+      
+      std::cout << "----" << std::endl;
       
       gr_time_cpu->SetPoint    (ipoint, value_number, value_cpu);
       gr_time_gpu->SetPoint    (ipoint, value_number, value_gpu);
