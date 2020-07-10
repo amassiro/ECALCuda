@@ -681,7 +681,80 @@ fu-c2a02-37-03
     
     
     
+To see improvement:
+
+    - remove chi2 float in gpu rechit (leave only extra that has it packed) -> see improvement
+
+
+Code on cmggpu-1080
+
+
+Install
+
+    cd /afs/cern.ch/user/a/amassiro/work/ECAL/GPU/onGPU/9Jul2020/
+    
+    cmsrel CMSSW_11_1_0_pre8_Patatrack
+    cd CMSSW_11_1_0_pre8_Patatrack/src
+    cmsenv
+ 
+    git cms-merge-topic amassiro:amassiro-ecal-rechit-11_1_0-PR-3
+
+    scramv1 b -j 20
     
     
     
+    git-cms-addpkg CUDADataFormats/EcalRecHitSoA
+    git-cms-addpkg EventFilter/EcalRawToDigi
+    git-cms-addpkg RecoLocalCalo/EcalRecAlgos
+    git-cms-addpkg RecoLocalCalo/EcalRecProducers
+ 
     
+change code
+    
+    git remote add origin git@github.com:amassiro/cmssw
+ 
+    git fetch origin
+    
+    git checkout -b  amassiro-ecal-rechit-11_1_0-TestChi2Removal
+
+    git commit ..........
+    
+    git push -u origin amassiro-ecal-rechit-11_1_0-TestChi2Removal
+    
+    
+and now on hlt machine.
+
+Install
+
+    ssh -f -N cmsusr.cms
+
+    cd /nfshome0/amassiro/TestGPUNoChi2
+    
+    cmsrel CMSSW_11_1_0_pre8_Patatrack
+    cd CMSSW_11_1_0_pre8_Patatrack/src
+    cmsenv
+ 
+    git-cms-addpkg CUDADataFormats/EcalRecHitSoA
+    git-cms-addpkg EventFilter/EcalRawToDigi
+    git-cms-addpkg RecoLocalCalo/EcalRecAlgos
+    git-cms-addpkg RecoLocalCalo/EcalRecProducers
+
+    git cms-merge-topic amassiro:amassiro-ecal-rechit-11_1_0-TestChi2Removal
+
+    scramv1 b -j 20
+
+and test
+
+    cd 
+    
+    source setupCMSSW.sh
+    
+    cd /nfshome0/amassiro/TestGPUNoChi2/CMSSW_11_1_0_pre8_Patatrack/src
+    cmsenv
+    
+    cd /data/user/amassiro/
+    
+    ./patatrack-scripts/scan     raw2reco_ecalonly_highPU.py
+
+    r99t draw_time.cxx\(\"data_time_8jobs_onlyEcalFed_allow_hyperthreading_True_10kevents_highPU_noChi2.txt\"\)
+ 
