@@ -20,8 +20,21 @@ changes
 
     maxChannels  
 ->
-    maxChannelsEE
     maxChannelsEB
+    maxChannelsEE
+    
+    maxNumberHits
+-> 
+    maxNumberHitsEB
+    maxNumberHitsEE
+
+
+    EventFilter/EcalRawToDigi/plugins/DeclsForKernels.h 
+    EventFilter/EcalRawToDigi/plugins/EcalRawToDigiGPU.cc
+    RecoLocalCalo/EcalRecProducers/plugins/DeclsForKernels.h 
+    RecoLocalCalo/EcalRecProducers/plugins/EcalRecHitProducerGPU.cc 
+    RecoLocalCalo/EcalRecProducers/plugins/EcalUncalibRecHitProducerGPU.cc 
+    RecoLocalCalo/EcalRecProducers/python/ecalRecHitGPU_cfi.py
     
     
 Compile
