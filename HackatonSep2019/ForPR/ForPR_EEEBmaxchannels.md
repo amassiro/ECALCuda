@@ -155,6 +155,11 @@ When NOT running
     %MSG
 
     
+Diagnosis:
+
+    - no GPU available -> but actually, nvidia-smi, there are
+    - old CUDA (likely)
+    
     
     
     
