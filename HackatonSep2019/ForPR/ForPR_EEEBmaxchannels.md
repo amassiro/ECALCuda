@@ -1,6 +1,6 @@
-For PR 502
-
-    https://github.com/cms-patatrack/cmssw/pull/502
+For EE and EB max channels
+    
+    https://github.com/cms-patatrack/patatrack-website/blob/master/wiki/PatatrackDevelopment.md
     
 on cmggpu-1080
 
@@ -16,6 +16,11 @@ on cmggpu-1080
     git-cms-addpkg RecoLocalCalo/EcalRecProducers
     git-cms-addpkg CUDADataFormats/EcalDigi
 
+
+---> 11_2 not yet ready for development
+      
+    
+        
 changes 
 
     maxChannels  
@@ -23,12 +28,27 @@ changes
     maxChannelsEB
     maxChannelsEE
     
+    
+    
     maxNumberHits
 -> 
     maxNumberHitsEB
     maxNumberHitsEE
 
 
+    In CMSSW_11_1_0_pre8_Patatrack
+    
+    EventFilter/EcalRawToDigi/plugins/EcalRawToDigiGPU.cc
+    RecoLocalCalo/EcalRecProducers/plugins/EcalUncalibRecHitProducerGPU.cc
+    EventFilter/EcalRawToDigi/interface/DeclsForKernels.h
+    
+    
+    
+    
+    
+    
+    In CMSSW_11_2_0_pre2_Patatrack
+    
     EventFilter/EcalRawToDigi/plugins/DeclsForKernels.h 
     EventFilter/EcalRawToDigi/plugins/EcalRawToDigiGPU.cc
     RecoLocalCalo/EcalRecProducers/plugins/DeclsForKernels.h 
@@ -42,7 +62,7 @@ Compile
     scramv1 b -j 20
     
     
-PR:
+PR 11_2:
  
     git checkout -b amassiro-ecal-maxchannels-ebee
     
@@ -58,6 +78,44 @@ PR:
     git push -u origin amassiro-ecal-maxchannels-ebee
 
     
+    
+
+PR 11_1:
+ 
+    cmsrel CMSSW_11_1_0_Patatrack
+    cd CMSSW_11_1_0_Patatrack/src
+    cmsenv
+    git cms-init -x cms-patatrack
+    git branch CMSSW_11_1_X_Patatrack --track cms-patatrack/CMSSW_11_1_X_Patatrack
+
+ 
+    git checkout cms-patatrack/CMSSW_11_1_X_Patatrack -b amassiro-ecal-maxchannels-ebee-11-1-v2
+    
+    git diff $CMSSW_VERSION --name-only --no-renames | cut -d/ -f-2 | sort -u | xargs -r git cms-addpkg
+    git cms-checkdeps -a
+    scram b -j
+
+
+    git-cms-addpkg CUDADataFormats/EcalRecHitSoA
+    git-cms-addpkg EventFilter/EcalRawToDigi
+    git-cms-addpkg RecoLocalCalo/EcalRecAlgos
+    git-cms-addpkg RecoLocalCalo/EcalRecProducers
+    git-cms-addpkg CUDADataFormats/EcalDigi
+
+    scram b -j 20
+    
+chenage code ...
+
+    git commit ......
+    
+    git remote add origin git@github.com:amassiro/cmssw
+ 
+    git fetch origin
+    
+    git checkout -b amassiro-ecal-maxchannels-ebee-11-1-v2
+
+    git push -u origin amassiro-ecal-maxchannels-ebee-11-1-v2
+
     
     
     
