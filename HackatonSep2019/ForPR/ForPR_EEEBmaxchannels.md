@@ -119,5 +119,42 @@ chenage code ...
     
     
     
+ 
+ 
+ 
+ 
+When running:
+
+    /afs/cern.ch/user/a/amassiro/work/ECAL/GPU/onGPU/10Jul2020/CMSSW_11_1_0_pre8_Patatrack/src/RecoLocalCalo/EcalRecProducers/test
+    
+    cmsRun testEcalRechitProducer_cfg.py
+    
+    
+    %MSG-i ThreadStreamSetup:  (NoModuleName) 17-Jul-2020 17:00:54 CEST pre-events
+    setting # threads 4
+    setting # streams 4
+    %MSG
+    %MSG-i CUDAService:  (NoModuleName) 17-Jul-2020 17:01:01 CEST pre-events
+    CUDA runtime successfully initialised, found 1 compute devices.
+
+
+When NOT running
+
+    /afs/cern.ch/user/a/amassiro/work/ECAL/GPU/onGPU/10Jul2020/ToCommit/NOCHANGESNOTHIG/CMSSW_11_1_0_Patatrack/src/RecoLocalCalo/EcalRecProducers/test
+    
+    cmsRun testEcalRechitProducer_cfg.py
+    
+    
+    %MSG-i ThreadStreamSetup:  (NoModuleName) 17-Jul-2020 17:03:45 CEST pre-events
+    setting # threads 4
+    setting # streams 4
+    %MSG
+    %MSG-w CUDAService:  (NoModuleName) 17-Jul-2020 17:03:48 CEST pre-events
+    Failed to initialize the CUDA runtime.
+    Disabling the CUDAService.
+    %MSG
+
+    
+    
     
     
