@@ -161,5 +161,20 @@ Diagnosis:
     - old CUDA (likely)
     
     
+
+Test on P5 machine
+
+    git cms-merge-topic amassiro:amassiro-ecal-maxchannels-ebee-11-1-v2
+
+
+In 
+
+    /data/user/amassiro/TEST/CMSSW_11_1_0_Patatrack/src/RecoLocalCalo/EcalRecProducers/test
     
+It runs on data!
+
+
+    
+
+
     
