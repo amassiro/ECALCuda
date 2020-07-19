@@ -173,6 +173,11 @@ In
     
 It runs on data!
 
+    cmsRun step3_My.py
+    
+    --> 
+
+    Module: EcalBarrelRecHitsValidation:ecalBarrelRecHitsValidation (crashed)
 
     
 
