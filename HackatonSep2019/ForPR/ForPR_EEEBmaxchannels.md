@@ -179,8 +179,7 @@ It runs on data!
 
     Module: EcalBarrelRecHitsValidation:ecalBarrelRecHitsValidation (crashed)
 
-    
+--> fix in 
 
+    EventFilter/EcalRawToDigi/plugins/DeclsForKernels.h
 
-process.reconstruction_step = cms.Path(cms.Task(process.bunchSpacingProducer, process.ecalDetIdToBeRecovered, process.ecalGainRatiosGPUESProducer, process.ecalIntercalibConstantsGPUESProducer, process.ecalLaserAPDPNRatiosGPUESProducer, process.ecalLaserAPDPNRatiosRefGPUESProducer, process.ecalLaserAlphasGPUESProducer, process.ecalLinearCorrectionsGPUESProducer, process.ecalMultiFitUncalibRecHit, process.ecalMultiFitUncalibRecHitGPU, process.ecalMultiFitUncalibRecHitSoA, process.ecalMultifitParametersGPUESProducer, process.ecalPedestalsGPUESProducer, process.ecalPreshowerRecHit, process.ecalPulseCovariancesGPUESProducer, process.ecalPulseShapesGPUESProducer, process.ecalRecHit, process.ecalRecHitGPU, process.ecalRecHitParametersGPUESProducer, process.ecalRecHitSoA, process.ecalRechitADCToGeVConstantGPUESProducer, process.ecalRechitChannelStatusGPUESProducer, process.ecalSamplesCorrelationGPUESProducer, process.ecalTimeBiasCorrectionsGPUESProducer, process.ecalTimeCalibConstantsGPUESProducer, process.offlineBeamSpot, process.particleFlowClusterECAL, process.particleFlowClusterECALUncorrected, process.particleFlowClusterPS, process.particleFlowRecHitECAL, process.particleFlowRecHitPS, process.particleFlowSuperClusterECALOnly))
-    
