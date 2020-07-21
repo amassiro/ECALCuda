@@ -768,5 +768,12 @@ Test new PR by Viktor for ES producer for conditions
     - already merged in newer cmssw versions
     - start from there
     
+On top of: 
 
+    amassiro:amassiro-ecal-maxchannels-ebee-11-1-v2
+    
+    
+    
+    
+    
  

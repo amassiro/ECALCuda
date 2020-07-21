@@ -2,6 +2,12 @@ For EE and EB max channels
     
     https://github.com/cms-patatrack/patatrack-website/blob/master/wiki/PatatrackDevelopment.md
     
+    https://github.com/cms-patatrack/cmssw/pull/517
+    
+    
+    
+    
+    
 on cmggpu-1080
 
     cd /afs/cern.ch/user/a/amassiro/work/ECAL/GPU/onGPU/10Jul2020
