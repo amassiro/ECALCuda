@@ -780,5 +780,14 @@ On top of:
 
 
 
-    
+----- Begin Fatal Exception 22-Jul-2020 14:10:32 CEST-----------------------
+An exception of category 'StdException' occurred while
+   [0] Calling EventProcessor::runToCompletion (which does almost everything after beginJob and before endJob)
+Exception Message:
+A std::exception was thrown.
+Can not get data (Additional Information: [frontier.c:1135]: No more proxies. Last error was: Request 1071 on chan 1 failed at Wed Jul 22 14:10:32 2020: -7 [response.c:55]: Server has signalled Global Error [FrontierProd Error: Exception: X-frontier-id header missing at gov.fnal.frontier.Frontier.logClientDesc(Frontier.java:460)]) ( CORAL : "coral::FrontierAccess::Statement::execute" from "CORAL/RelationalPlugins/frontier" )
+----- End Fatal Exception -------------------------------------------------
+
+
+
  
