@@ -22,23 +22,45 @@ on lxplus
     
 
 
-    
-Add
+Fix 
 
-    process.load("RecoLocalCalo.EcalRecProducers.ecalMultifitParametersGPUESProducer_cfi")
-    process.load("RecoLocalCalo.EcalRecProducers.ecalRecHitParametersGPUESProducer_cfi")
+    git-cms-addpkg HeterogeneousCore/CUDACore
 
     
--> MissingParameter: ParameterSet 'flagsMapDBReco' not found.
+    
+    grep -r "JobConfigurationGPURecord" .
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalMultifitParametersGPUESProducer.cc:#include "HeterogeneousCore/CUDACore/interface/JobConfigurationGPURecord.h"
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalMultifitParametersGPUESProducer.cc:  std::unique_ptr<EcalMultifitParametersGPU> produce(JobConfigurationGPURecord const&);
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalMultifitParametersGPUESProducer.cc:  findingRecord<JobConfigurationGPURecord>();
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalMultifitParametersGPUESProducer.cc:    JobConfigurationGPURecord const&) {
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalRecHitParametersGPUESProducer.cc:#include "HeterogeneousCore/CUDACore/interface/JobConfigurationGPURecord.h"
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalRecHitParametersGPUESProducer.cc:  std::unique_ptr<EcalRecHitParametersGPU> produce(JobConfigurationGPURecord const&);
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalRecHitParametersGPUESProducer.cc:  findingRecord<JobConfigurationGPURecord>();
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalRecHitParametersGPUESProducer.cc:    JobConfigurationGPURecord const&) {
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalRecHitProducerGPU.cc:#include "HeterogeneousCore/CUDACore/interface/JobConfigurationGPURecord.h"
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalRecHitProducerGPU.cc:  setup.get<JobConfigurationGPURecord>().get(recHitParametersHandle_);
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalUncalibRecHitProducerGPU.cc:#include "HeterogeneousCore/CUDACore/interface/JobConfigurationGPURecord.h"
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalUncalibRecHitProducerGPU.cc:  const edm::ESGetToken<EcalMultifitParametersGPU, JobConfigurationGPURecord> multifitParametersToken_;
+    ./RecoLocalCalo/EcalRecProducers/plugins/EcalUncalibRecHitProducerGPU.cc:      multifitParametersToken_{esConsumes<EcalMultifitParametersGPU, JobConfigurationGPURecord>()} {
+    ./RecoLocalCalo/EcalRecProducers/test/testEcalRechitProducer_cfg.py:#   No "JobConfigurationGPURecord" record found in the EventSetup.n
 
 
 
-        modified:   ../plugins/EcalRecHitParametersGPUESProducer.cc
-        modified:   ../plugins/EcalRecHitProducerGPU.cc
-        modified:   testEcalRechitProducer_cfg.py
-        modified:   testEcalUncalibRechitProducer_cfg.py
-
-        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
  
     git checkout -b amassiro-ecal-rechit-gpu-fixpr-502
     
