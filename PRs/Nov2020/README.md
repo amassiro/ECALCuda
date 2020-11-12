@@ -20,7 +20,30 @@ on lxplus
 
     scramv1 b -j 20
     
+    
+    
+    
+    
+    
+    
+    cmsrel CMSSW_11_2_0_pre8
+    cd CMSSW_11_2_0_pre8/src
+    
+    cmsenv
+    
+    git cms-rebase-topic cms-patatrack:patatrack_integration_7_N_ecal_local_reco
+    git cms-rebase-topic cms-patatrack:HeterogeneousCore_JobConfigurationGPURecord
 
+
+    
+
+    
+    
+Needs this PR merged:
+
+    https://github.com/cms-sw/cmssw/pull/32122
+    
+    
 
 Fix 
 
