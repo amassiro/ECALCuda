@@ -31,8 +31,8 @@ on lxplus
     
     cmsenv
     
-    git cms-rebase-topic cms-patatrack:patatrack_integration_7_N_ecal_local_reco
     git cms-rebase-topic cms-patatrack:HeterogeneousCore_JobConfigurationGPURecord
+    git cms-rebase-topic cms-patatrack:patatrack_integration_7_N_ecal_local_reco
 
 
     
