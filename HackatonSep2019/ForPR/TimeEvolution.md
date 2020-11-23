@@ -859,7 +859,7 @@ Make plots of performance
 
     https://github.com/cms-patatrack/patatrack-scripts/
 
-fu-c2a02-37-03    
+fu-c2a02-37-03
 
     /data/user/dalfonso/CMSSW_11_1_0_pre8_IGORPR/src/sourceFromRaw_cff.py
     /data/user/dalfonso/CMSSW_11_1_0_pre8_IGORPR/src/raw2digi_hcalonly.py
