@@ -75,6 +75,23 @@ Fix
     
     
     
+Again:
+
+    cmsrel CMSSW_11_2_0_pre9
+    cd CMSSW_11_2_0_pre9/src
+    
+    cmsenv
+    
+    git cms-rebase-topic cms-patatrack:HeterogeneousCore_JobConfigurationGPURecord
+    git cms-rebase-topic cms-patatrack:patatrack_integration_7_N_ecal_local_reco
+    git cms-rebase-topic fwyzard:HeterogeneousCore_ConvertingESProducerT
+    git cms-rebase-topic mariadalfonso:from-CMSSW_11_2_0_pre9_fit
+
+
+
+
+
+
     
     
     
