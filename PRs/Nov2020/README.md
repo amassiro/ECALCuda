@@ -92,6 +92,18 @@ It works
 
     hbhe ??    
     
+
+Bocci has rebaser on top of CMSSW_11_2_0_pre10
+
+
+
+    cmsrel CMSSW_11_2_0_pre10
+    cd CMSSW_11_2_0_pre10/src
+    
+    cmsenv
+    
+    git cms-rebase-topic cms-patatrack:HeterogeneousCore_JobConfigurationGPURecord
+    git cms-rebase-topic cms-patatrack:patatrack_integration_7_N_ecal_local_reco
     
     
     
