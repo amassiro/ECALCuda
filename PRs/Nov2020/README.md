@@ -107,11 +107,9 @@ Bocci has rebaser on top of CMSSW_11_2_0_pre10
     
     
     
-    
-    
-    
+change code
  
-    git checkout -b amassiro-ecal-rechit-gpu-fixpr-502
+    git checkout -b amassiro-ecal-gpu-fixpr-31719
     
     git commit ......
     
@@ -120,14 +118,18 @@ Bocci has rebaser on top of CMSSW_11_2_0_pre10
  
     git fetch origin
     
-    git checkout -b amassiro-ecal-rechit-gpu-fixpr-502
+    git checkout -b amassiro-ecal-rechit-gpu-fixpr-31719
 
-    git push -u origin amassiro-ecal-rechit-gpu-fixpr-502
+    git push -u origin amassiro-ecal-rechit-gpu-fixpr-31719
 
     
     
     
     
-    
-    
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
