@@ -124,7 +124,36 @@ change code
 
     
     
+-> 
+
+now provide a code to compare rechits and uncalibrechits from two different workflow.
+Assume event 1 = event 1 in the two root files
+
+Differences maybe due to different configuration:
+
+    wget https://jpata.web.cern.ch/jpata/reco/31719/136.885511_RunHLTPhy2018D+RunHLTPhy2018D+HLTDR2_2018+RECODR2_2018reHLT_ECALOnlyCPU+HARVEST2018_ECALOnly/step3_RAW2DIGI_RECO_DQM.py
+    mv step3_RAW2DIGI_RECO_DQM.py wf_511_step3_RAW2DIGI_RECO_DQM.py
+    wget https://jpata.web.cern.ch/jpata/reco/31719/136.885512_RunHLTPhy2018D+RunHLTPhy2018D+HLTDR2_2018+RECODR2_2018reHLT_ECALOnlyGPU+HARVEST2018_ECALOnly/step3_RAW2DIGI_RECO_DQM.py
+    mv step3_RAW2DIGI_RECO_DQM.py wf_512_step3_RAW2DIGI_RECO_DQM.py
+
     
+    cpu
+    wget https://jpata.web.cern.ch/jpata/reco/31719/11634.511_TTbar_14TeV+2021_Patatrack_ECALOnlyCPU+TTbar_14TeV_TuneCP5_GenSim+Digi+Reco+HARVEST/step3_RAW2DIGI_RECO_VALIDATION_DQM.py
+    mv step3_RAW2DIGI_RECO_VALIDATION_DQM.py wf_511_step3_RAW2DIGI_RECO_DQM.py    
+    
+    gpu
+    wget https://jpata.web.cern.ch/jpata/reco/31719/11634.512_TTbar_14TeV+2021_Patatrack_ECALOnlyGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+Reco+HARVEST/step3_RAW2DIGI_RECO_VALIDATION_DQM.py
+    mv step3_RAW2DIGI_RECO_VALIDATION_DQM.py wf_512_step3_RAW2DIGI_RECO_DQM.py
+    
+    
+    edmConfigDump wf_511_step3_RAW2DIGI_RECO_DQM.py > dump_wf_511_step3_RAW2DIGI_RECO_DQM.py
+    edmConfigDump wf_512_step3_RAW2DIGI_RECO_DQM.py > dump_wf_512_step3_RAW2DIGI_RECO_DQM.py
+    
+
+    
+    
+ 
+ 
     
  
  
