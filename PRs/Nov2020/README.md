@@ -151,7 +151,11 @@ Differences maybe due to different configuration:
     
 
     
-    
+     diff dump_wf_511_step3_RAW2DIGI_RECO_DQM.py dump_wf_512_step3_RAW2DIGI_RECO_DQM.py >diff.txt.py
+     
+     
+     
+     
  
  
     
