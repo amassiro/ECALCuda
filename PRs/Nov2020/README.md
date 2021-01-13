@@ -155,7 +155,12 @@ Differences maybe due to different configuration:
      
      
      
-     
+Still differences.
+Try to debug:
+
+    git-cms-addpkg   RecoLocalCalo/EcalRecProducers
+    
+    
  
  
     
