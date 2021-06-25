@@ -8,7 +8,7 @@ patatrack02
     from lxplus
 
     ssh patatrack02.cern.ch
-    
+    cd /afs/cern.ch/user/a/amassiro/work/ECAL/GPU/onGPU/24Jun2021/
     
 Login for p5 machines:
 
@@ -92,7 +92,16 @@ Copy results:
     cp plots_amplitudes_RECALL.root  
     
     
+
     
+Debug:
+
+    git-cms-addpkg RecoLocalCalo/EcalRecAlgos 
+    git-cms-addpkg CondFormats/EcalObjects
+    git-cms-addpkg DataFormats/EcalDigi
+    git-cms-addpkg CUDADataFormats/EcalRecHitSoA    
     
+    git-cms-addpkg DataFormats/CaloRecHit
+    --> fnnls
     
 
