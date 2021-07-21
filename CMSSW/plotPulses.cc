@@ -1,4 +1,46 @@
 
+void setupTGraph(TGraph* histo, int icolor) {
+  
+//   Int_t color[100];
+//   Double_t Red[]    = {0., 0.0, 1.0, 1.0, 1.0};
+//   Double_t Green[]  = {0., 0.0, 0.0, 1.0, 1.0};
+//   Double_t Blue[]   = {0., 1.0, 0.0, 0.0, 1.0};
+//   Double_t Length[] = {0., .25, .50, .75, 1.0};
+//   Int_t FI = TColor::CreateGradientColorTable(5, Length, Red, Green, Blue, 100);
+//   for (int i=0;i<100;i++) color[i] = FI+i;
+  
+
+  Int_t color[200];
+  for (int i=0;i<200;i++) color[i] = TColor::GetColorBright(i);
+  
+   
+//   Color_t* color = new Color_t [200];
+//   color[0] = kRed ;
+//   color[1] = kAzure + 10 ;
+//   color[2] = kYellow + 2 ;
+//   color[3] = kGreen ;
+//   color[4] = kGreen + 4 ;
+//   color[5] = kBlue ;
+//   color[6] = kCyan ;
+//   color[7] = kPink + 1 ;
+//   color[8] = kBlack ;
+//   color[9] = kYellow + 4 ;
+//   for (int i=0; i<30; i++) {
+//     color[i+10] = kBlue + i;
+//   }
+  
+  
+  
+  histo->SetLineWidth(2);
+  histo->SetLineColor(color[icolor]);
+  histo->SetMarkerColor(color[icolor]);
+  histo->SetMarkerSize(1);
+  histo->SetMarkerStyle(20+icolor);
+}
+
+
+
+
 
 void plotPulses() {
   
@@ -61,15 +103,49 @@ void plotPulses() {
   tree->SetBranchAddress("size_EE", &size_EE);
   
   
+  int MAXPULSES = 100;
+  TGraph* graphs_pulses[MAXPULSES];
+  int iPulse = 0;
+  
+  
   int MAXEVENTS=1;
   
   for (int ievent = 0; ievent<MAXEVENTS; ievent++) {
     tree->GetEntry(ievent);
     
+    for (int iEBchannel = 0; iEBchannel<61200; iEBchannel++) {
+      if (amplitude_EB[iEBchannel] > 10) {
+        //
+        // do the plot only when the two reconstruction algorithms give different values
+        //
+        if (iPulse < MAXPULSES) {
+          graphs_pulses[iPulse] = new TGraph();
+          for (int iSample = 0; iSample < 10; iSample++) {
+            //       hashedIndex() *10 + iSample
+            graphs_pulses[iPulse]->SetPoint(iSample, iSample, digi_ped_subtracted_EB[iEBchannel*10+iSample] );
+          }
+          iPulse++;
+        }
+        
+      }   
+    }
     
   }
   
+
+  // plot
+  
+  std::cout << " iPulse = " << iPulse << std::endl;
+  
+  TMultiGraph* mg = new TMultiGraph();
+  for (int ip = 0; ip<iPulse; ip++) {
+    setupTGraph( graphs_pulses[ip], ip);
+    mg->Add( graphs_pulses[ip] );
+  }
+    
+  mg->Draw("apl");
   
   
 }
+
 
