@@ -57,6 +57,13 @@ process.load("RecoLocalCalo.EcalRecProducers.ecalCPUUncalibRecHitProducer_cfi")
 #
 # ../cfipython/slc7_amd64_gcc700/RecoLocalCalo/EcalRecProducers/ecalCPUUncalibRecHitProducer_cfi.py
 #
+process.load("RecoLocalCalo.EcalRecProducers.ecalUncalibRecHitConvertGPU2CPUFormat_cfi")
+# ../cfipython/slc7_amd64_gcc700/RecoLocalCalo/EcalRecProducers/ecalUncalibRecHitConvertGPU2CPUFormat_cfi.py
+#
+process.ecalUncalibRecHitConvertGPU2CPUFormat.recHitsLabelCPUEB = cms.string('EcalUncalibRecHitsEBfromGPU')
+process.ecalUncalibRecHitConvertGPU2CPUFormat.recHitsLabelCPUEE = cms.string('EcalUncalibRecHitsEEfromGPU')
+#
+
 process.load("EventFilter.EcalRawToDigi.ecalRawToDigiGPU_cfi")
 process.load("EventFilter.EcalRawToDigi.ecalElectronicsMappingGPUESProducer_cfi")
 
@@ -182,6 +189,10 @@ process.recoPath = cms.Path(
     +process.ecalCPUUncalibRecHitProducer
     #DQM
     +process.ecalUncalibRechitGPUAnalyzer
+    # for later dumper to ttree
+    #
+    +process.ecalUncalibRecHitConvertGPU2CPUFormat
+    #
 )
 
 process.schedule = cms.Schedule(
