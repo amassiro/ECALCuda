@@ -108,9 +108,11 @@ Debug:
     
 Plot
 
+
+    cd /home/amassiro/Cern/Code/ECAL/Cuda/ECALCuda/CMSSW/
+    
     r99t  plots_amplitudes_RECALL.root  plot.cc
-    
-    
+      
     r99t test_numEvent20.root  plotPulses.cc
     
     
