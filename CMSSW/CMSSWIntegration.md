@@ -66,6 +66,9 @@ Input data:
     
 Run:
 
+    cd /afs/cern.ch/user/a/amassiro/work/ECAL/GPU/onGPU/24Jun2021/CMSSW_11_3_0_pre5/src
+    
+    
     CUDA_VISIBLE_DEVICES=0 cmsRun RecoLocalCalo/EcalRecProducers/test/testEcalUncalibRechitProducer_cfg.py
     
     or (after the export)
@@ -74,6 +77,8 @@ Run:
     
     cmsRun RecoLocalCalo/EcalRecProducers/test/testEcalUncalibRechitProducer_cfg.py   outName=/tmp/TEST_
     
+    
+    (all production chain had to be set by hand)
 
 Plot:
 
