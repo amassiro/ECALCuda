@@ -1,3 +1,5 @@
+#include  <algorithm>
+
 
 void setupTGraph(TGraph* histo, int icolor) {
   
@@ -44,7 +46,7 @@ void setupTGraph(TGraph* histo, int icolor) {
 
 void plotPulses() {
   
-  TCanvas* cc_EB = new TCanvas ("cc_EB", "", 800, 600);
+  TCanvas* cc_EB = new TCanvas ("cc_EB", "EB", 800, 600);
   
   TTree* tree = (TTree*) _file0->Get("PulseTreeProducer/tree");
   
@@ -104,27 +106,38 @@ void plotPulses() {
   
   
   int MAXPULSES = 100;
-  TGraph* graphs_pulses[MAXPULSES];
-  int iPulse = 0;
+  TGraph* graphs_pulses_EB[MAXPULSES];
+  int iPulse_EB = 0;
   
+  float threshold = 0.001; // relative difference
   
-  int MAXEVENTS=1;
+  int MAXEVENTS=1000;
+  
+  MAXEVENTS = std::min(MAXEVENTS, (int) (tree->GetEntries()));
+  
+  std::cout << " MAXEVENTS = " << MAXEVENTS << std::endl;
   
   for (int ievent = 0; ievent<MAXEVENTS; ievent++) {
     tree->GetEntry(ievent);
     
     for (int iEBchannel = 0; iEBchannel<61200; iEBchannel++) {
-      if (amplitude_EB[iEBchannel] > 10) {
+      if (amplitude_EB[iEBchannel] > 1) {
         //
         // do the plot only when the two reconstruction algorithms give different values
         //
-        if (iPulse < MAXPULSES) {
-          graphs_pulses[iPulse] = new TGraph();
-          for (int iSample = 0; iSample < 10; iSample++) {
-            //       hashedIndex() *10 + iSample
-            graphs_pulses[iPulse]->SetPoint(iSample, iSample, digi_ped_subtracted_EB[iEBchannel*10+iSample] );
+        
+//         std::cout << "amplitude_EB[iEBchannel] - amplitude_second_EB[iEBchannel] = " << amplitude_EB[iEBchannel] - amplitude_second_EB[iEBchannel] << " = " <<  amplitude_EB[iEBchannel] << " - " <<  amplitude_second_EB[iEBchannel] << std::endl;
+        if ( fabs((amplitude_EB[iEBchannel] - amplitude_second_EB[iEBchannel]) / amplitude_EB[iEBchannel]) > threshold) {
+          
+          if (iPulse_EB < MAXPULSES) {
+            graphs_pulses_EB[iPulse_EB] = new TGraph();
+            for (int iSample = 0; iSample < 10; iSample++) {
+              //       hashedIndex() *10 + iSample
+              graphs_pulses_EB[iPulse_EB]->SetPoint(iSample, iSample, digi_ped_subtracted_EB[iEBchannel*10+iSample] );
+            }
+            iPulse_EB++;
           }
-          iPulse++;
+        
         }
         
       }   
@@ -132,20 +145,68 @@ void plotPulses() {
     
   }
   
+  
+  
+  
+  TGraph* graphs_pulses_EE[MAXPULSES];
+  
+  int iPulse_EE = 0;
+  
+  for (int ievent = 0; ievent<MAXEVENTS; ievent++) {
+    tree->GetEntry(ievent);
+    
+    for (int iEEchannel = 0; iEEchannel<14648; iEEchannel++) {
+      if (amplitude_EE[iEEchannel] > 1) {
+        //
+        // do the plot only when the two reconstruction algorithms give different values
+        //
+        
+        //         std::cout << "amplitude_EE[iEEchannel] - amplitude_second_EE[iEEchannel] = " << amplitude_EE[iEEchannel] - amplitude_second_EE[iEEchannel] << " = " <<  amplitude_EE[iEEchannel] << " - " <<  amplitude_second_EE[iEEchannel] << std::endl;
+        if ( fabs((amplitude_EE[iEEchannel] - amplitude_second_EE[iEEchannel]) / amplitude_EE[iEEchannel]) > threshold) {
+          
+          if (iPulse_EE < MAXPULSES) {
+            graphs_pulses_EE[iPulse_EE] = new TGraph();
+            for (int iSample = 0; iSample < 10; iSample++) {
+              //       hashedIndex() *10 + iSample
+              graphs_pulses_EE[iPulse_EE]->SetPoint(iSample, iSample, digi_ped_subtracted_EE[iEEchannel*10+iSample] );
+            }
+            iPulse_EE++;
+          }
+          
+        }
+        
+      }   
+    }
+    
+  }
 
   // plot
   
-  std::cout << " iPulse = " << iPulse << std::endl;
+  std::cout << " iPulse = " << iPulse_EB << std::endl;
   
-  TMultiGraph* mg = new TMultiGraph();
-  for (int ip = 0; ip<iPulse; ip++) {
-    setupTGraph( graphs_pulses[ip], ip);
-    mg->Add( graphs_pulses[ip] );
+  TMultiGraph* mg_EB = new TMultiGraph();
+  for (int ip = 0; ip<iPulse_EB; ip++) {
+    setupTGraph( graphs_pulses_EB[ip], ip);
+    mg_EB->Add( graphs_pulses_EB[ip] );
   }
+  
+  mg_EB->Draw("apl");
+  
+  
+  
+  TCanvas* cc_EE = new TCanvas ("cc_EE", "EE", 800, 600);
+  
+  std::cout << " iPulse = " << iPulse_EE << std::endl;
+  
+  TMultiGraph* mg_EE = new TMultiGraph();
+  for (int ip = 0; ip<iPulse_EE; ip++) {
+    setupTGraph( graphs_pulses_EE[ip], ip);
+    mg_EE->Add( graphs_pulses_EE[ip] );
+  }
+  
+  mg_EE->Draw("apl");
+  
     
-  mg->Draw("apl");
-  
-  
 }
 
 

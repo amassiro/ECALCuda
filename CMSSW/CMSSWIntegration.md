@@ -113,12 +113,23 @@ Debug:
     
 Plot
 
+    cd /afs/cern.ch/user/a/amassiro/work/ECAL/GPU/onGPU/24Jun2021/CMSSW_11_3_0_pre5/src/ECALValidation/EcalPulseDumper/test/
+    cmsRun runDump.py  inputFiles=file:/tmp/TEST_UncalibRecHitsOut.root   outputFile=test.root   maxEvents=20
+    cmsRun runDump.py  inputFiles=file:/tmp/TEST_UncalibRecHitsOut.root   outputFile=test.root
+
 
     cd /home/amassiro/Cern/Code/ECAL/Cuda/ECALCuda/CMSSW/
     
     r99t  plots_amplitudes_RECALL.root  plot.cc
       
+      
+      
+    scp amassiro@lxplus.cern.ch:/afs/cern.ch/user/a/amassiro/work/ECAL/GPU/onGPU/24Jun2021/CMSSW_11_3_0_pre5/src/ECALValidation/EcalPulseDumper/test/test_numEvent20.root . 
+    
     r99t test_numEvent20.root  plotPulses.cc
+    r99t test.root  plotPulses.cc
+
+    
     
     
     
