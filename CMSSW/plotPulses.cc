@@ -109,7 +109,7 @@ void plotPulses() {
   TGraph* graphs_pulses_EB[MAXPULSES];
   int iPulse_EB = 0;
   
-  float threshold = 0.001; // relative difference
+  float threshold = 0.1; // 0.01; // relative difference
   
   int MAXEVENTS=1000;
   
@@ -128,7 +128,7 @@ void plotPulses() {
         
 //         std::cout << "amplitude_EB[iEBchannel] - amplitude_second_EB[iEBchannel] = " << amplitude_EB[iEBchannel] - amplitude_second_EB[iEBchannel] << " = " <<  amplitude_EB[iEBchannel] << " - " <<  amplitude_second_EB[iEBchannel] << std::endl;
         if ( fabs((amplitude_EB[iEBchannel] - amplitude_second_EB[iEBchannel]) / amplitude_EB[iEBchannel]) > threshold) {
-          
+          std::cout << "amplitude_EB[" << iEBchannel << "] - amplitude_second_EB[" << iEBchannel << "] = " << amplitude_EB[iEBchannel] - amplitude_second_EB[iEBchannel] << " = " <<  amplitude_EB[iEBchannel] << " - " <<  amplitude_second_EB[iEBchannel] << std::endl;          
           if (iPulse_EB < MAXPULSES) {
             graphs_pulses_EB[iPulse_EB] = new TGraph();
             for (int iSample = 0; iSample < 10; iSample++) {
@@ -163,7 +163,7 @@ void plotPulses() {
         
         //         std::cout << "amplitude_EE[iEEchannel] - amplitude_second_EE[iEEchannel] = " << amplitude_EE[iEEchannel] - amplitude_second_EE[iEEchannel] << " = " <<  amplitude_EE[iEEchannel] << " - " <<  amplitude_second_EE[iEEchannel] << std::endl;
         if ( fabs((amplitude_EE[iEEchannel] - amplitude_second_EE[iEEchannel]) / amplitude_EE[iEEchannel]) > threshold) {
-          
+          std::cout << "amplitude_EE[" << iEEchannel << "] - amplitude_second_EE[" << iEEchannel << "] = " << amplitude_EE[iEEchannel] - amplitude_second_EE[iEEchannel] << " = " <<  amplitude_EE[iEEchannel] << " - " <<  amplitude_second_EE[iEEchannel] << std::endl;
           if (iPulse_EE < MAXPULSES) {
             graphs_pulses_EE[iPulse_EE] = new TGraph();
             for (int iSample = 0; iSample < 10; iSample++) {
@@ -191,6 +191,8 @@ void plotPulses() {
   }
   
   mg_EB->Draw("apl");
+  mg_EB->GetYaxis()->SetTitle("ADC");
+  mg_EB->GetXaxis()->SetTitle("BX");
   
   
   
@@ -205,6 +207,8 @@ void plotPulses() {
   }
   
   mg_EE->Draw("apl");
+  mg_EE->GetYaxis()->SetTitle("ADC");
+  mg_EE->GetXaxis()->SetTitle("BX");
   
     
 }
