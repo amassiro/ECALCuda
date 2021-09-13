@@ -104,18 +104,41 @@ void plotPulses() {
   tree->SetBranchAddress("size_EB", &size_EB);
   tree->SetBranchAddress("size_EE", &size_EE);
   
-  
-  int MAXPULSES = 100;
+  int MAXEVENTS=1000;  
+  int MAXPULSES = 20;
   TGraph* graphs_pulses_EB[MAXPULSES];
+  float EB_value[MAXPULSES];
+  float EB_value_second[MAXPULSES];
+  
   int iPulse_EB = 0;
   
-  float threshold = 0.1; // 0.01; // relative difference
+  float threshold = 0.2; // 0.01; // relative difference
   
-  int MAXEVENTS=1000;
   
   MAXEVENTS = std::min(MAXEVENTS, (int) (tree->GetEntries()));
   
   std::cout << " MAXEVENTS = " << MAXEVENTS << std::endl;
+  
+  
+  TH1F* histo_ratio_CPUminusGPUoverGPU_EB = new TH1F ("histo_ratio_CPUoverGPU_EB", "(CPU-GPU)/CPU EB", 1000, -0.3, 0.3 );
+  TH1F* histo_ratio_CPUminusGPUoverGPU_EE = new TH1F ("histo_ratio_CPUoverGPU_EE", "(CPU-GPU)/CPU EE", 1000, -0.3, 0.3 );
+  
+  for (int ievent = 0; ievent<MAXEVENTS; ievent++) {
+    tree->GetEntry(ievent);
+  
+    for (int iEBchannel = 0; iEBchannel<61200; iEBchannel++) {
+      if (amplitude_EB[iEBchannel] > 1) {
+        histo_ratio_CPUminusGPUoverGPU_EB->Fill( (amplitude_EB[iEBchannel]-amplitude_second_EB[iEBchannel])/amplitude_EB[iEBchannel]);   
+      }
+    }
+
+    for (int iEEchannel = 0; iEEchannel<14648; iEEchannel++) {
+      if (amplitude_EE[iEEchannel] > 1) {
+        histo_ratio_CPUminusGPUoverGPU_EE->Fill( (amplitude_EE[iEEchannel]-amplitude_second_EE[iEEchannel])/amplitude_EE[iEEchannel]);   
+      }
+    }
+    
+  }
   
   for (int ievent = 0; ievent<MAXEVENTS; ievent++) {
     tree->GetEntry(ievent);
@@ -135,6 +158,8 @@ void plotPulses() {
               //       hashedIndex() *10 + iSample
               graphs_pulses_EB[iPulse_EB]->SetPoint(iSample, iSample, digi_ped_subtracted_EB[iEBchannel*10+iSample] );
             }
+            EB_value[iPulse_EB] = amplitude_EB[iEBchannel];
+            EB_value_second[iPulse_EB] = amplitude_second_EB[iEBchannel];            
             iPulse_EB++;
           }
         
@@ -149,6 +174,8 @@ void plotPulses() {
   
   
   TGraph* graphs_pulses_EE[MAXPULSES];
+  float EE_value[MAXPULSES];
+  float EE_value_second[MAXPULSES];
   
   int iPulse_EE = 0;
   
@@ -170,6 +197,8 @@ void plotPulses() {
               //       hashedIndex() *10 + iSample
               graphs_pulses_EE[iPulse_EE]->SetPoint(iSample, iSample, digi_ped_subtracted_EE[iEEchannel*10+iSample] );
             }
+            EE_value[iPulse_EE] = amplitude_EE[iEEchannel];
+            EE_value_second[iPulse_EE] = amplitude_second_EE[iEEchannel];
             iPulse_EE++;
           }
           
@@ -211,6 +240,71 @@ void plotPulses() {
   mg_EE->GetXaxis()->SetTitle("BX");
   
     
+  
+  TCanvas* cc_EB_all[iPulse_EB];
+  
+  for (int ip = 0; ip<iPulse_EB; ip++) {
+    cc_EB_all[ip] = new TCanvas(TString::Format("EB_%d", ip), TString::Format("EB_%d", ip), 800, 600);
+    graphs_pulses_EB[ip]->Draw("APL");
+    graphs_pulses_EB[ip]->GetYaxis()->SetTitle("ADC");
+    graphs_pulses_EB[ip]->GetXaxis()->SetTitle("BX");
+    graphs_pulses_EB[ip]->GetYaxis()->SetRangeUser(0, 1.2 * TMath::MaxElement(10,graphs_pulses_EB[ip]->GetY()));
+//     std::cout << " graphs_pulses_EB[" << ip << "]->GetMaximum() = " << graphs_pulses_EB[ip]->GetMaximum() << std::endl;
+    std::cout << " EB_value[" << ip << "] = " << EB_value[ip] << "     EB_value_second (GPU)[" << ip << "] = " << EB_value_second[ip] << std::endl;
+    TLine* line_nominal = new TLine (3.8, 0.0, 3.8, EB_value[ip]);
+    line_nominal->SetLineColor(kBlue);
+    line_nominal->SetLineStyle(2);
+    line_nominal->SetLineWidth(3);
+    line_nominal->Draw();
+    TLine* line_nominal_second = new TLine (4.2, 0.0, 4.2, EB_value_second[ip]);
+    line_nominal_second->SetLineColor(kRed);
+    line_nominal_second->SetLineStyle(1);
+    line_nominal_second->SetLineWidth(3);
+    line_nominal_second->Draw();
+    
+  }
+    
+ 
+ 
+ 
+ TCanvas* cc_EE_all[iPulse_EE];
+ 
+ for (int ip = 0; ip<iPulse_EE; ip++) {
+   cc_EE_all[ip] = new TCanvas(TString::Format("EE_%d", ip), TString::Format("EE_%d", ip), 800, 600);
+   graphs_pulses_EE[ip]->Draw("APL");
+   graphs_pulses_EE[ip]->GetYaxis()->SetTitle("ADC");
+   graphs_pulses_EE[ip]->GetXaxis()->SetTitle("BX");
+   graphs_pulses_EE[ip]->GetYaxis()->SetRangeUser(0, 1.2 * TMath::MaxElement(10,graphs_pulses_EE[ip]->GetY()));
+   //     std::cout << " graphs_pulses_EE[" << ip << "]->GetMaximum() = " << graphs_pulses_EE[ip]->GetMaximum() << std::endl;
+   std::cout << " EE_value[" << ip << "] = " << EE_value[ip] << "     EE_value_second (GPU)[" << ip << "] = " << EE_value_second[ip] << std::endl;
+   TLine* line_nominal = new TLine (3.8, 0.0, 3.8, EE_value[ip]);
+   line_nominal->SetLineColor(kBlue);
+   line_nominal->SetLineStyle(2);
+   line_nominal->SetLineWidth(3);
+   line_nominal->Draw();
+   TLine* line_nominal_second = new TLine (4.2, 0.0, 4.2, EE_value_second[ip]);
+   line_nominal_second->SetLineColor(kRed);
+   line_nominal_second->SetLineStyle(1);
+   line_nominal_second->SetLineWidth(3);
+   line_nominal_second->Draw();
+   
+ }
+ 
+ 
+ 
+ gStyle->SetOptStat(111111);
+ 
+ TCanvas* cc_ratio_CPUoverGPU = new TCanvas ("cc_ratio_CPUoverGPU", "(CPU-GPU)/CPU", 1200, 600);
+ cc_ratio_CPUoverGPU->Divide(2,1);
+ cc_ratio_CPUoverGPU->cd(1);
+ histo_ratio_CPUminusGPUoverGPU_EB->Draw();
+ gPad->SetLogy();
+ cc_ratio_CPUoverGPU->cd(2);
+ histo_ratio_CPUminusGPUoverGPU_EE->Draw();
+ gPad->SetLogy();
+ 
+ 
+ 
 }
 
 
