@@ -112,7 +112,8 @@ void plotPulses() {
   
   int iPulse_EB = 0;
   
-  float threshold = 0.2; // 0.01; // relative difference
+  float threshold = 0.0001; //0.1; // 0.01; // relative difference
+  float threshold_max = 0.0002; // 0.01; // relative difference
   
   
   MAXEVENTS = std::min(MAXEVENTS, (int) (tree->GetEntries()));
@@ -150,7 +151,9 @@ void plotPulses() {
         //
         
 //         std::cout << "amplitude_EB[iEBchannel] - amplitude_second_EB[iEBchannel] = " << amplitude_EB[iEBchannel] - amplitude_second_EB[iEBchannel] << " = " <<  amplitude_EB[iEBchannel] << " - " <<  amplitude_second_EB[iEBchannel] << std::endl;
-        if ( fabs((amplitude_EB[iEBchannel] - amplitude_second_EB[iEBchannel]) / amplitude_EB[iEBchannel]) > threshold) {
+        if ( fabs((amplitude_EB[iEBchannel] - amplitude_second_EB[iEBchannel]) / amplitude_EB[iEBchannel]) > threshold &&
+             fabs((amplitude_EB[iEBchannel] - amplitude_second_EB[iEBchannel]) / amplitude_EB[iEBchannel]) < threshold_max
+        ) {
           std::cout << "amplitude_EB[" << iEBchannel << "] - amplitude_second_EB[" << iEBchannel << "] = " << amplitude_EB[iEBchannel] - amplitude_second_EB[iEBchannel] << " = " <<  amplitude_EB[iEBchannel] << " - " <<  amplitude_second_EB[iEBchannel] << std::endl;          
           if (iPulse_EB < MAXPULSES) {
             graphs_pulses_EB[iPulse_EB] = new TGraph();
@@ -189,7 +192,9 @@ void plotPulses() {
         //
         
         //         std::cout << "amplitude_EE[iEEchannel] - amplitude_second_EE[iEEchannel] = " << amplitude_EE[iEEchannel] - amplitude_second_EE[iEEchannel] << " = " <<  amplitude_EE[iEEchannel] << " - " <<  amplitude_second_EE[iEEchannel] << std::endl;
-        if ( fabs((amplitude_EE[iEEchannel] - amplitude_second_EE[iEEchannel]) / amplitude_EE[iEEchannel]) > threshold) {
+        if ( fabs((amplitude_EE[iEEchannel] - amplitude_second_EE[iEEchannel]) / amplitude_EE[iEEchannel]) > threshold &&
+          fabs((amplitude_EE[iEEchannel] - amplitude_second_EE[iEEchannel]) / amplitude_EE[iEEchannel]) < threshold_max
+        ) {
           std::cout << "amplitude_EE[" << iEEchannel << "] - amplitude_second_EE[" << iEEchannel << "] = " << amplitude_EE[iEEchannel] - amplitude_second_EE[iEEchannel] << " = " <<  amplitude_EE[iEEchannel] << " - " <<  amplitude_second_EE[iEEchannel] << std::endl;
           if (iPulse_EE < MAXPULSES) {
             graphs_pulses_EE[iPulse_EE] = new TGraph();
@@ -242,7 +247,8 @@ void plotPulses() {
     
   
   TCanvas* cc_EB_all[iPulse_EB];
-  
+  TLine* line_nominal_EB[iPulse_EB]; 
+  TLine* line_nominal_second_EB[iPulse_EB];   
   for (int ip = 0; ip<iPulse_EB; ip++) {
     cc_EB_all[ip] = new TCanvas(TString::Format("EB_%d", ip), TString::Format("EB_%d", ip), 800, 600);
     graphs_pulses_EB[ip]->Draw("APL");
@@ -251,24 +257,24 @@ void plotPulses() {
     graphs_pulses_EB[ip]->GetYaxis()->SetRangeUser(0, 1.2 * TMath::MaxElement(10,graphs_pulses_EB[ip]->GetY()));
 //     std::cout << " graphs_pulses_EB[" << ip << "]->GetMaximum() = " << graphs_pulses_EB[ip]->GetMaximum() << std::endl;
     std::cout << " EB_value[" << ip << "] = " << EB_value[ip] << "     EB_value_second (GPU)[" << ip << "] = " << EB_value_second[ip] << std::endl;
-    TLine* line_nominal = new TLine (3.8, 0.0, 3.8, EB_value[ip]);
-    line_nominal->SetLineColor(kBlue);
-    line_nominal->SetLineStyle(2);
-    line_nominal->SetLineWidth(3);
-    line_nominal->Draw();
-    TLine* line_nominal_second = new TLine (4.2, 0.0, 4.2, EB_value_second[ip]);
-    line_nominal_second->SetLineColor(kRed);
-    line_nominal_second->SetLineStyle(1);
-    line_nominal_second->SetLineWidth(3);
-    line_nominal_second->Draw();
-    
+    line_nominal_EB[iPulse_EB] = new TLine (3.8, 0.0, 3.8, EB_value[ip]);
+    line_nominal_EB[iPulse_EB]->SetLineColor(kBlue);
+    line_nominal_EB[iPulse_EB]->SetLineStyle(2);
+    line_nominal_EB[iPulse_EB]->SetLineWidth(3);
+    line_nominal_EB[iPulse_EB]->Draw();
+    line_nominal_second_EB[iPulse_EB] = new TLine (4.2, 0.0, 4.2, EB_value_second[ip]);
+    line_nominal_second_EB[iPulse_EB]->SetLineColor(kRed);
+    line_nominal_second_EB[iPulse_EB]->SetLineStyle(1);
+    line_nominal_second_EB[iPulse_EB]->SetLineWidth(3);
+    line_nominal_second_EB[iPulse_EB]->Draw();
   }
     
  
  
  
  TCanvas* cc_EE_all[iPulse_EE];
- 
+ TLine* line_nominal_EE[iPulse_EE]; 
+ TLine* line_nominal_second_EE[iPulse_EE]; 
  for (int ip = 0; ip<iPulse_EE; ip++) {
    cc_EE_all[ip] = new TCanvas(TString::Format("EE_%d", ip), TString::Format("EE_%d", ip), 800, 600);
    graphs_pulses_EE[ip]->Draw("APL");
@@ -277,16 +283,16 @@ void plotPulses() {
    graphs_pulses_EE[ip]->GetYaxis()->SetRangeUser(0, 1.2 * TMath::MaxElement(10,graphs_pulses_EE[ip]->GetY()));
    //     std::cout << " graphs_pulses_EE[" << ip << "]->GetMaximum() = " << graphs_pulses_EE[ip]->GetMaximum() << std::endl;
    std::cout << " EE_value[" << ip << "] = " << EE_value[ip] << "     EE_value_second (GPU)[" << ip << "] = " << EE_value_second[ip] << std::endl;
-   TLine* line_nominal = new TLine (3.8, 0.0, 3.8, EE_value[ip]);
-   line_nominal->SetLineColor(kBlue);
-   line_nominal->SetLineStyle(2);
-   line_nominal->SetLineWidth(3);
-   line_nominal->Draw();
-   TLine* line_nominal_second = new TLine (4.2, 0.0, 4.2, EE_value_second[ip]);
-   line_nominal_second->SetLineColor(kRed);
-   line_nominal_second->SetLineStyle(1);
-   line_nominal_second->SetLineWidth(3);
-   line_nominal_second->Draw();
+   line_nominal_EE[iPulse_EE] = new TLine (3.8, 0.0, 3.8, EE_value[ip]);
+   line_nominal_EE[iPulse_EE]->SetLineColor(kBlue);
+   line_nominal_EE[iPulse_EE]->SetLineStyle(2);
+   line_nominal_EE[iPulse_EE]->SetLineWidth(3);
+   line_nominal_EE[iPulse_EE]->Draw();
+   line_nominal_second_EE[iPulse_EE] = new TLine (4.2, 0.0, 4.2, EE_value_second[ip]);
+   line_nominal_second_EE[iPulse_EE]->SetLineColor(kRed);
+   line_nominal_second_EE[iPulse_EE]->SetLineStyle(1);
+   line_nominal_second_EE[iPulse_EE]->SetLineWidth(3);
+   line_nominal_second_EE[iPulse_EE]->Draw();
    
  }
  
