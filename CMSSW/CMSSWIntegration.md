@@ -131,6 +131,13 @@ Plot
 
     
     
-    
+Check timing
+
+
+    r99t test_numEvent20.root  plotPulses.cc
+    r99t test.root  plotPulses.cc
+
+
+
     
     
