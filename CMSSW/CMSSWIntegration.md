@@ -116,7 +116,7 @@ Plot
     cd /afs/cern.ch/user/a/amassiro/work/ECAL/GPU/onGPU/24Jun2021/CMSSW_11_3_0_pre5/src/ECALValidation/EcalPulseDumper/test/
     cmsRun runDump.py  inputFiles=file:/tmp/TEST_UncalibRecHitsOut.root   outputFile=test.root   maxEvents=20
     cmsRun runDump.py  inputFiles=file:/tmp/TEST_UncalibRecHitsOut.root   outputFile=test.root
-
+    cmsRun runDump.py  inputFiles=file:/tmp/TEST_UncalibRecHitsOut.root   outputFile=/tmp/amassiro/test.root
 
     cd /home/amassiro/Cern/Code/ECAL/Cuda/ECALCuda/CMSSW/
     
@@ -129,6 +129,14 @@ Plot
     r99t test_numEvent20.root  plotPulses.cc
     r99t test.root  plotPulses.cc
 
+    r99t TEST_UncalibRecHitsDQM.root  plot.cc
+    
+    
+    
+    r99t test.root  plotCompare.cc
+    
+    
+    
     
     
 Check timing
