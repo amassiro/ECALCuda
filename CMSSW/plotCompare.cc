@@ -13,7 +13,7 @@ void setupTGraph(TGraph* histo, int icolor) {
   
   
   Int_t color[200];
-  for (int i=0;i<200;i++) color[i] = TColor::GetColorBright(i);
+  for (int i=0;i<200;i++) color[i] = TColor::GetColorBright(i+1);
   
   
   //   Color_t* color = new Color_t [200];
@@ -45,7 +45,7 @@ void setupTGraph(TGraph* histo, int icolor) {
 void setupTH(TH1F* histo, int icolor) {
   
   Int_t color[200];
-  for (int i=0;i<200;i++) color[i] = TColor::GetColorBright(i);
+  for (int i=0;i<200;i++) color[i] = TColor::GetColorBright(i+1);
    
   histo->SetLineWidth(2);
   histo->SetLineColor(color[icolor]);
@@ -59,6 +59,9 @@ void setupTH(TH1F* histo, int icolor) {
 
 
 void plotCompare() {
+  
+  
+  gStyle->SetOptStat(0);
   
   
   TTree* tree = (TTree*) _file0->Get("PulseTreeProducer/tree");
@@ -133,7 +136,7 @@ void plotCompare() {
   
   std::cout << " MAXEVENTS = " << MAXEVENTS << std::endl;
   
-  std::vector<int> thresholds = {0, 1, 3, 5, 10};
+  std::vector<int> thresholds = {0, 1, 3, 5};
   
   TH1F* histo_ratio_CPUminusGPUoverGPU_EB[thresholds.size()];
   TH1F* histo_ratio_CPUminusGPUoverGPU_EE[thresholds.size()];
@@ -157,14 +160,26 @@ void plotCompare() {
   for (int ith = 0; ith<thresholds.size(); ith++) {
     TString name_Histo; name_Histo.Form("histo_mod_ratio_CPUoverGPU_EB_%d", ith);
     TString description_Histo; description_Histo.Form("|(CPU-GPU)|/CPU EB adc>%d", thresholds[ith]);   
-    histo_mod_ratio_CPUminusGPUoverGPU_EB[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 2000, 0.0, 0.2 );
+    histo_mod_ratio_CPUminusGPUoverGPU_EB[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 20000, 0.0, 0.2 );
   }
   
   for (int ith = 0; ith<thresholds.size(); ith++) {
     TString name_Histo; name_Histo.Form("histo_mod_ratio_CPUoverGPU_EE_%d", ith);
     TString description_Histo; description_Histo.Form("|(CPU-GPU)|/CPU EE adc>%d", thresholds[ith]);   
-    histo_mod_ratio_CPUminusGPUoverGPU_EE[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 2000, 0.0, 0.2 );
+    histo_mod_ratio_CPUminusGPUoverGPU_EE[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 20000, 0.0, 0.2 );
   }
+  
+  
+  
+  TH2F* histoEB = new TH2F ("histoEB", "EB" ,  360, 0.5, 360.5,  171, -85.5, 85.5);
+  histoEB->GetXaxis()->SetTitle("i#phi");
+  histoEB->GetYaxis()->SetTitle("i#eta");
+  
+  TH2F* histoEE = new TH2F ("histoEE", "EE" ,  200, 0.5, 200.5,  100, 0.5, 100.5);
+  histoEE->GetXaxis()->SetTitle("x");
+  histoEE->GetYaxis()->SetTitle("y");
+  
+  
   
   
   
@@ -177,7 +192,14 @@ void plotCompare() {
         if (amplitude_EB[iEBchannel] > thresholds[ith]) {
           histo_ratio_CPUminusGPUoverGPU_EB[ith]->Fill( (amplitude_EB[iEBchannel]-amplitude_second_EB[iEBchannel])/amplitude_EB[iEBchannel]);   
           histo_mod_ratio_CPUminusGPUoverGPU_EB[ith]->Fill( fabs(amplitude_EB[iEBchannel]-amplitude_second_EB[iEBchannel])/amplitude_EB[iEBchannel]);   
-        }       
+
+          if (fabs(amplitude_EB[iEBchannel]-amplitude_second_EB[iEBchannel])/amplitude_EB[iEBchannel] > 0.0001) {
+            histoEB->Fill(iphi[iEBchannel], ieta[iEBchannel], 1);
+          } 
+          
+        }      
+        
+        
       }
     }
 
@@ -187,13 +209,32 @@ void plotCompare() {
         if (amplitude_EE[iEEchannel] > thresholds[ith]) {
           histo_ratio_CPUminusGPUoverGPU_EE[ith]->Fill( (amplitude_EE[iEEchannel]-amplitude_second_EE[iEEchannel])/amplitude_EE[iEEchannel]);   
           histo_mod_ratio_CPUminusGPUoverGPU_EE[ith]->Fill( fabs(amplitude_EE[iEEchannel]-amplitude_second_EE[iEEchannel])/amplitude_EE[iEEchannel]);   
-        }       
+          if (fabs(amplitude_EE[iEEchannel]-amplitude_second_EE[iEEchannel])/amplitude_EE[iEEchannel] > 0.0001) {
+            histoEE->Fill(ix[iEEchannel] + 100*(iz[iEEchannel]>0), iy[iEEchannel], 1);
+          } 
+
+        }
+        
+        
       }
     }    
       
   }
   
   
+  
+  
+  TCanvas* cc_Map_EB = new TCanvas ("cc_Map_EB", "", 800, 600);
+  
+  cc_Map_EB->cd();
+  histoEB->Draw("colz");
+   
+  
+  
+  TCanvas* cc_Map_EE = new TCanvas ("cc_Map_EE", "", 800, 600);
+  
+  cc_Map_EE->cd();
+  histoEE->Draw("colz");
   
   
   

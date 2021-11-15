@@ -13,7 +13,7 @@ void setupTGraph(TGraph* histo, int icolor) {
   
 
   Int_t color[200];
-  for (int i=0;i<200;i++) color[i] = TColor::GetColorBright(i);
+  for (int i=0;i<200;i++) color[i] = TColor::GetColorBright(i+1);
   
    
 //   Color_t* color = new Color_t [200];
@@ -112,8 +112,8 @@ void plotPulses() {
   
   int iPulse_EB = 0;
   
-  float threshold = 0.1; //0.0001; //0.1; // 0.01; // relative difference
-  float threshold_max = 100; // 0.0002; // 0.01; // relative difference
+  float threshold = 0.0001; // 0.1; //0.0001; //0.1; // 0.01; // relative difference
+  float threshold_max = 0.0002; // 100; // 0.0002; // 0.01; // relative difference
   
   
   MAXEVENTS = std::min(MAXEVENTS, (int) (tree->GetEntries()));
@@ -128,13 +128,13 @@ void plotPulses() {
     tree->GetEntry(ievent);
   
     for (int iEBchannel = 0; iEBchannel<61200; iEBchannel++) {
-      if (amplitude_EB[iEBchannel] > 1) {
+      if (amplitude_EB[iEBchannel] > 0.000001) {
         histo_ratio_CPUminusGPUoverGPU_EB->Fill( (amplitude_EB[iEBchannel]-amplitude_second_EB[iEBchannel])/amplitude_EB[iEBchannel]);   
       }
     }
 
     for (int iEEchannel = 0; iEEchannel<14648; iEEchannel++) {
-      if (amplitude_EE[iEEchannel] > 1) {
+      if (amplitude_EE[iEEchannel] > 0.000001) {
         histo_ratio_CPUminusGPUoverGPU_EE->Fill( (amplitude_EE[iEEchannel]-amplitude_second_EE[iEEchannel])/amplitude_EE[iEEchannel]);   
       }
     }
@@ -145,7 +145,7 @@ void plotPulses() {
     tree->GetEntry(ievent);
     
     for (int iEBchannel = 0; iEBchannel<61200; iEBchannel++) {
-      if (amplitude_EB[iEBchannel] > 1) {
+      if (amplitude_EB[iEBchannel] > 0.000001) {
         //
         // do the plot only when the two reconstruction algorithms give different values
         //
@@ -186,7 +186,7 @@ void plotPulses() {
     tree->GetEntry(ievent);
     
     for (int iEEchannel = 0; iEEchannel<14648; iEEchannel++) {
-      if (amplitude_EE[iEEchannel] > 1) {
+      if (amplitude_EE[iEEchannel] > 0.000001) {
         //
         // do the plot only when the two reconstruction algorithms give different values
         //
