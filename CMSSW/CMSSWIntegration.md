@@ -142,6 +142,19 @@ Plot
 Check timing
 
 
+ 
+    process.ecalUncalibRecHitProducerGPU.shouldRunTimingComputation = cms.bool(True)
+
+
+    process.ecalMultiFitUncalibRecHit.algoPSet = cms.PSet( 
+      timealgo = cms.string( "RatioMethod" ),   # ----> now timing active
+    ...
+      
+      
+
+      
+      
+      
     r99t test_numEvent20.root  plotPulses.cc
     r99t test.root  plotPulses.cc
 
