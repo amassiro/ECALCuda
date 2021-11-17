@@ -141,24 +141,38 @@ Plot
     
 Check timing
 
-
- 
     process.ecalUncalibRecHitProducerGPU.shouldRunTimingComputation = cms.bool(True)
+    process.ecalCPUUncalibRecHitProducer.containsTimingInformation = cms.bool(True)
 
 
     process.ecalMultiFitUncalibRecHit.algoPSet = cms.PSet( 
       timealgo = cms.string( "RatioMethod" ),   # ----> now timing active
     ...
       
-      
-
-      
-      
-      
-    r99t test_numEvent20.root  plotPulses.cc
-    r99t test.root  plotPulses.cc
+    see https://github.com/cms-sw/cmssw/blob/master/RecoLocalCalo/EcalRecProducers/plugins/EcalUncalibRecHitWorkerMultiFit.cc
 
 
+    
+    
+    
+    
+    ssh patatrack02.cern.ch
+    cd /afs/cern.ch/user/a/amassiro/work/ECAL/GPU/onGPU/24Jun2021/CMSSW_11_3_0_pre5/src
+    cmsenv
+    nvidia-smi 
+    export CUDA_VISIBLE_DEVICES=0;
+    cmsRun RecoLocalCalo/EcalRecProducers/test/testEcalUncalibRechitProducer_cfg.py   outName=/tmp/TEST_
+        
+    cd /afs/cern.ch/user/a/amassiro/work/ECAL/GPU/onGPU/24Jun2021/CMSSW_11_3_0_pre5/src/ECALValidation/EcalPulseDumper/test/    
+    cmsRun runDump.py  inputFiles=file:/tmp/TEST_UncalibRecHitsOut.root   outputFile=/tmp/amassiro/test.root
+    
+    cp /tmp/amassiro/test.root /eos/user/a/amassiro/ECAL/
+    rm /eos/user/a/amassiro/ECAL/test.root 
+
+    
+    scp amassiro@lxplus.cern.ch:/eos/user/a/amassiro/ECAL/*.root .
+    
+    r99t test.root  plotCompareTime.cc
 
     
     
