@@ -127,11 +127,7 @@ void plotCompare() {
   float EB_value_second[MAXPULSES];
   
   int iPulse_EB = 0;
-  
-  float threshold = 0.0001; //0.1; // 0.01; // relative difference
-  float threshold_max = 0.0002; // 0.01; // relative difference
-  
-  
+   
   MAXEVENTS = std::min(MAXEVENTS, (int) (tree->GetEntries()));
   
   std::cout << " MAXEVENTS = " << MAXEVENTS << std::endl;

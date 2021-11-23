@@ -174,5 +174,6 @@ Check timing
     
     r99t test.root  plotCompareTime.cc
 
+    r99t test.root  plotPulsesTime.cc
     
     

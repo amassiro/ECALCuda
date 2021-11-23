@@ -136,8 +136,6 @@ void plotCompareTime() {
   
   int iPulse_EB = 0;
   
-  float threshold = 0.0001; //0.1; // 0.01; // relative difference
-  float threshold_max = 0.0002; // 0.01; // relative difference
   
   
   MAXEVENTS = std::min(MAXEVENTS, (int) (tree->GetEntries()));
@@ -155,26 +153,26 @@ void plotCompareTime() {
   for (int ith = 0; ith<thresholds.size(); ith++) {
     TString name_Histo; name_Histo.Form("histo_ratio_CPUoverGPU_EB_%d", ith);
     TString description_Histo; description_Histo.Form("(CPU-GPU)/CPU EB adc>%d", thresholds[ith]);   
-    histo_ratio_CPUminusGPUoverGPU_EB[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 1000, -30.0, 30.0 );
+    histo_ratio_CPUminusGPUoverGPU_EB[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 1000, -3.0, 3.0 );
   }
   
   for (int ith = 0; ith<thresholds.size(); ith++) {
     TString name_Histo; name_Histo.Form("histo_ratio_CPUoverGPU_EE_%d", ith);
     TString description_Histo; description_Histo.Form("(CPU-GPU)/CPU EE adc>%d", thresholds[ith]);   
-    histo_ratio_CPUminusGPUoverGPU_EE[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 1000, -30.0, 30.0 );
+    histo_ratio_CPUminusGPUoverGPU_EE[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 1000, -3.0, 3.0 );
   }
   
   
   for (int ith = 0; ith<thresholds.size(); ith++) {
     TString name_Histo; name_Histo.Form("histo_mod_ratio_CPUoverGPU_EB_%d", ith);
     TString description_Histo; description_Histo.Form("|(CPU-GPU)|/CPU EB adc>%d", thresholds[ith]);   
-    histo_mod_ratio_CPUminusGPUoverGPU_EB[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 20000, 0.0, 30.0 );
+    histo_mod_ratio_CPUminusGPUoverGPU_EB[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 20000, 0.0, 3.0 );
   }
   
   for (int ith = 0; ith<thresholds.size(); ith++) {
     TString name_Histo; name_Histo.Form("histo_mod_ratio_CPUoverGPU_EE_%d", ith);
     TString description_Histo; description_Histo.Form("|(CPU-GPU)|/CPU EE adc>%d", thresholds[ith]);   
-    histo_mod_ratio_CPUminusGPUoverGPU_EE[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 20000, 0.0, 30.0 );
+    histo_mod_ratio_CPUminusGPUoverGPU_EE[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 20000, 0.0, 3.0 );
   }
   
   
