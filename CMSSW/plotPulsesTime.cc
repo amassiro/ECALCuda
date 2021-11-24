@@ -120,8 +120,8 @@ void plotPulsesTime() {
   
   int iPulse_EB = 0;
   
-  float threshold = 0.1; // 0.0001; // 0.1; //0.0001; //0.1; // 0.01; // relative difference
-  float threshold_max = 100.2; // 0.0002; // 100; // 0.0002; // 0.01; // relative difference
+  float threshold = 0.01; // 0.1; // 0.0001; // 0.1; //0.0001; //0.1; // 0.01; // relative difference
+  float threshold_max = 0.1; // 100.2; // 0.0002; // 100; // 0.0002; // 0.01; // relative difference
   
   
   MAXEVENTS = std::min(MAXEVENTS, (int) (tree->GetEntries()));
