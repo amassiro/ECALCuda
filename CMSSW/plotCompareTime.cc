@@ -143,36 +143,51 @@ void plotCompareTime() {
   std::cout << " MAXEVENTS = " << MAXEVENTS << std::endl;
   
   std::vector<int> thresholds = {0, 10, 20, 50};
+
+  TH1F* histo_difference_CPUminusGPUoverGPU_EB[thresholds.size()];
+  TH1F* histo_difference_CPUminusGPUoverGPU_EE[thresholds.size()];
   
   TH1F* histo_ratio_CPUminusGPUoverGPU_EB[thresholds.size()];
   TH1F* histo_ratio_CPUminusGPUoverGPU_EE[thresholds.size()];
 
   TH1F* histo_mod_ratio_CPUminusGPUoverGPU_EB[thresholds.size()];
   TH1F* histo_mod_ratio_CPUminusGPUoverGPU_EE[thresholds.size()];
+
+  for (int ith = 0; ith<thresholds.size(); ith++) {
+    TString name_Histo; name_Histo.Form("histo_difference_CPUoverGPU_EB_%d", ith);
+    TString description_Histo; description_Histo.Form("(CPU-GPU) EB adc>%d", thresholds[ith]);   
+    histo_difference_CPUminusGPUoverGPU_EB[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 10000, -300.0, 300.0 );
+  }
+  
+  for (int ith = 0; ith<thresholds.size(); ith++) {
+    TString name_Histo; name_Histo.Form("histo_difference_CPUoverGPU_EE_%d", ith);
+    TString description_Histo; description_Histo.Form("(CPU-GPU) EE adc>%d", thresholds[ith]);   
+    histo_difference_CPUminusGPUoverGPU_EE[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 10000, -300.0, 300.0 );
+  }
   
   for (int ith = 0; ith<thresholds.size(); ith++) {
     TString name_Histo; name_Histo.Form("histo_ratio_CPUoverGPU_EB_%d", ith);
     TString description_Histo; description_Histo.Form("(CPU-GPU)/CPU EB adc>%d", thresholds[ith]);   
-    histo_ratio_CPUminusGPUoverGPU_EB[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 1000, -3.0, 3.0 );
+    histo_ratio_CPUminusGPUoverGPU_EB[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 10000, -3.0, 3.0 );
   }
   
   for (int ith = 0; ith<thresholds.size(); ith++) {
     TString name_Histo; name_Histo.Form("histo_ratio_CPUoverGPU_EE_%d", ith);
     TString description_Histo; description_Histo.Form("(CPU-GPU)/CPU EE adc>%d", thresholds[ith]);   
-    histo_ratio_CPUminusGPUoverGPU_EE[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 1000, -3.0, 3.0 );
+    histo_ratio_CPUminusGPUoverGPU_EE[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 10000, -3.0, 3.0 );
   }
   
   
   for (int ith = 0; ith<thresholds.size(); ith++) {
     TString name_Histo; name_Histo.Form("histo_mod_ratio_CPUoverGPU_EB_%d", ith);
     TString description_Histo; description_Histo.Form("|(CPU-GPU)|/CPU EB adc>%d", thresholds[ith]);   
-    histo_mod_ratio_CPUminusGPUoverGPU_EB[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 20000, 0.0, 3.0 );
+    histo_mod_ratio_CPUminusGPUoverGPU_EB[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 200000, 0.0, 3.0 );
   }
   
   for (int ith = 0; ith<thresholds.size(); ith++) {
     TString name_Histo; name_Histo.Form("histo_mod_ratio_CPUoverGPU_EE_%d", ith);
     TString description_Histo; description_Histo.Form("|(CPU-GPU)|/CPU EE adc>%d", thresholds[ith]);   
-    histo_mod_ratio_CPUminusGPUoverGPU_EE[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 20000, 0.0, 3.0 );
+    histo_mod_ratio_CPUminusGPUoverGPU_EE[ith] = new TH1F (name_Histo.Data(), description_Histo.Data(), 200000, 0.0, 3.0 );
   }
   
   
@@ -185,7 +200,7 @@ void plotCompareTime() {
   histoEE->GetXaxis()->SetTitle("x");
   histoEE->GetYaxis()->SetTitle("y");
   
-  
+
   
   
   
@@ -195,10 +210,11 @@ void plotCompareTime() {
     
     for (int iEBchannel = 0; iEBchannel<61200; iEBchannel++) {
       for (int ith = 0; ith<thresholds.size(); ith++) {     
-        if (amplitude_EB[iEBchannel] > thresholds[ith] && time_EB[iEBchannel]>-900) {
+        if (amplitude_EB[iEBchannel] > thresholds[ith] && fabs(time_EB[iEBchannel])> 1) {
           histo_ratio_CPUminusGPUoverGPU_EB[ith]->Fill( (time_EB[iEBchannel]-time_second_EB[iEBchannel])/time_EB[iEBchannel]);   
           histo_mod_ratio_CPUminusGPUoverGPU_EB[ith]->Fill( fabs(time_EB[iEBchannel]-time_second_EB[iEBchannel])/time_EB[iEBchannel]);   
-
+          histo_difference_CPUminusGPUoverGPU_EB[ith]->Fill( (time_EB[iEBchannel]-time_second_EB[iEBchannel]));   
+          
           if (fabs(time_EB[iEBchannel]-time_second_EB[iEBchannel])/time_EB[iEBchannel] > 0.0001) {
             histoEB->Fill(iphi[iEBchannel], ieta[iEBchannel], 1);
           } 
@@ -212,9 +228,11 @@ void plotCompareTime() {
     
     for (int iEEchannel = 0; iEEchannel<14648; iEEchannel++) {
       for (int ith = 0; ith<thresholds.size(); ith++) {     
-        if (amplitude_EE[iEEchannel] > thresholds[ith] && time_EE[iEEchannel]>-900) {
+        if (amplitude_EE[iEEchannel] > thresholds[ith] && fabs(time_EE[iEEchannel])> 1) {
           histo_ratio_CPUminusGPUoverGPU_EE[ith]->Fill( (time_EE[iEEchannel]-time_second_EE[iEEchannel])/time_EE[iEEchannel]);   
           histo_mod_ratio_CPUminusGPUoverGPU_EE[ith]->Fill( fabs(time_EE[iEEchannel]-time_second_EE[iEEchannel])/time_EE[iEEchannel]);   
+          histo_difference_CPUminusGPUoverGPU_EE[ith]->Fill( (time_EE[iEEchannel]-time_second_EE[iEEchannel]));   
+
           if (fabs(time_EE[iEEchannel]-time_second_EE[iEEchannel])/time_EE[iEEchannel] > 0.0001) {
             histoEE->Fill(ix[iEEchannel] + 100*(iz[iEEchannel]>0), iy[iEEchannel], 1);
           } 
@@ -245,11 +263,59 @@ void plotCompareTime() {
   
   
   for (int ith = 0; ith<thresholds.size(); ith++) {
+    setupTH( histo_difference_CPUminusGPUoverGPU_EB[ith], ith );
+    setupTH( histo_difference_CPUminusGPUoverGPU_EE[ith], ith );
     setupTH( histo_ratio_CPUminusGPUoverGPU_EB[ith], ith );
     setupTH( histo_ratio_CPUminusGPUoverGPU_EE[ith], ith );
     setupTH( histo_mod_ratio_CPUminusGPUoverGPU_EB[ith], ith );
     setupTH( histo_mod_ratio_CPUminusGPUoverGPU_EE[ith], ith );
   }
+  
+  
+  
+  
+  
+  
+  
+  TCanvas* cc_difference_EB = new TCanvas ("cc_difference_EB", "", 800, 600);
+  
+  TLegend* leg_difference_EB = new TLegend (0.8, 1.0, 0.8, 1.0);
+  
+  
+  for (int ith = 0; ith<thresholds.size(); ith++) {
+    if (ith==0) histo_difference_CPUminusGPUoverGPU_EB[ith] -> Draw();
+    else        histo_difference_CPUminusGPUoverGPU_EB[ith] -> Draw("same");
+    
+    leg_difference_EB->AddEntry(histo_difference_CPUminusGPUoverGPU_EB[ith],      TString::Format(">%d ADC      #mu = %.1f ; #sigma = %.2e", thresholds[ith], histo_difference_CPUminusGPUoverGPU_EB[ith]->GetMean(), histo_difference_CPUminusGPUoverGPU_EB[ith]->GetRMS()));
+  }
+  
+  leg_difference_EB->Draw();
+  
+  cc_difference_EB->SetLogy();
+  
+  
+  
+  
+  TCanvas* cc_difference_EE = new TCanvas ("cc_difference_EE", "", 800, 600);
+  
+  TLegend* leg_difference_EE = new TLegend (0.8, 1.0, 0.8, 1.0);
+  
+  
+  for (int ith = 0; ith<thresholds.size(); ith++) {
+    if (ith==0) histo_difference_CPUminusGPUoverGPU_EE[ith] -> Draw();
+    else        histo_difference_CPUminusGPUoverGPU_EE[ith] -> Draw("same");
+    
+    leg_difference_EE->AddEntry(histo_difference_CPUminusGPUoverGPU_EE[ith],      TString::Format(">%d ADC      #mu = %.1f ; #sigma = %.2e", thresholds[ith], histo_difference_CPUminusGPUoverGPU_EE[ith]->GetMean(), histo_difference_CPUminusGPUoverGPU_EE[ith]->GetRMS()));
+  }
+  
+  leg_difference_EE->Draw();
+  
+  cc_difference_EE->SetLogy();
+  
+  
+  
+  
+  
   
   
   

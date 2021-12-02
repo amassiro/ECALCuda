@@ -136,13 +136,13 @@ void plotPulsesTime() {
     tree->GetEntry(ievent);
   
     for (int iEBchannel = 0; iEBchannel<61200; iEBchannel++) {
-      if (amplitude_EB[iEBchannel] > 0.000001) {
+      if (amplitude_EB[iEBchannel] > 0.000001 && fabs(time_EB[iEBchannel]) > 10 ) {
         histo_ratio_CPUminusGPUoverGPU_EB->Fill( (time_EB[iEBchannel]-time_second_EB[iEBchannel])/time_EB[iEBchannel]);   
       }
     }
 
     for (int iEEchannel = 0; iEEchannel<14648; iEEchannel++) {
-      if (amplitude_EE[iEEchannel] > 0.000001) {
+      if (amplitude_EE[iEEchannel] > 0.000001 && fabs(time_EE[iEEchannel]) > 10 ) {
         histo_ratio_CPUminusGPUoverGPU_EE->Fill( (time_EE[iEEchannel]-time_second_EE[iEEchannel])/time_EE[iEEchannel]);   
       }
     }
@@ -153,7 +153,7 @@ void plotPulsesTime() {
     tree->GetEntry(ievent);
     
     for (int iEBchannel = 0; iEBchannel<61200; iEBchannel++) {
-      if (amplitude_EB[iEBchannel] > 0.000001) {
+      if (amplitude_EB[iEBchannel] > 0.000001 && fabs(time_EB[iEBchannel]) > 10 ) {
         //
         // do the plot only when the two reconstruction algorithms give different values
         //
@@ -193,7 +193,7 @@ void plotPulsesTime() {
     tree->GetEntry(ievent);
     
     for (int iEEchannel = 0; iEEchannel<14648; iEEchannel++) {
-      if (amplitude_EE[iEEchannel] > 0.000001) {
+      if (amplitude_EE[iEEchannel] > 0.000001 && fabs(time_EE[iEEchannel]) > 10 ) {
         //
         // do the plot only when the two reconstruction algorithms give different values
         //
